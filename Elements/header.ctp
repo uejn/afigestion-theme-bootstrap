@@ -1,5 +1,8 @@
 <header class="navbar navbar-default navbar-static-top" role="navigation">
 	<div class="container">
+		<div class="navbar-header pull-right">
+			<?php echo $this->element('userlogin'); ?>
+		</div>
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="sr-only">Toggle navigation</span>
@@ -12,5 +15,6 @@
 		<div class="navbar-collapse collapse">
 			<?php echo $this->Custom->menu('main', array('dropdown' => true)); ?>
 		</div>
+
 	</div>
 </header>

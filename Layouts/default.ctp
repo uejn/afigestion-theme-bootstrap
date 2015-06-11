@@ -19,6 +19,8 @@ else {
 		?>
 		<title><?php echo $title_for_layout; ?> &raquo; <?php echo Configure::read('Site.title'); ?></title>
 
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
 		<!-- Other -->
 		<?php
 		echo $this->Meta->meta();
@@ -54,9 +56,15 @@ else {
 		?>
 	</head>
 	<body>
+
+		<?php echo $this->Regions->blocks('pre_header'); ?>
 		<?php echo $this->element('header'); ?>
+		<?php echo $this->element('home_slider'); ?>
+		<?php echo $this->Regions->blocks('post_header'); ?>
 
 		<div class="container">
+
+			<?php echo $this->Regions->blocks('pre_content'); ?>
 			<div class="row">
 				<?php if ($this->Regions->blocks('left')): ?>
 					<div class="col-md-3">
@@ -78,11 +86,14 @@ else {
 					</div>
 				<?php endif; ?>
 			</div>
+
+			<?php echo $this->Regions->blocks('post_content'); ?>
 		</div>
 
 		<footer>
+			<hr>
 			<div class="pull-left">
-				Powered by <a href="http://www.croogo.org">Croogo</a>.
+				Sistemas <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100px'))?>
 			</div>
 			<div class="pull-right">
 				<a href="http://www.cakephp.org"><?php echo $this->Html->image('/img/cake.power.gif'); ?></a>

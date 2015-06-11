@@ -1,11 +1,11 @@
 {
-	"name" : "Croogo base theme",
-	"description" : "CVO-Technologies Croogo base theme",
+	"name" : "Afigestion base theme",
+	"description" : "Afigestion Croogo base theme",
 	"screenshot" : "/screenshot.png",
 
-	"author" : "CVO-Technologies",
-	"authorEmail" : "team@cvo-technologies.com",
-	"authorUrl" : "http://cvo-technologies.com",
+	"author" : "alevilar",
+	"authorEmail" : "alevilar@gmail.com",
+	"authorUrl" : "http://www.alevilar.com",
 
 	"menus" : [
 		"main",
