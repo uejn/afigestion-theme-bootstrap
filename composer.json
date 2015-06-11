@@ -1,0 +1,9 @@
+{
+	"name"       : "afigestion/afitheme",
+	"description": "Afigestion Bootstrap theme",
+	"type"       : "croogo-theme",
+	"license"    : "proprietary",
+	"require"    : {
+		"composer/installers": "~1.0"
+	}
+}
