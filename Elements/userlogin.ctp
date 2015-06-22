@@ -10,6 +10,11 @@
 		echo "&nbsp";
 		echo $this->Form->submit('Ingresar', array('class'=>'btn btn-success', 'div'=>false));
 		echo $this->Form->end();
+
+		echo $this->Html->link(__d('croogo', 'No recordás tu contraseña?'), array(
+			'plugin' => 'users',
+			'controller' => 'users', 'action' => 'forgot',
+		));
 	} else {
 		?>
 		<span>

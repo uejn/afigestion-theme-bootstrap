@@ -1,3 +1,4 @@
+
 <div class="nodes promoted">
 	<?php
 		if (count($nodes) == 0) {

@@ -56,10 +56,10 @@ else {
 		?>
 	</head>
 	<body>
-
+		<?php echo $this->fetch('pre_header'); ?>
 		<?php echo $this->Regions->blocks('pre_header'); ?>
 		<?php echo $this->element('header'); ?>
-		<?php echo $this->element('home_slider'); ?>
+		<?php echo $this->fetch('post_header'); ?>
 		<?php echo $this->Regions->blocks('post_header'); ?>
 
 		<div class="container">
