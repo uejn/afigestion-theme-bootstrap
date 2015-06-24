@@ -31,3 +31,12 @@
 
 	margin-top: 10px;
 }
+
+.block-userlogin form{
+	display: inline;
+}
+
+.pagination{
+	text-align: center;
+}
+

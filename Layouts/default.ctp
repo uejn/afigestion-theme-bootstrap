@@ -19,6 +19,7 @@ else {
 		?>
 		<title><?php echo $title_for_layout; ?> &raquo; <?php echo Configure::read('Site.title'); ?></title>
 
+
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
 		<!-- Other -->
@@ -56,53 +57,64 @@ else {
 		?>
 	</head>
 	<body>
-		<?php echo $this->fetch('pre_header'); ?>
-		<?php echo $this->Regions->blocks('pre_header'); ?>
-		<?php echo $this->element('header'); ?>
-		<?php echo $this->fetch('post_header'); ?>
-		<?php echo $this->Regions->blocks('post_header'); ?>
+		<div class="body-wrapper">
+			<?php echo $this->fetch('pre_header'); ?>
+			<?php echo $this->Regions->blocks('pre_header'); ?>
+			<?php echo $this->element('header'); ?>
 
-		<div class="container">
 
-			<?php echo $this->Regions->blocks('pre_content'); ?>
-			<div class="row">
-				<?php if ($this->Regions->blocks('left')): ?>
-					<div class="col-md-3">
-						<?php echo $this->Regions->blocks('left'); ?>
-					</div>
-				<?php endif; ?>
-
-				<div class="<?php echo $span; ?>">
+			<div class="container body-container">
 				<?php
-					echo $this->Layout->sessionFlash();
-					echo $content_for_layout;
+					echo $this->Layout->sessionFlash();					
 				?>
+			</div>
+
+
+
+			<?php echo $this->fetch('post_header'); ?>
+			<?php echo $this->Regions->blocks('post_header'); ?>
+
+			<div class="container body-container">
+
+				<?php echo $this->Regions->blocks('pre_content'); ?>
+				<div class="row">
+					<?php if ($this->Regions->blocks('left')): ?>
+						<div class="col-md-3">
+							<?php echo $this->Regions->blocks('left'); ?>
+						</div>
+					<?php endif; ?>
+
+					<div <div class=" <?php echo $span; ?>">
+						<?php echo $content_for_layout; ?>
+					</div>
+
+					<?php if ($this->Regions->blocks('right')): ?>
+						<div class="col-md-3">
+							<?php echo $this->Regions->blocks('right'); ?>
+							<?php echo $this->element('accordion'); ?>
+						</div>
+					<?php endif; ?>
 				</div>
 
-				<?php if ($this->Regions->blocks('right')): ?>
-					<div class="col-md-3">
-						<?php echo $this->Regions->blocks('right'); ?>
-						<?php echo $this->element('accordion'); ?>
+				<?php echo $this->Regions->blocks('post_content'); ?>
+			</div>
+
+			<footer>
+				<hr>
+				<div class="container">
+					<div class="pull-left">
+						<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100px'))?>Sistemas
 					</div>
-				<?php endif; ?>
-			</div>
+					<div class="pull-right">
+						Puede comunicarse con el equipo de sistemas llamando al interno 136
+					</div>
+				</div>
+			</footer>
 
-			<?php echo $this->Regions->blocks('post_content'); ?>
+		    <?php
+				echo $this->Blocks->get('scriptBottom');
+				echo $this->Js->writeBuffer();
+			?>
 		</div>
-
-		<footer>
-			<hr>
-			<div class="pull-left">
-				Sistemas <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100px'))?>
-			</div>
-			<div class="pull-right">
-				<a href="http://www.cakephp.org"><?php echo $this->Html->image('/img/cake.power.gif'); ?></a>
-			</div>
-		</footer>
-
-	    <?php
-			echo $this->Blocks->get('scriptBottom');
-			echo $this->Js->writeBuffer();
-		?>
 	</body>
 </html>
