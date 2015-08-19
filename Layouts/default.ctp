@@ -57,7 +57,7 @@ else {
 		?>
                 <!--ESTILO GENERAL-->
                 <?php
-                    echo $this->Html->css('style-general');
+                    echo $this->Html->css('style');
                 ?>
                 <!---->
                 <!--ESTILOS ROLES-->
