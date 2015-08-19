@@ -55,6 +55,18 @@ else {
 		echo $this->fetch('css');
 		echo $this->Blocks->get('script');
 		?>
+                <!--ESTILO GENERAL-->
+                <?php
+                    echo $this->Html->css('style-general');
+                ?>
+                <!---->
+                <!--ESTILOS ROLES-->
+                <?php
+                    if(!empty(CakeSession::read('Auth')['User']['Role']['alias'])){
+                        echo $this->Html->css('roles/style'.CakeSession::read('Auth')['User']['Role']['alias']);
+                    }
+                ?>
+                <!---->
 	</head>
 	<body>
 		<div class="body-wrapper">

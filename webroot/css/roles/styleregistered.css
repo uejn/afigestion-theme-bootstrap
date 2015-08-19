@@ -1,0 +1,162 @@
+
+.body-container{
+	padding-top: 10px;
+}
+
+.afigestion-buscador-personas{
+	margin-top: 10px;
+}
+
+img.afgtn-persona-list-icon{
+	height: 18px;
+}
+
+
+.form-group.required {
+  padding: 5px !important;
+}
+.item-actions.action-in-title{
+	font-size: 12pt;
+	  float: left;
+	  margin-top: 19px;
+	  margin-right: 10px;
+}
+
+.big-icon{
+	font-size: 38.5px;
+	  line-height: 40px;
+	    margin: 10px 0;
+}
+
+
+#advanced-search{
+
+	background-color: #f5f5f5;
+}
+
+
+
+.afigestion-buscador-big-margen{
+
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+.fondoContacto{
+    background-color: #58ACFA;
+    color:white;
+    font-family: Raleway;
+}
+
+h4{
+   font-family: Raleway; 
+}
+
+
+
+p{
+   font-family: Raleway; 
+   font-size: 14px !important;
+}
+
+.espacioPaneles{
+    padding: 10px !important;
+}
+
+.centrando{
+    float: none;
+    margin: 0 auto; 
+    text-align: center;
+    display: block; 
+    width: auto; 
+    height: auto;
+}
+
+/*ESTILO BUSCADOR*/
+.alert-buscador {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+  max-height: 45px;
+  //max-width: 400px;
+  padding: 7px;
+  border: 2px solid;
+}
+.alert-buscador-afiliado {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+  max-height: 45px;
+  //max-width: 250px;
+  padding: 7px;
+   border: 2px solid;
+}
+
+h6{
+    font-family: Raleway !important;
+    color: #000000 !important;  
+    float: none;
+    margin: 0 auto; 
+    text-align: center;
+    display: block; 
+    width: auto; 
+    height: auto;
+}
+
+.alert-buscador-afiliado alert-buscador h6{
+    float: none;
+    margin: 0 auto; 
+    text-align: center;
+    display: block; 
+    width: auto; 
+    height: auto;
+}
+
+.textPrincipal{
+    font-family: Raleway-Medium-500;
+}
+/**/
+
+/*PISADAS BOOTSTRAP*/
+    .panelAfiGestion{
+      //background-color: #F9F9F9;
+      color: white;
+      //padding: 10px !important;
+      color: #3A3737;
+    }
+
+   .form-group {
+        margin-bottom: 15px !important;
+        padding: 5px !important;
+    }
+    
+/**/
+input.btn.btn-primary.btn-lg.pull-right {
+  margin-top: 5px;
+}
+
+.letraNegra{
+    color:black !important;
+}
+
+.ocultoAfiGestion{
+    display: none;
+}
+
+.ocultoLegajoAfiGestion{
+    display: none;
+}
+
+a.glyphicon.glyphicon-remove.alert.alert-info {
+  margin: 2px;
+}
+
+/*ESTILOS PERMISOS*/
+.acl{
+    display: none;
+}
+
+.acl-rol-Registered{
+    display: none;
+}
+/**/
