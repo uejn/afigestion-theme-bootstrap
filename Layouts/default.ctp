@@ -10,7 +10,6 @@ else {
 	$span = "col-md-12";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -25,6 +24,7 @@ else {
 		<!-- Other -->
 		<?php
 		echo $this->Meta->meta();
+                echo $this->Html->meta('icon', '/theme/afitheme/img/favicon.ico');
 		echo $this->Layout->feed();
 		echo $this->Html->meta(array(
 			'name'    => 'viewport',
@@ -63,7 +63,7 @@ else {
                 <!--ESTILOS ROLES-->
                 <?php
                     if(!empty(CakeSession::read('Auth')['User']['Role']['alias'])){
-                        echo $this->Html->css('roles/style'.CakeSession::read('Auth')['User']['Role']['alias']);
+                        echo $this->Html->css('roles/style_'.CakeSession::read('Auth')['User']['Role']['alias']);
                     }
                 ?>
                 <!---->
