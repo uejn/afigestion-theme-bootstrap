@@ -58,6 +58,7 @@ else {
                 <!--ESTILO GENERAL-->
                 <?php
                     echo $this->Html->css('style');
+                    echo $this->Html->css('theme');
                     echo $this->Html->css('print', 'stylesheet', array('media' => 'print'));
                 ?>
                 <!---->

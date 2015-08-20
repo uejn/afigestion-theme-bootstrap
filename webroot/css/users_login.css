@@ -1,0 +1,24 @@
+#imagen-ppal img{
+	width: 100%;
+}
+
+#imagen-ppal .titulo{
+	text-align: center;
+	position: absolute;
+	top: 22%;
+	left: 12%;
+	margin: 0px;
+	text-shadow: 2px 2px #A5A1A1;
+	font-size: 50pt;
+	font-family: 'Lato', sans-serif;
+}
+
+#imagen-ppal .subtitulo{
+	text-align: center;
+	  position: absolute;
+	    top: 62%;
+  		left: 46%;
+	  color: rgb(0, 98, 148);
+	  font-size: 20pt;
+	
+}

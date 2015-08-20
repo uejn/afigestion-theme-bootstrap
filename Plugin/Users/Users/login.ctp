@@ -1,4 +1,6 @@
-<?php $this->start('post_header'); ?>
-<?php echo $this->element('home_slider'); ?>
-<?php $this->end(); ?>
+<?php 
 
+$this->start('post_header');
+echo $this->Html->css('users_login');
+echo $this->element('home_slider'); 
+$this->end(); 
