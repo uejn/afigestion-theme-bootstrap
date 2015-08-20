@@ -113,8 +113,7 @@ else {
 				<?php echo $this->Regions->blocks('post_content'); ?>
 			</div>
 
-			<footer>
-				<hr>
+			<footer class="body-footer">
 				<div class="container">
 					<div class="pull-left">
 						<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100px'))?>Sistemas
