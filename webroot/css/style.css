@@ -2,44 +2,7 @@
 body{
     background-color:rgba(192, 192, 192, 0.22);
 }
-.ocultaTabla{
-         display: none;
-     }
-     .ocultaA{
-         display: none;
-     }
-/*IMPRESIONES*/
 
- @media print {
-     .pagination{
-         display: none;
-     }
-     .personasFiltros{
-         display: none;
-     }
-     .letraA{
-         color:white !important;
-     }
-     
-     .saltoDeLinea{
-        display:block;
-        page-break-before:always;
-     }
-     .ocultandoImpresion{
-        //display: none;
-    }
-    .letraTabla{
-        font-size: 14px !important;
-    }
- }
-  /*@media screen {
-    body { font-size: 20px !important;}
-  }*/
-  /*@media screen, print {
-    body { font-size: 20px !important; }
-  }*/
-
-/**/
 
 .body-container{
 	padding-top: 10px;
