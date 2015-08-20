@@ -2,13 +2,47 @@
 Afigestion modificaciones 
 ---- */
 
-   .filtrosBusquedas{
-       display: none;
-   } 
-
+ 
    .no-print{
        display: none;
    }
+
+
+/*IMPRESIONES*/
+.ocultaTabla{
+        display: none;
+    }
+    .ocultaA{
+        display: none;
+    }
+
+   
+     .filtrosBusquedas{
+       display: none;
+   } 
+
+   
+    .pagination{
+        display: none;
+    }
+    .personasFiltros{
+        display: none;
+    }
+    .letraA{
+        color:white !important;
+    }
+   
+    .saltoDeLinea{
+       display:block;
+       page-break-before:always;
+    }
+    .ocultandoImpresion{
+       //display: none;
+   }
+   .letraTabla{
+       font-size: 14px !important;
+   }
+
 
 
 
