@@ -24,7 +24,7 @@ else {
 		<!-- Other -->
 		<?php
 		echo $this->Meta->meta();
-                echo $this->Html->meta('icon', '/theme/afitheme/img/favicon.ico');
+        echo $this->Html->meta('icon', '/theme/afitheme/img/favicon.ico');
 		echo $this->Layout->feed();
 		echo $this->Html->meta(array(
 			'name'    => 'viewport',
@@ -35,7 +35,7 @@ else {
 		<!-- styles -->
 		<?php
 		echo $this->Html->css('bootstrap.min');
-		echo $this->Html->css('theme');
+		
 
 		echo $this->fetch('css');
 		?>
@@ -58,6 +58,7 @@ else {
                 <!--ESTILO GENERAL-->
                 <?php
                     echo $this->Html->css('style');
+                    echo $this->Html->css('print', 'stylesheet', array('media' => 'print'));
                 ?>
                 <!---->
                 <!--ESTILOS ROLES-->
