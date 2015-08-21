@@ -165,3 +165,11 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
     display: none;
 }
 /**/
+
+.centra-letra{
+    text-align: center;
+}
+
+ .only-print{
+       display: none;
+   }

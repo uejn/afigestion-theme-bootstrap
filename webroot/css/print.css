@@ -1,14 +1,19 @@
 /* ----
 Afigestion modificaciones 
 ---- */
-
  
    .no-print{
        display: none;
    }
-
+   
+   .only-print{
+       display: block !important;
+   }
 
 /*IMPRESIONES*/
+
+
+
 .ocultaTabla{
         display: none;
     }
@@ -32,6 +37,10 @@ Afigestion modificaciones
         color:white !important;
     }
    
+    caption{
+        text-align: center !important;
+    }
+    
     .saltoDeLinea{
        display:block;
        page-break-before:always;
@@ -52,6 +61,10 @@ Afigestion modificaciones
    * Version:   1.0 
 	 
 -------------------------------------------------------------- */
+.tamanioImpresion{
+    font-size: 14px;
+}
+
 
 body { 
 width:100% !important;
@@ -64,11 +77,11 @@ background: none;
 font-size: 14pt; }
 
 /* Headings */
-h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
-h1{font-size:19pt;}
-h2{font-size:17pt;}
-h3{font-size:15pt;}
-h4,h5,h6{font-size:14pt;}
+//h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+//h1{font-size:19pt;}
+//h2{font-size:17pt;}
+h3{font-size:14px;}
+//h4,h5,h6{font-size:14pt;}
 
 
 p, h2, h3 { orphans: 3; widows: 3; }
