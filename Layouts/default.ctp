@@ -119,8 +119,22 @@ else {
 						<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100px'))?>Sistemas
 					</div>
 					<div class="pull-right">
-						Puede comunicarse con el equipo de sistemas llamando al interno 136
-					</div>
+						Puede comunicarse con el equipo de sistemas llamando al interno 136<br/>
+                                                    Versión 1.0.6 (<?php 
+                                                    echo $this->Html->link(
+                                                        'Ver detalles de la versión',
+                                                        '/afigestion/versiones/',
+                                                        array('target' => '_self')
+                                                    );
+                                                    ?>)<br/>
+                                                    <?php 
+                                                    echo $this->Html->link(
+                                                        'Contacto',
+                                                        '/contact/contact/',
+                                                        array('target' => '_self')
+                                                    );
+                                                    ?>
+                                        </div>
 				</div>
 			</footer>
 
