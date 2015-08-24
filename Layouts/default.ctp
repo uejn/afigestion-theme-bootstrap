@@ -55,20 +55,19 @@ else {
 		echo $this->fetch('css');
 		echo $this->Blocks->get('script');
 		?>
-                <!--ESTILO GENERAL-->
-                <?php
-                    echo $this->Html->css('style');
-                    echo $this->Html->css('theme');
-                    echo $this->Html->css('print', 'stylesheet', array('media' => 'print'));
-                ?>
-                <!---->
-                <!--ESTILOS ROLES-->
-                <?php
-                    if(!empty(CakeSession::read('Auth')['User']['Role']['alias'])){
-                        echo $this->Html->css('roles/style_'.CakeSession::read('Auth')['User']['Role']['alias']);
-                    }
-                ?>
-                <!---->
+        <!--ESTILO GENERAL-->
+        <?php
+            echo $this->Html->css('style');
+            echo $this->Html->css('print', 'stylesheet', array('media' => 'print'));
+        ?>
+        <!---->
+        <!--ESTILOS ROLES-->
+        <?php
+            if(!empty(CakeSession::read('Auth')['User']['Role']['alias'])){
+                echo $this->Html->css('roles/style_'.CakeSession::read('Auth')['User']['Role']['alias']);
+            }
+        ?>
+        <!---->
 	</head>
 	<body>
 		<div class="body-wrapper">
@@ -113,7 +112,7 @@ else {
 				<?php echo $this->Regions->blocks('post_content'); ?>
 			</div>
 
-			<footer class="body-footer">
+			<footer class="body-footer no-print">
 				<div class="container">
 					<div class="pull-left">
 						<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100px'))?>Sistemas
