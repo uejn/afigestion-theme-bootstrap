@@ -114,26 +114,35 @@ else {
 
 			<footer class="body-footer no-print">
 				<div class="container">
-					<div class="pull-left">
-						<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100px'))?>Sistemas
+					<div class="col-md-4 center">				
+						<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100px'))?>
+						<br>
+						<?php 
+                        echo $this->Html->link(
+                            'Contacto con Sistemas',
+                            '/contact/contact/'
+                        );
+                        ?>
+                        <br>
+                        Tel: Interno 136
 					</div>
-					<div class="pull-right">
-						Puede comunicarse con el equipo de sistemas llamando al interno 136<br/>
-                                                    Versión 1.0.6 (<?php 
-                                                    echo $this->Html->link(
-                                                        'Ver detalles de la versión',
-                                                        '/afigestion/versiones/',
-                                                        array('target' => '_self')
-                                                    );
-                                                    ?>)<br/>
-                                                    <?php 
-                                                    echo $this->Html->link(
-                                                        'Contacto',
-                                                        '/contact/contact/',
-                                                        array('target' => '_self')
-                                                    );
-                                                    ?>
-                                        </div>
+
+					<div class="col-md-4 center">		
+					Fecha de actualización de los datos<br>
+					<b><?php echo Configure::read('Afigestion.bd_fecha_actualizacion')?></b>
+					</div>
+
+					<div class="col-md-4 center">		
+						Versión <?php echo Configure::read('Afigestion.version_number')?><br>
+						Fecha de Release <?php echo Configure::read('Afigestion.release_date')?><br/>
+						<?php 
+                            echo $this->Html->link(
+                                'Ver detalles de la versión',
+                                '/afigestion/versiones/'
+                            );
+                        ?>
+					</div>
+				
 				</div>
 			</footer>
 

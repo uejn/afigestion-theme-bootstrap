@@ -216,3 +216,11 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
   margin-left: 2px;
   margin-right: 2px;
 }
+
+
+#advanced-search{
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  background: #fafafa;
+}
