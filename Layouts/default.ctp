@@ -112,7 +112,10 @@ else {
 				<?php echo $this->Regions->blocks('post_content'); ?>
 			</div>
 
-			<footer class="body-footer no-print">
+			
+		</div>
+                    <div class="relativo">
+                    <footer class="body-footer no-print" id="footer">
 				<div class="container">
 					<div class="col-md-4 center">				
 						<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100px'))?>
@@ -145,11 +148,10 @@ else {
 				
 				</div>
 			</footer>
-
+                    </div>
 		    <?php
 				echo $this->Blocks->get('scriptBottom');
 				echo $this->Js->writeBuffer();
 			?>
-		</div>
 	</body>
 </html>
