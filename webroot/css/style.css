@@ -232,8 +232,9 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
 
 
 #advanced-search{
-  border-left: 1px solid #CCC;
+  /*border-left: 1px solid #CCC;
   border-right: 1px solid #CCC;
-  border-bottom: 1px solid #CCC;
-  background: #fafafa;
+  border-bottom: 1px solid #CCC;*/
+  background-color: #D8D8D8;
+  border-radius: 10px;
 }
