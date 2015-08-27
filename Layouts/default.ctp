@@ -119,7 +119,7 @@ else {
                     <footer class="body-footer no-print footer-fixeado" id="footer">
 				<div class="container">
                                         <div class="col-md-2 center">	
-                                            <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'80px'))?>
+                                            <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100%'))?>
                                         </div>
 					<div class="col-md-2 center">				
 						<?php 
@@ -137,14 +137,14 @@ else {
 					</div>
 					<div class="col-md-4 center">		
 						Versión <?php echo Configure::read('Afigestion.version_number')?>
+                                                <br/>
+						Fecha de Release <?php echo Configure::read('Afigestion.release_date')?><br/>
                                                  <?php 
                                                     echo $this->Html->link(
                                                         'Ver detalles de la versión',
                                                         '/afigestion/versiones/'
                                                     );
-                                                ?><br/>
-						Fecha de Release <?php echo Configure::read('Afigestion.release_date')?>
-                                                
+                                                ?>
 					</div>
 				</div>
 			</footer>
