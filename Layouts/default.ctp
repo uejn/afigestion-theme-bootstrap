@@ -48,6 +48,7 @@ else {
 		// Scripts for our layout
 		echo $this->Html->script('jquery.min');
 		echo $this->Html->script('bootstrap.min');
+                echo $this->Html->script('js-general');
 		?>
 
 		<!-- Plugins -->
@@ -115,37 +116,36 @@ else {
 			
 		</div>
                     <div class="relativo">
-                    <footer class="body-footer no-print" id="footer">
+                    <footer class="body-footer no-print footer-fixeado" id="footer">
 				<div class="container">
-					<div class="col-md-4 center">				
-						<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'100px'))?>
-						<br>
+                                        <div class="col-md-2 center">	
+                                            <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'80px'))?>
+                                        </div>
+					<div class="col-md-2 center">				
 						<?php 
-                        echo $this->Html->link(
-                            'Contacto con Sistemas',
-                            '/contact/contact/'
-                        );
-                        ?>
-                        <br>
-                        Tel: Interno 136
+                                                    echo $this->Html->link(
+                                                        'Contacto con Sistemas',
+                                                        '/contact/contact/'
+                                                    );
+                                                ?>
+                                                <br/>
+                                            Tel: Interno 136
 					</div>
-
 					<div class="col-md-4 center">		
-					Fecha de actualización de los datos<br>
-					<b><?php echo Configure::read('Afigestion.bd_fecha_actualizacion')?></b>
+                                            Fecha de actualización de los datos<br/>
+                                            <b><?php echo Configure::read('Afigestion.bd_fecha_actualizacion')?></b>
 					</div>
-
 					<div class="col-md-4 center">		
-						Versión <?php echo Configure::read('Afigestion.version_number')?><br>
-						Fecha de Release <?php echo Configure::read('Afigestion.release_date')?><br/>
-						<?php 
-                            echo $this->Html->link(
-                                'Ver detalles de la versión',
-                                '/afigestion/versiones/'
-                            );
-                        ?>
+						Versión <?php echo Configure::read('Afigestion.version_number')?>
+                                                 <?php 
+                                                    echo $this->Html->link(
+                                                        'Ver detalles de la versión',
+                                                        '/afigestion/versiones/'
+                                                    );
+                                                ?><br/>
+						Fecha de Release <?php echo Configure::read('Afigestion.release_date')?>
+                                                
 					</div>
-				
 				</div>
 			</footer>
                     </div>

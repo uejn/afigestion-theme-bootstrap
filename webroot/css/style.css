@@ -3,18 +3,26 @@ body{
     background-color:rgba(192, 192, 192, 0.22);
 }
 
-.relativo{
-    position: relative;
-}
+
 
 footer.body-footer{
   background: rgb(248, 248, 248);
   border-top: 1px solid rgb(186, 186, 186);
   border-bottom: 1px solid rgb(186, 186, 186);
-  padding: 37px 0px;
+  //padding: 37px 0px;
   color: #636363;
-  position: relative;
-  bottom:-90px;
+  bottom: 0px;
+  height: 40px;
+  font-size: 12px !important;
+  width: 100%;
+}
+
+.footer-relativo{
+    position: relative;
+}
+
+.footer-fixeado{
+    position: fixed;
 }
 
 
