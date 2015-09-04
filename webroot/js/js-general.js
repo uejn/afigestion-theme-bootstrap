@@ -4,6 +4,6 @@
 $(document).ready(function(){
     if ($("body").height() > $(window).height()) {
         $('#footer').removeClass('footer-fixeado');
-        $('#footer').addClass()('footer-relativo');
+        $('#footer').addClass('footer-relativo');
     }
 });
