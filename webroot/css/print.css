@@ -13,7 +13,6 @@ Afigestion modificaciones
 /*IMPRESIONES*/
 
 
-
 .ocultaTabla{
         display: none;
     }
@@ -121,3 +120,26 @@ img,tr {page-break-inside: avoid;}
 #header, #footer, #navigation, #rightSideBar, #leftSideBar 
 {display:none;}
 */
+/**
+*css para imprimir Registro De Afiliados y Registro De Aportes De Afiliados
+*/
+@media print {
+    @page{ 
+      //  size: auto;   /* auto is the initial value */ 
+        /* this affects the margin in the printer settings */ 
+      margin-right: 30mm  ;  
+       margin-left: 0mm  ;  
+    } 
+    
+    .ancho_registro_td{
+        //width: 25cm;
+    }
+    
+    .ancho_registro_tabla{
+        width: 35cm;
+    }
+    
+    .ocultandoImpresion{
+        display: none;
+    }
+}
