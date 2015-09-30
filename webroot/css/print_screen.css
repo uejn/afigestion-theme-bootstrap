@@ -1,0 +1,154 @@
+body{
+    font-size: 10pt;
+}
+.tabla_tr_derecha{
+    text-align: right;
+}
+
+.ancho_registro_tabla td, td ,th{
+    position:relative;
+    border-bottom: 0px !important;
+   //border-right: 1px solid #000;
+}
+
+.nombre_th{
+    text-align: left !important;
+}
+
+.motivo_baja_th{
+   // text-align: left !important;
+}
+
+h1{
+    text-align: center;
+}
+
+.fecha{
+    width: 16mm;
+    text-align: center;
+}
+
+
+.nro_afiliado{
+        padding-right: 7mm;
+	width: 30mm;
+        text-align: right;
+}
+
+.nombre{
+	width: 79mm;
+        text-align: left;
+        padding-left: 6mm;
+}
+
+.documento{
+	width: 27mm;
+        text-align: right;
+        
+	padding-right: 7mm;
+}
+
+.motivo_baja{
+	width: 22mm;
+        text-align: right;
+        
+	padding-right: 3mm;
+}
+
+.cuota{
+	width: 42mm;
+        
+	text-align: center;
+        
+	padding-right: 22mm;
+}
+
+.nacionalidad{
+	width: 16mm;
+        text-align: right;
+        
+	padding-right: 5mm;
+}
+
+.sexo{
+	width: 15mm;
+        text-align: center;
+        
+	padding-right: 8mm;
+}
+
+.fecha_ingreso{
+	width: 20mm;
+        text-align: right;
+        padding-right: 3mm;
+}
+
+.fecha_egreso{
+	width: 23mm;
+        text-align: right;
+        padding-right: 3mm;
+}
+
+.cargo{
+	width: 22mm;
+        text-align: right;
+        
+	padding-right: 4mm;
+}
+
+.fecha_afiliacion{
+	width: 31mm;
+        text-align: right;
+        
+	padding-right: 0mm;
+}
+
+.ubicacion{
+	width: 21mm;
+        
+	text-align: right;
+        
+	padding-right: 0mm;
+}
+
+.acomodando_afiliado{
+    
+}
+
+.acomodando_documento{
+    margin-left: -3mm;
+    
+}
+
+.acomodando_nacionalidad{
+    margin-right: 4mm;
+    
+}
+
+.acomodando_sexo{
+    margin-left: -4mm;
+    
+}
+
+.acomodando_fecha_ingreso{
+    /* margin-left: 0mm; */
+    
+}
+
+.acomodando_fecha_egreso{
+    
+}
+
+.acomodando_ubicacion{
+    
+}
+
+.acomodando_cuota{
+    /* margin-left: 80mm; */
+    
+}
+
+.acomodando_fecha_afiliacion{
+    margin-left: 3mm;
+    
+}

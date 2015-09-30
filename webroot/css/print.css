@@ -11,7 +11,9 @@ Afigestion modificaciones
    }
 
 /*IMPRESIONES*/
-
+    .fecha-print{
+       display: block !important;
+   }
 
 .ocultaTabla{
         display: none;
