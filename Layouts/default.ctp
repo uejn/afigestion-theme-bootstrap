@@ -114,6 +114,7 @@ else {
 
 			
 		</div>
+                    <div style="min-height: 35px;"></div>
                     <div class="relativo">
                     <footer class="body-footer no-print footer-fixeado" id="footer">
 				<div class="container">
