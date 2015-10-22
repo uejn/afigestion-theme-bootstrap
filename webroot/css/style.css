@@ -250,6 +250,10 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
 .oculto{
     display: none;
 }
+
+.solo-fecha-eliminacion-admin{
+   display: none; 
+}
 /**/
 
 
