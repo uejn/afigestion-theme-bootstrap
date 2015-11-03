@@ -254,6 +254,18 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
 .solo-fecha-eliminacion-admin{
    display: none; 
 }
+
+.cantidad-afiliados-reporte-alta-baja{
+   float: right; 
+   margin-top: -20px;  
+   margin-right: 13px;
+}
+
+.cantidad-afiliados-reporte-alta-baja-final{
+   float: right; 
+   margin-top: 5px;  
+   margin-right: 16px;
+}
 /**/
 
 
