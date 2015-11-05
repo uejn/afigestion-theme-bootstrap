@@ -47,7 +47,9 @@ else {
 		// Scripts for our layout
 		echo $this->Html->script('jquery.min');
 		echo $this->Html->script('bootstrap.min');
-                echo $this->Html->script('js-general');
+        echo $this->Html->script('js-general');
+        echo $this->fetch('scripts_for_layout');
+
 		?>
 
 		<!-- Plugins -->
