@@ -33,40 +33,19 @@ else {
 
 		<!-- styles -->
 		<?php
-		echo $this->Html->css('bootstrap.min');
-		
+		echo $this->Html->css('/theme/afitheme/css/bootstrap.min');
+        echo $this->Html->css('/theme/afitheme/css/style');
+        echo $this->Html->css('/theme/afitheme/css/print', 'stylesheet', array('media' => 'print'));
 
-		echo $this->fetch('css');
-		?>
-
-		<!-- scripts -->
-		<?php
-		// Croogo JavaScript
-		echo $this->Layout->js();
-
-		// Scripts for our layout
-		echo $this->Html->script('jquery.min');
-		echo $this->Html->script('bootstrap.min');
-        echo $this->Html->script('js-general');
-        echo $this->fetch('scripts_for_layout');
-
-		?>
-
-		<!-- Plugins -->
-		<?php
 		echo $this->fetch('css');
 		echo $this->Blocks->get('script');
 		?>
-        <!--ESTILO GENERAL-->
-        <?php
-            echo $this->Html->css('style');
-            echo $this->Html->css('print', 'stylesheet', array('media' => 'print'));
-        ?>
-        <!---->
+
+		
         <!--ESTILOS ROLES-->
         <?php
             if(!empty(CakeSession::read('Auth')['User']['Role']['alias'])){
-                echo $this->Html->css('roles/style_'.CakeSession::read('Auth')['User']['Role']['alias']);
+                echo $this->Html->css('/theme/afitheme/css/roles/style_'.CakeSession::read('Auth')['User']['Role']['alias']);
             }
         ?>
         <!---->
@@ -151,9 +130,23 @@ else {
 				</div>
 			</footer>
                     </div>
-		    <?php
-				echo $this->Blocks->get('scriptBottom');
-				echo $this->Js->writeBuffer();
-			?>
+
+
+
+        <!-- scripts -->
+		<?php
+		// Croogo JavaScript
+		echo $this->Layout->js();
+
+		// Scripts for our layout
+		echo $this->Html->script('/theme/afitheme/js/jquery.min');
+		echo $this->Html->script('/theme/afitheme/js/bootstrap.min');
+        echo $this->Html->script('/theme/afitheme/js/js-general');
+        echo $this->fetch('scripts_for_layout');
+
+	
+		echo $this->Blocks->get('scriptBottom');
+		echo $this->Js->writeBuffer();
+		?>
 	</body>
 </html>
