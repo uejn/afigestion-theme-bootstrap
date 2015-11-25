@@ -27,7 +27,7 @@
 
         	#loading{
         		margin: 100px auto auto auto;
-        		font-size: 100vw;
+        		font-size: 200%;
         		color: #333;
         		-webkit-animation-name: blinker;  
 				  -webkit-animation-iteration-count: infinite;  
