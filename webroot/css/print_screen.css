@@ -28,7 +28,11 @@ h1{
     text-align: center;
 }
 
-
+.fecha_inicial{
+    /* padding-right: 3mm; */
+  width: 17mm;
+  /* text-align: left; */
+}
 
 
 .nro_afiliado{
@@ -59,13 +63,11 @@ h1{
 	padding-right: 3mm;
 }
 
-.cuota{
-	width: 42mm;
-        
-	text-align: center;
-        
-	padding-right: 22mm;
-}
+.cuota {
+  width: 39mm;
+  text-align: center;
+  padding-right: 22mm;
+ }
 
 .nacionalidad{
 	width: 16mm;
