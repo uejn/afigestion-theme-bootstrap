@@ -17,12 +17,38 @@
 			echo $this->fetch('css');
 	        echo $this->Blocks->get('script');
         ?>
+
+        <style>
+
+        	@-webkit-keyframes blinker {  
+			  from { opacity: 1.0; }
+			  to { opacity: 0.0; }
+			}
+
+        	#loading{
+        		margin: 100px auto auto auto;
+        		font-size: 100vw;
+        		color: #333;
+        		-webkit-animation-name: blinker;  
+				  -webkit-animation-iteration-count: infinite;  
+				  -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+				  -webkit-animation-duration: 1.7s; 
+        	}
+        </style>
     </head>
     <body>
-        <?php echo $content_for_layout; ?>
+    	<div id="loading">
+    		Cargando Reporte...
+    	</div>
+    	
+    	<div id="print-content" style="display:none">
+        	<?php echo $content_for_layout; ?>
+        </div>
 
         <script type="text/javascript">
         	window.print();
+        	document.getElementById('loading').style.display = 'none'; 
+    		document.getElementById('print-content').style.display = 'block'; 
         </script>
     </body>
 </html>
