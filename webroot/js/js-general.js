@@ -6,4 +6,5 @@ $(document).ready(function(){
         $('#footer').removeClass('footer-fixeado');
         $('#footer').addClass('footer-relativo');
     }
+  
 });
