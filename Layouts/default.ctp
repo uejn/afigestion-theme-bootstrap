@@ -48,6 +48,18 @@ else {
                 echo $this->Html->css('/theme/afitheme/css/roles/style_'.CakeSession::read('Auth')['User']['Role']['alias']);
             }
         ?>
+        <!--script de seguimiento de google-->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-70967459-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+        
         <!---->
 	</head>
 	<body>
@@ -134,6 +146,7 @@ else {
 
 
         <!-- scripts -->
+        
 		<?php
 		// Croogo JavaScript
 		echo $this->Layout->js();
@@ -143,6 +156,9 @@ else {
 		echo $this->Html->script('/theme/afitheme/js/bootstrap.min');
         echo $this->Html->script('/theme/afitheme/js/js-general');
         echo $this->fetch('scripts_for_layout');
+
+        
+        echo $this->Html->script('/theme/afitheme/js/typehead/typeahead.jquery');
 
 	
 		echo $this->Blocks->get('scriptBottom');
