@@ -35,6 +35,7 @@ else {
 		<?php
 		echo $this->Html->css('/theme/afitheme/css/bootstrap.min');
         echo $this->Html->css('/theme/afitheme/css/style');
+        echo $this->Html->css('/theme/afitheme/css/bootstrap-combobox');
         echo $this->Html->css('/theme/afitheme/css/print', 'stylesheet', array('media' => 'print'));
 
 		echo $this->fetch('css');
@@ -154,11 +155,10 @@ else {
 		// Scripts for our layout
 		echo $this->Html->script('/theme/afitheme/js/jquery.min');
 		echo $this->Html->script('/theme/afitheme/js/bootstrap.min');
-        echo $this->Html->script('/theme/afitheme/js/js-general');
-        echo $this->fetch('scripts_for_layout');
+                echo $this->Html->script('/theme/afitheme/js/js-general');
+                echo $this->fetch('scripts_for_layout');
 
-        
-        echo $this->Html->script('/theme/afitheme/js/typehead/typeahead.jquery');
+                echo $this->Html->script('/theme/afitheme/js/bootstrap-combobox');
 
 	
 		echo $this->Blocks->get('scriptBottom');
