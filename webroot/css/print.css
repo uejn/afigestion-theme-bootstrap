@@ -1,6 +1,14 @@
+
+a[href]:after {
+    content: none !important;    
+}
+  
 /* ----
 Afigestion modificaciones 
 ---- */
+
+
+  
  
    .no-print{
        display: none;
