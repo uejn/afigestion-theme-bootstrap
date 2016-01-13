@@ -137,10 +137,11 @@ img,tr {page-break-inside: avoid;}
     @page{ 
       //  size: auto;   /* auto is the initial value */ 
         /* this affects the margin in the printer settings */ 
-      margin-right: 30mm  ;  
+      margin-right: 0mm  ;  
        margin-left: 0mm  ;  
+       
     } 
-    
+     
     .ancho_registro_td{
         //width: 25cm;
     }
