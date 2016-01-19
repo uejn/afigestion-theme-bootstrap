@@ -6,6 +6,11 @@ $(document).ready(function(){
         $('#footer').removeClass('footer-fixeado');
         $('#footer').addClass('footer-relativo');
     }
+    $('#PersonaLegajoEstadoId1').prop('checked', true);
+    
+    if($("#PersonaLegajoEstadoId2").is(':checked')) { 
+        $('#PersonaLegajoEstadoId1').prop('checked', false);
+    }
     
     $('.combobox').combobox();
   
