@@ -2,3 +2,7 @@
 .no-permitido-organizacion{
     display: none;
 }
+
+.solo-organizacion{
+    display:block !important;
+}
