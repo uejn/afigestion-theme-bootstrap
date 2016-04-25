@@ -2,3 +2,7 @@
 .solo-fecha-eliminacion-admin{
     display: block !important;
 }
+
+.solo-admin{
+    display: block !important;
+}
