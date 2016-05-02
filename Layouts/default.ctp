@@ -110,7 +110,8 @@ else {
 		</div>
                     <div style="min-height: 35px;"></div>
                     <div class="relativo">
-                    <footer class="body-footer no-print footer-fixeado" id="footer">
+                        
+                    <footer class="body-footer no-print footer-fixeado <?php if(!empty($sinFooter)){ echo $sinFooter;}?>" id="footer">
 				<div class="container">
                                         <div class="col-md-2 center">	
                                             <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'150px'))?>
