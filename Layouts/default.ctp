@@ -105,45 +105,42 @@ else {
 
 				<?php echo $this->Regions->blocks('post_content'); ?>
 			</div>
-
+                        
 			
 		</div>
-                    <div style="min-height: 35px;"></div>
-                    <div class="relativo">
                         
-                    <footer class="body-footer no-print footer-fixeado <?php if(!empty($sinFooter)){ echo $sinFooter;}?>" id="footer">
-				<div class="container">
-                                        <div class="col-md-2 center">	
-                                            <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'150px'))?>
-                                        </div>
-					<div class="col-md-2 center">				
-						<?php 
-                                                    echo $this->Html->link(
-                                                        'Contacto con Sistemas',
-                                                        '/contact/contact/'
-                                                    );
-                                                ?>
-                                                <br/>
-                                            Tel: Interno 136
-					</div>
-					<div class="col-md-4 center">		
-                                            Fecha de actualización de los datos<br/>
-                                            <b><?php echo Configure::read('Afigestion.bd_fecha_actualizacion')?></b>
-					</div>
-					<div class="col-md-4 center">		
-						Versión <?php echo Configure::read('Afigestion.version_number')?>
-                                                <br/>
-						Fecha de Release <?php echo Configure::read('Afigestion.release_date')?><br/>
-                                                 <?php 
-                                                    echo $this->Html->link(
-                                                        'Ver detalles de la versión',
-                                                        '/afigestion/versiones/'
-                                                    );
-                                                ?>
-					</div>
-				</div>
-			</footer>
-                    </div>
+                <footer class="body-footer no-print" id="footer">
+                            <div class="container">
+                                    <div class="col-sm-2 center">	
+                                        <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'150px'))?>
+                                    </div>
+                                    <div class="col-sm-2 center">				
+                                            <?php 
+                                                echo $this->Html->link(
+                                                    'Contacto con Sistemas',
+                                                    '/contact/contact/'
+                                                );
+                                            ?>
+                                            <br/>
+                                        Tel: Interno 136
+                                    </div>
+                                    <div class="col-sm-4 center">		
+                                        Fecha de actualización de los datos<br/>
+                                        <b><?php echo Configure::read('Afigestion.bd_fecha_actualizacion')?></b>
+                                    </div>
+                                    <div class="col-sm-4 center">		
+                                            Versión <?php echo Configure::read('Afigestion.version_number')?>
+                                            <br/>
+                                            Fecha de Release <?php echo Configure::read('Afigestion.release_date')?><br/>
+                                             <?php 
+                                                echo $this->Html->link(
+                                                    'Ver detalles de la versión',
+                                                    '/afigestion/versiones/'
+                                                );
+                                            ?>
+                                    </div>
+                            </div>
+                    </footer>
 
 
 
