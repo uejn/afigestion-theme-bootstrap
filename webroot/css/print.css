@@ -137,7 +137,7 @@ img,tr {page-break-inside: avoid;}
     @page{ 
       //  size: auto;   /* auto is the initial value */ 
         /* this affects the margin in the printer settings */ 
-      margin-right: 30mm  ;  
+      margin-right: 0mm  ;  
        margin-left: 0mm  ;  
     } 
     
@@ -154,11 +154,11 @@ img,tr {page-break-inside: avoid;}
     }
     
     .tamanioImpresionRepDep{
-        font-size: 13px !important;
+        font-size: 12px !important;
     }
     
     .tamanioImpresionRepDep td {
-        border-bottom: 0px solid #ddd !important;
+        border-bottom: 1px solid #ddd !important;
         line-height: 0 !important;
     }
 }
