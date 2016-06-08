@@ -266,6 +266,10 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
    margin-right: 13px;
 }
 
+.se-oculta{
+    display: none;
+}
+
 .cantidad-afiliados-reporte-alta-baja-final{
    float: right; 
    margin-top: 5px;  
