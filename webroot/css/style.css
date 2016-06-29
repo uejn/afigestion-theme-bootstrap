@@ -10,6 +10,10 @@ body{
     background-color:rgba(192, 192, 192, 0.22);
 }
 
+.listado_cuotas_letra_tamanio{
+    font-size: 12px;
+}
+
 .body-wrapper {
     min-height: 100%;
     height: auto !important;
@@ -277,3 +281,22 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
 }
 
 
+.lineaDivisoria{
+    border-top: 2px solid #428BCA !important;
+}
+
+.color_celeste{
+    color:rgb(71, 163, 231);
+}
+
+.color_gris{
+    color: rgb(166, 159, 159);
+}
+
+.color_verde{
+    color: green;
+}
+
+.color_rojo{
+    color:red;
+}
