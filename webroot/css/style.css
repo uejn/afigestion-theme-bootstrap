@@ -11,7 +11,7 @@ body{
 }
 
 .listado_cuotas_letra_tamanio{
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .body-wrapper {
@@ -299,4 +299,8 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
 
 .color_rojo{
     color:red;
+}
+
+.fondo-blanco-tabla{
+    background-color: #FFF;
 }
