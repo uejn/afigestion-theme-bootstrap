@@ -304,3 +304,15 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
 .fondo-blanco-tabla{
     background-color: #FFF;
 }
+
+.calcular-cuota{
+    margin-bottom: -5px !important;
+}
+
+.letra-grande{
+    font-size: 18px;
+}
+
+.letra-panel-persona-view{
+    font-size: 12px !important;
+}
