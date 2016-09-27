@@ -22,7 +22,7 @@
                     <span>
                             <?php 
                             $logoutLink = $this->Html->link('Cerrar Sesión', array('plugin'=>'users', 'controller'=>'users', 'action'=>'logout'));
-                            echo "Estas logueado como <b>".CakeSession::read('Auth.User.username')." $logoutLink</b>"; ?>
+                            echo "Estas logueado como <b>".CakeSession::read('Auth.User.username')."<br/>$logoutLink</b>"; ?>
                     </span>
                     <?php
             }
