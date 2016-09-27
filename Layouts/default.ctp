@@ -67,7 +67,11 @@ else {
 		<div class="body-wrapper">
 			<?php echo $this->fetch('pre_header'); ?>
 			<?php echo $this->Regions->blocks('pre_header'); ?>
-			<?php echo $this->element('header'); ?>
+			<?php 
+			if ( $this->request->action != 'login') {
+				echo $this->element('header'); 
+			}
+			?>
 
 
 			<div class="container body-container">
