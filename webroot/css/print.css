@@ -58,7 +58,7 @@ Afigestion modificaciones
        //display: none;
    }
    .letraTabla{
-       font-size: 14px !important;
+       font-size: 12px !important;
    }
 
 
@@ -71,7 +71,7 @@ Afigestion modificaciones
 	 
 -------------------------------------------------------------- */
 .tamanioImpresion{
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
@@ -119,7 +119,7 @@ a[href^="#"]:after, a[href^="javascript:"]:after {content: "";}
 /* Table */
 table { margin: 1px; text-align:left; }
 th { border-bottom: 1px solid #333;  font-weight: bold; }
-td { border-bottom: 1px solid #333; }
+td { border-bottom: 1px solid #333; border: 1px solid #F1F1F1 !important; padding: 1px 1px 1px 1px !important;}
 th,td { padding: 4px 10px 4px 0; }
 tfoot { font-style: italic; }
 caption { background: #fff; margin-bottom:2em; text-align:left; }
