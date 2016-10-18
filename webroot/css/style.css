@@ -228,7 +228,7 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
 }
 
 
-.afgtn-persona-h1-icon{
+h1 .afgtn-icon, h2 .afgtn-icon, h3 .afgtn-icon, h4 .afgtn-icon{
   width: 32px;
   height: 32px;
   margin-left: 3px;
@@ -236,9 +236,11 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
   margin-top: -6px;
 }
 
-.afgtn-persona-list-icon{
+table .afgtn-icon{
   margin-left: 2px;
   margin-right: 2px;
+  height: 20px;
+  width: 20px;
 }
 
 
