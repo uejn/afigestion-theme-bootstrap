@@ -2,6 +2,30 @@
 a[href]:after {
     content: none !important;    
 }
+
+h1 img, h2 img, h3 img, h4 img{
+  height: 20px;
+}
+
+h1{
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+
+h2{
+  font-size: 16pt;
+  font-weight: bolder;
+}
+
+h3{
+  font-size: 14pt;
+  font-weight: bolder;
+}
+
+h4, h5, h6{
+  font-size: 12pt;
+}
   
 /* ----
 Afigestion modificaciones 
@@ -61,7 +85,7 @@ Afigestion modificaciones
        //display: none;
    }
    .letraTabla{
-       font-size: 12px !important;
+       font-size: 8px !important;
    }
 
 
@@ -74,7 +98,7 @@ Afigestion modificaciones
 	 
 -------------------------------------------------------------- */
 .tamanioImpresion{
-    font-size: 12px;
+    font-size: 8px;
 }
 
 
@@ -86,26 +110,24 @@ line-height: 1.45;
 font-family: Garamond,"Times New Roman", serif; 
 color: #000; 
 background: none; 
-font-size: 14pt; }
+font-size: 8pt; }
 
 /* Headings */
-//h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
-//h1{font-size:19pt;}
-//h2{font-size:17pt;}
-h3{font-size:14px;}
-//h4,h5,h6{font-size:14pt;}
+h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
 
 
 p, h2, h3 { orphans: 3; widows: 3; }
 
 code { font: 12pt Courier, monospace; } 
-blockquote { margin: 1.2em; padding: 1em;  font-size: 12pt; }
+blockquote { margin: 1.2em; padding: 1em;  font-size: 9pt; }
 hr { background-color: #ccc; }
 
 /* Images */
-img { float: left; margin: 1em 1.5em 1.5em 0; max-width: 100% !important; }
 a img { border: none; }
-
+a{
+  text-decoration: none!important;
+  font-weight: normal!important;
+}
 /* Links */
 a:link, a:visited { background: transparent; font-weight: 700; text-decoration: underline;color:#333; }
 a:link[href^="http://"]:after, a[href^="http://"]:visited:after { content: " (" attr(href) ") "; font-size: 90%; }
@@ -130,6 +152,15 @@ thead {display: table-header-group;}
 img,tr {page-break-inside: avoid;} 
 
 
+table .afgtn-icon{
+ height: 14px;
+  width: 14px;
+}
+
+.row{
+  margin: 0;
+  width: 100%;
+}
 .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
         float: left;
    }

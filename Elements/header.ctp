@@ -19,7 +19,7 @@
 	                	'url'=> array(
                         'controller'=>'personas',
                         'action'=>'index',
-                        '?'=> $this->params->query
+                       // '?'=> $this->params->query
                         ),
 		                'id'=>'form-persona-find-header',
 		                'class' =>'form-inline'
