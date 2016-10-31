@@ -2,3 +2,6 @@
 .no-permitido-habilitacion{
     display: none;
 }
+.solo-habilitacion{
+    display: block !important;
+}
