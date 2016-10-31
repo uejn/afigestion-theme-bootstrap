@@ -227,6 +227,10 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
   text-align: center;
 }
 
+table.table-text-small{
+  font-size: 11px;
+}
+
 
 h1 .afgtn-icon, h2 .afgtn-icon, h3 .afgtn-icon, h4 .afgtn-icon{
   width: 32px;
@@ -237,8 +241,6 @@ h1 .afgtn-icon, h2 .afgtn-icon, h3 .afgtn-icon, h4 .afgtn-icon{
 }
 
 table .afgtn-icon{
-  margin-left: 2px;
-  margin-right: 2px;
   height: 20px;
   width: 20px;
 }
