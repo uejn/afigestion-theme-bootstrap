@@ -2,3 +2,6 @@
 .no-permitido-tesoreria{
     display: none;
 }
+.solo-tesoreria{
+    display: block !important;
+}
