@@ -44,34 +44,34 @@ h1{
 
 
 .nombre{
-	width: 79mm;
+	width: 90mm;
         text-align: left;
         padding-left: 5mm;
 }
 
 .documento{
-	width: 27mm;
-        text-align: right;
+	width: 20mm;
+        text-align: left;
         
 	padding-right: 7mm;
 }
 
 .motivo_baja{
 	width: 22mm;
-        text-align: right;
+        text-align: center;
         
 	padding-right: 3mm;
 }
 
 .cuota {
   width: 39mm;
-  text-align: center;
+  text-align: left;
   padding-right: 22mm;
  }
 
 .nacionalidad{
 	width: 16mm;
-        text-align: right;
+        text-align: center;
         
 	padding-right: 5mm;
 }
@@ -84,27 +84,27 @@ h1{
 }
 
 .fecha_ingreso{
-	width: 20mm;
+	width: 30mm;
         text-align: right;
         padding-right: 3mm;
 }
 
 .fecha_egreso{
 	width: 23mm;
-        text-align: right;
+        text-align: left;
         padding-right: 3mm;
 }
 
 .cargo{
 	width: 22mm;
-        text-align: right;
+        text-align: center;
         
 	padding-right: 4mm;
 }
 
 .fecha_afiliacion{
 	width: 31mm;
-        text-align: right;
+        text-align: left;
         
 	padding-right: 0mm;
 }
@@ -112,7 +112,7 @@ h1{
 .ubicacion{
 	width: 21mm;
         
-	text-align: right;
+	text-align: left;
         
 	padding-right: 0mm;
 }
