@@ -90,10 +90,10 @@ Afigestion modificaciones
        //display: none;
    }
    .letraTabla{
-       font-size: 8px !important;
+       font-size: 12pt !important;
    }
 
-
+   
 
 
 /* -------------------------------------------------------------- 
@@ -102,20 +102,19 @@ Afigestion modificaciones
    * Version:   1.0 
 	 
 -------------------------------------------------------------- */
-.tamanioImpresion{
-    font-size: 8px;
-}
+
 
 
 body { 
-width:100% !important;
-margin:0 !important;
-padding:0 !important;
-line-height: 1.45; 
-font-family: Garamond,"Times New Roman", serif; 
-color: #000; 
-background: none; 
-font-size: 8pt; }
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    line-height: 1.45; 
+    font-family: Garamond,"Times New Roman", serif; 
+    color: #000; 
+    background: none; 
+    font-size: 10pt; 
+}
 
 /* Headings */
 h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
