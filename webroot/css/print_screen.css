@@ -24,7 +24,7 @@ h1{
 
 .fecha_inicial{
     /* padding-right: 3mm; */
-  width: 17mm;
+  width: 12mm;
   /* text-align: left; */
 }
 
@@ -36,15 +36,16 @@ h1{
 
 
 .nombre{
-	width: 71mm;
+	width: 76mm;
 }
 
 .documento{
-	width: 30mm;
+	width: 27mm;
 }
 
 .motivo_baja{
-	width: 20mm;
+        text-align: center;
+	width: 25mm;
 }
 
 .cuota {
@@ -52,19 +53,21 @@ h1{
  }
 
 .nacionalidad{
-	width: 18mm;
+	width: 21mm;
 }
 
 .sexo{
-	width: 18mm;
+	width: 13mm;
 }
 
 .fecha_ingreso{
 	width: 23mm;
+        text-align: center;
 }
 
 .fecha_egreso{
 	width: 23mm;
+        text-align: center;
 }
 
 .cargo{
