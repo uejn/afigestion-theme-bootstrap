@@ -33,7 +33,8 @@
 	                        'div' => array(
 	                        	'style'=> 'width:80%',
 	                        	'class' => '',
-	                        	)
+	                        	),
+                                        'autofocus' => true
 	                        ));
 	                echo  $this->Form->button('<span class="glyphicon glyphicon-search" aria-hidden="true"></span>', array(
 							'type'=>'submit',
