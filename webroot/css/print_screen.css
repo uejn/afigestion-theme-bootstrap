@@ -82,3 +82,64 @@ h1{
 .ubicacion{
 	width: 20mm;
 }
+
+/*GENERACION DE PAGINAS*/
+.nro_afiliado_generacion{
+	width: 18mm;
+}
+
+
+
+.nombre_generacion{
+	width: 70mm;
+}
+
+.documento_generacion{
+	width: 29mm;
+}
+
+.motivo_baja_generacion{
+        text-align: center;
+	width: 25mm;
+}
+
+.cuota_generacion {
+  width: 37mm;
+ }
+
+.nacionalidad_generacion{
+	width: 21mm;
+}
+
+.sexo_generacion{
+	width: 13mm;
+}
+
+.fecha_ingreso_generacion{
+	width: 24mm;
+        text-align: center;
+}
+
+.fecha_egreso_generacion{
+	width: 23mm;
+        text-align: center;
+}
+
+.cargo_generacion{
+	width: 21mm;
+}
+
+.fecha_afiliacion_generacion{
+	width: 23mm;
+        
+}
+
+.ubicacion_generacion{
+	width: 20mm;
+}
+.fecha_generacion{
+    width: 12mm;
+}
+
+
+/**/
