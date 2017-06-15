@@ -122,7 +122,7 @@ else {
                                                 );
                                             ?>
                                             <br/>
-                                        Tel: Interno 136
+                                        Tel: 4381-9241 Interno 136
                                     </div>
                                     <div class="col-sm-4 center">		
                                         Fecha de actualización de los datos<br/>
