@@ -57,9 +57,41 @@ else {
                 echo $this->Html->css('/theme/afitheme/css/roles/style_'.CakeSession::read('Auth')['User']['Role']['alias']);
             }
         ?>
-       
+       	<script type="text/javascript">
+			    function mostrarModal(  ){
+			        $.ajax({
+			            type: "POST",
+			            data: {
+			                'name': 'jaja',
+			            },
+			            success: function(msg)
+			            {
+			                $('#modalPersona').modal('show');
+			                $('#poniendoNombre').html('jajaja');
+			            }
+			        });
+			    }
+		</script>
 	</head>
 	<body>
+		<!-- Example modal-->
+		<div class="modal fade" id="modalPersona" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="exampleModalLabel">Nombre de la persona</h4>
+			      </div>
+			      <div class="modal-body">
+			        Este es el dato que llego =P <div id="poniendoNombre"></div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+		</div>
+		<!-- -->
 		<div class="body-wrapper">
 			<?php echo $this->fetch('pre_header'); ?>
 			<?php echo $this->Regions->blocks('pre_header'); ?>

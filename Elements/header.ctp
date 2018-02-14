@@ -25,6 +25,12 @@
 		                'class' =>'form-inline'
                 	)
 	                );
+	                $rolUsuarioAutoFocus = false;
+	                $datosSesion = $this->Session->read();
+	                if( $datosSesion['Auth']['User']['Role']['alias'] == 'dataentry'){
+	                	$rolUsuarioAutoFocus = true;
+	                }
+	                
 	                echo $this->Form->input('search', array(
 	                        'label'=>false,
 	                        'placeholder' => 'Nombre, Apellido, Documento, Legajo ...',
@@ -34,7 +40,7 @@
 	                        	'style'=> 'width:80%',
 	                        	'class' => '',
 	                        	),
-                                        'autofocus' => true
+                                        'autofocus' => $rolUsuarioAutoFocus
 	                        ));
 	                echo  $this->Form->button('<span class="glyphicon glyphicon-search" aria-hidden="true"></span>', array(
 							'type'=>'submit',
