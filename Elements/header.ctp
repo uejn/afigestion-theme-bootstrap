@@ -27,7 +27,7 @@
 	                );
 	                echo $this->Form->input('search', array(
 	                        'label'=>false,
-	                        'placeholder' => 'Nombre, Apellido, Documento, Legajo ...',
+	                        'placeholder' => 'Nombre, Apellido, Documento, Legajo, Ubicación ...',
 	                        'class'=>'form-control input-sm col-xs-11',
 							'style' => 'width:100%',
 	                        'div' => array(
