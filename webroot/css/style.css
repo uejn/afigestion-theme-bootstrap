@@ -319,7 +319,7 @@ table .afgtn-icon{
 
 }
 .letra-panel-persona-view{
-    font-size: 12px !important;
+    font-size: 11px !important;
 
 }
 
@@ -327,6 +327,18 @@ table .afgtn-icon{
     background-color: #c0c0c0 !important;
 }
 
+.afigestion-titulo-mas-chico{
+  font-size: 22px;
+}
+
+.afigestion-sombreado-view{
+  box-shadow: 1px 1px 1px 2px #c0c0c0 !important;
+}
+
+.afigestion-sub-titulo-mas-chico{
+  font-size: 15px !important;
+  font-weight: bold !important;
+}
 
 #loaderbar{
   position: fixed;
@@ -342,3 +354,4 @@ table .afgtn-icon{
 #loaderbar img{
   width: 48px;
   }
+
