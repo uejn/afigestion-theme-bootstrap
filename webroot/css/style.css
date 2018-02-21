@@ -354,7 +354,7 @@ table .afgtn-icon{
 }
 
 .afigestion-sombreado-view{
-  box-shadow: 1px 1px 1px 2px #c0c0c0 !important;
+  box-shadow: 1px 1px 1px 1px /*#c0c0c0 !important*/;
 }
 
 .afigestion-sub-titulo-mas-chico{
@@ -377,3 +377,6 @@ table .afgtn-icon{
   width: 48px;
   }
 
+.afigestion-espacios-thumb{
+  padding: 7px 7px 7px 7px;
+}
