@@ -2,12 +2,28 @@
 * {
     margin: 0;
 }
+header {
+	color: #777 !important;
+}
+
+
+
 html, body {
     height: 100%;
 }
 
 body{
-    background-color:rgba(192, 192, 192, 0.22);
+    background-color:white;
+    
+}
+
+.navbar-brand{
+  color:white !important;
+}
+
+.navbar-default{
+    background-color:#271a1a !important;
+    color:white !important;
 }
 
 .listado_cuotas_letra_tamanio{
