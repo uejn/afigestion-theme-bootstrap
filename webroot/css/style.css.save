@@ -1,0 +1,334 @@
+
+* {
+    margin: 0;
+}
+header {
+	color: #777 !important;
+}
+
+
+
+html, body {
+    height: 100%;
+}
+
+body{
+    background-color:;
+}
+
+.listado_cuotas_letra_tamanio{
+    font-size: 11px;
+}
+
+.body-wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0; /* the bottom margin is the negative value of the footer's height */
+    padding-bottom: 180px;
+}
+
+footer.body-footer{
+  background: rgb(248, 248, 248);
+  border-top: 1px solid rgb(186, 186, 186);
+  border-bottom: 1px solid rgb(186, 186, 186);
+  padding: 30px 0px;
+  color: #636363;
+  position: relative;
+  //top: -130px;
+  height: 130px;
+  //font-size: 12px !important;
+  width: 100%;
+}
+
+.body-container{
+	padding-top: 10px;
+}
+
+.afigestion-buscador-personas{
+	margin-top: 10px;
+}
+
+img.afgtn-persona-list-icon{
+	height: 18px;
+}
+
+
+.form-group.required {
+  padding: 5px !important;
+}
+.item-actions.action-in-title{
+	font-size: 12pt;
+	  float: left;
+	  margin-top: 19px;
+	  margin-right: 10px;
+}
+
+.big-icon{
+	font-size: 38.5px;
+	  line-height: 40px;
+	    margin: 10px 0;
+}
+
+
+#advanced-search{
+
+	background-color: #f5f5f5;
+}
+
+
+
+.afigestion-buscador-big-margen{
+
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+.fondoContacto{
+    background-color: #58ACFA;
+    color:white;
+    font-family: Raleway;
+}
+
+h4{
+   font-family: Raleway; 
+}
+
+
+
+p{
+   font-family: Raleway; 
+   font-size: 14px !important;
+}
+
+.espacioPaneles{
+    padding: 10px !important;
+}
+
+.centrando{
+    float: none;
+    margin: 0 auto; 
+    text-align: center;
+    display: block; 
+    width: auto; 
+    height: auto;
+}
+
+/*ESTILO BUSCADOR*/
+.alert-buscador {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+  max-height: 45px;
+  //max-width: 400px;
+  padding: 7px;
+  border: 2px solid;
+}
+.alert-buscador-afiliado {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+  max-height: 45px;
+  //max-width: 250px;
+  padding: 7px;
+   border: 2px solid;
+}
+
+h6{
+    font-family: Raleway !important;
+    color: #000000 !important;  
+    float: none;
+    margin: 0 auto; 
+    text-align: center;
+    display: block; 
+    width: auto; 
+    height: auto;
+}
+
+.alert-buscador-afiliado alert-buscador h6{
+    float: none;
+    margin: 0 auto; 
+    text-align: center;
+    display: block; 
+    width: auto; 
+    height: auto;
+}
+
+.textPrincipal{
+    font-family: Raleway-Medium-500;
+}
+/**/
+
+/*PISADAS BOOTSTRAP*/
+    .panelAfiGestion{
+      //background-color: #F9F9F9;
+      color: white;
+      //padding: 10px !important;
+      color: #3A3737;
+    }
+
+   .form-group {
+        margin-bottom: 15px !important;
+        padding: 5px !important;
+    }
+    
+/**/
+input.btn.btn-primary.btn-lg.pull-right {
+  margin-top: 5px;
+}
+
+.letraNegra{
+    color:black !important;
+}
+
+.ocultoAfiGestion{
+    display: none;
+}
+
+.ocultoLegajoAfiGestion{
+    display: none;
+}
+
+a.glyphicon.glyphicon-remove.alert.alert-info {
+  margin: 2px;
+}
+
+/*ESTILOS PERMISOS*/
+.acl{
+    display: none;
+}
+
+.acl-rol-admin{
+    display: none;
+}
+/**/
+
+.centra-letra, .center{
+    text-align: center;
+}
+
+
+ .only-print{
+       display: none;
+   }
+   
+    
+
+
+.navbar{
+  margin-bottom: 0px;
+}
+
+
+
+.block-userlogin{
+
+  margin-top: 10px;
+}
+
+.block-userlogin form{
+  display: inline;
+}
+
+.pagination{
+  text-align: center;
+}
+
+table.table-text-small{
+  font-size: 11px;
+}
+
+
+h1 .afgtn-icon, h2 .afgtn-icon, h3 .afgtn-icon, h4 .afgtn-icon{
+  width: 32px;
+  height: 32px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: -6px;
+}
+
+table .afgtn-icon{
+  height: 20px;
+  width: 20px;
+}
+
+
+#advanced-search{
+  /*border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;*/
+  background-color: #D8D8D8;
+  border-radius: 10px;
+}
+
+/*VIEW DE PERSONAS*/
+.pestania_view{
+    background-color: white; 
+    padding: 20px;
+}
+
+.oculto{
+    display: none;
+}
+
+.solo-fecha-eliminacion-admin{
+   display: none; 
+}
+
+.cantidad-afiliados-reporte-alta-baja{
+   float: right; 
+   margin-top: -20px;  
+   margin-right: 13px;
+}
+
+.se-oculta{
+    display: none;
+}
+
+.cantidad-afiliados-reporte-alta-baja-final{
+   float: right; 
+   margin-top: 5px;  
+   margin-right: 16px;
+}
+
+
+.lineaDivisoria{
+    border-top: 2px solid #428BCA !important;
+}
+
+.color_celeste{
+    color:rgb(71, 163, 231);
+}
+
+.color_gris{
+    color: rgb(166, 159, 159);
+}
+
+.color_verde{
+    color: green;
+}
+
+.color_rojo{
+    color:red;
+}
+
+.fondo-blanco-tabla{
+    background-color: #FFF;
+}
+
+.calcular-cuota{
+    margin-bottom: -5px !important;
+}
+
+.letra-grande{
+    font-size: 18px;
+
+}
+.letra-panel-persona-view{
+    font-size: 12px !important;
+
+}
+
+.afigestion-color-gris-no-imprime{
+    background-color: #c0c0c0 !important;
+}
