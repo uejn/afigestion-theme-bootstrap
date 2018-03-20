@@ -25,22 +25,22 @@
 		                'class' =>'form-inline'
                 	)
 	                );
-	                $rolUsuarioAutoFocus = false;
-	                $datosSesion = $this->Session->read();
-	                if( $datosSesion['Auth']['User']['Role']['alias'] == 'dataentry'){
-	                	$rolUsuarioAutoFocus = true;
-	                }
+                	$autoFocus = false;
+                	if(  $this->params->controller == 'personas' && $this->params->action == 'advanced_search' ){
+                		$autoFocus = true;
+                	}
 	                
 	                echo $this->Form->input('search', array(
 	                        'label'=>false,
 	                        'placeholder' => 'Nombre, Apellido, Documento, Legajo, Ubicación ...',
-	                        'class'=>'form-control input-sm col-xs-11',
+	                        'class'=>'form-control input-sm col-xs-11 autocomplete',
+	                        'data-url' => $this->Html->url(array('plugin'=>'afigestion','controller'=>'personas','action'=>'fastSearch')),
 							'style' => 'width:100%',
 	                        'div' => array(
 	                        	'style'=> 'width:80%',
 	                        	'class' => '',
 	                        	),
-                                        'autofocus' => $rolUsuarioAutoFocus
+                            'autofocus' => $autoFocus
 	                        ));
 	                echo  $this->Form->button('<span class="glyphicon glyphicon-search" aria-hidden="true"></span>', array(
 							'type'=>'submit',
@@ -70,3 +70,59 @@
 		</div>
 	</div>
 </header>
+
+
+<script type="text/javascript">
+	
+	$('.autocomplete').map(inicializacion);
+
+	var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+  'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+  'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+  'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+  'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+];
+
+
+	function inicializacion(index, el) {
+
+		var url = $(el).data("url");
+		/*
+		var listado = new Bloodhound({
+		  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  			queryTokenizer: Bloodhound.tokenizers.whitespace,
+		 // prefetch: '<?php $this->Html->url(array(""))?>',
+		 local: states
+*/
+		 /*
+		  remote: {
+		    url: url,
+		    wildcard: '%QUERY'
+		  }
+		  */
+		});
+
+		
+
+		$(el).typeahead({
+		  hint: true,
+		  highlight: true,
+		  minLength: 1
+		},
+		{
+		  name: 'states',
+		  source: states
+		});
+/*
+		$(el).typeahead(null, {
+		  name: 'best-pictures',
+		  display: 'value',
+		  source: listado
+		});
+		*/
+	}
+</script>
