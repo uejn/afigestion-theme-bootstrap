@@ -43,11 +43,8 @@ else {
 		echo $this->Html->script('/theme/afitheme/js/jquery.min');
 		echo $this->Html->script('/theme/afitheme/js/bootstrap.min');
         
-
-
-
-        
 		echo $this->Blocks->get('script');
+       	echo $this->Html->script('/theme/afitheme/js/ajax_modal');
 		?>
 
 		
@@ -57,10 +54,31 @@ else {
                 echo $this->Html->css('/theme/afitheme/css/roles/style_'.CakeSession::read('Auth')['User']['Role']['alias']);
             }
         ?>
-       
 	</head>
 	<body>
+
+		<div id="loaderbar">
+			<?php echo $this->Html->image("Afigestion.spinner.gif");?>
+		</div>
+
+		<!-- Example modal-->
+		<div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog">
+			  <div class="modal-dialog modal-lg" role="document">
+			    <div class="modal-content">
+			      
+			      <div class="modal-body"></div>
+
+			      <!--
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			      -->
+			    </div>
+			  </div>
+		</div>
+		<!-- -->
 		<div class="body-wrapper">
+
 			<?php echo $this->fetch('pre_header'); ?>
 			<?php echo $this->Regions->blocks('pre_header'); ?>
 			<?php 
@@ -68,6 +86,7 @@ else {
 				echo $this->element('header'); 
 			}
 			?>
+
 
 
 			<div class="container body-container">

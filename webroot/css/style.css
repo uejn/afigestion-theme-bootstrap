@@ -26,6 +26,8 @@ body{
     color:white !important;
 }
 
+
+
 .listado_cuotas_letra_tamanio{
     font-size: 11px;
 }
@@ -37,6 +39,26 @@ body{
     margin: 0; /* the bottom margin is the negative value of the footer's height */
     padding-bottom: 180px;
 }
+
+.error-message{
+
+}
+
+form .error, #flashMessage.error {
+  color: #a94442;
+}
+form .error, #flashMessage.error {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #a94442;
+  padding: 3px 0;
+}
+
+
+
 
 footer.body-footer{
   background: rgb(248, 248, 248);
@@ -245,7 +267,7 @@ a.glyphicon.glyphicon-remove.alert.alert-info {
 }
 
 table.table-text-small{
-  font-size: 11px;
+  font-size: 10px;
 }
 
 
@@ -335,10 +357,42 @@ table .afgtn-icon{
 
 }
 .letra-panel-persona-view{
-    font-size: 12px !important;
+    font-size: 11px !important;
 
 }
 
 .afigestion-color-gris-no-imprime{
     background-color: #c0c0c0 !important;
+}
+
+.afigestion-titulo-mas-chico{
+  font-size: 22px;
+}
+
+.afigestion-sombreado-view{
+  box-shadow: 1px 1px 1px 1px /*#c0c0c0 !important*/;
+}
+
+.afigestion-sub-titulo-mas-chico{
+  font-size: 15px !important;
+  font-weight: bold !important;
+}
+
+#loaderbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  z-index: 999999999;
+}
+
+
+#loaderbar img{
+  width: 48px;
+  }
+
+.afigestion-espacios-thumb{
+  padding: 7px 7px 7px 7px;
 }
