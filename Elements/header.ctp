@@ -25,10 +25,10 @@
 		                'class' =>'form-inline'
                 	)
 	                );
-                	$autoFocus = false;
-                	if(  $this->params->controller == 'personas' && $this->params->action == 'advanced_search' ){
-                		$autoFocus = true;
-                	}
+                	$autoFocus = true;
+                	/*if(  $this->params->controller == 'personas' && $this->params->action == 'advanced_search' ){*/
+                		/*$autoFocus = true;
+                	}*/
 	                
 	                echo $this->Form->input('search', array(
 	                        'label'=>false,
