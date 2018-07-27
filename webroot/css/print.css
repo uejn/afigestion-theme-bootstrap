@@ -86,6 +86,12 @@ Afigestion modificaciones
        display:block;
        page-break-before:always;
     }
+
+    .saltoDePaginaCertificados{
+       display:block;
+       page-break-after:always;
+    }
+
     .ocultandoImpresion{
        //display: none;
    }
