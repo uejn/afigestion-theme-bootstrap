@@ -143,21 +143,6 @@ else {
                                             <br/>
                                         Tel: 4381-9241 Interno 139
                                     </div>
-                                    <div class="col-sm-4 center">		
-                                        Fecha de actualización de los datos<br/>
-                                        <b><?php echo Configure::read('Afigestion.bd_fecha_actualizacion')?></b>
-                                    </div>
-                                    <div class="col-sm-4 center">		
-                                            Versión <?php echo Configure::read('Afigestion.version_number')?>
-                                            <br/>
-                                            Fecha de Release <?php echo Configure::read('Afigestion.release_date')?><br/>
-                                             <?php 
-                                                echo $this->Html->link(
-                                                    'Ver detalles de la versión',
-                                                    '/afigestion/versiones/'
-                                                );
-                                            ?>
-                                    </div>
                             </div>
                     </footer>
 
