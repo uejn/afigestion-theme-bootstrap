@@ -4,7 +4,7 @@
 
                     echo $this->Form->create('User', array('url'=> array('plugin'=>'users', 'controller'=>'users', 'action'=>'login')), array('class'=>'form-inline'));
 
-                    echo $this->Form->text('username', array('placeholder'=>'Usuario', 'class'=>'form-control input-sm'));
+                    echo $this->Form->text('username', array('placeholder'=>'Usuario', 'class'=>'form-control input-sm','autofocus'=>true));
                     echo "&nbsp";
                     echo $this->Form->text('password', array('type'=>'password','placeholder'=>'Contraseña', 'class'=>'form-control input-sm'));
                     echo "&nbsp";

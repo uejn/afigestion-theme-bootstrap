@@ -380,3 +380,7 @@ table .afgtn-icon{
 .afigestion-espacios-thumb{
   padding: 7px 7px 7px 7px;
 }
+
+.afigestion-letra-mayuscula{
+  text-transform: uppercase;
+}
