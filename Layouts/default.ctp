@@ -35,6 +35,7 @@ else {
 		<?php
 		echo $this->Html->css('/theme/afitheme/css/bootstrap.min');
         echo $this->Html->css('/theme/afitheme/css/style');
+        echo $this->Html->css('/theme/afitheme/css/flexselect');
         echo $this->Html->css('/theme/afitheme/css/print', 'stylesheet', array('media' => 'print'));
 
 		echo $this->fetch('css');
@@ -43,6 +44,11 @@ else {
 		echo $this->Html->script('/theme/afitheme/js/jquery.min');
 		echo $this->Html->script('/theme/afitheme/js/bootstrap.min');
         
+		//flex select
+		echo $this->Html->script('/theme/afitheme/js/jquery.flexselect');
+		echo $this->Html->script('/theme/afitheme/js/liquidmetal');
+
+
 		echo $this->Blocks->get('script');
        	echo $this->Html->script('/theme/afitheme/js/ajax_modal');
 		?>
@@ -54,6 +60,11 @@ else {
                 echo $this->Html->css('/theme/afitheme/css/roles/style_'.CakeSession::read('Auth')['User']['Role']['alias']);
             }
         ?>
+        <script type="text/javascript">
+        	jQuery(document).ready(function() {
+  				$("select.flexselect").flexselect();
+			});
+        </script>
 	</head>
 	<body>
 
