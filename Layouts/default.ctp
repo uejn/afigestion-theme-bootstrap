@@ -51,6 +51,7 @@ else {
 
 		echo $this->Blocks->get('script');
        	echo $this->Html->script('/theme/afitheme/js/ajax_modal');
+       	echo $this->Html->script('/theme/afitheme/js/chartGoogle');
 		?>
 
 		
@@ -102,9 +103,6 @@ else {
 				echo $this->element('header'); 
 			}
 			?>
-
-
-
 			<div class="container body-container">
 				<?php
 					echo $this->Layout->sessionFlash();					
