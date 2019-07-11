@@ -265,7 +265,7 @@ table .afgtn-icon{
 */
 @media print {
     @page{ 
-      //  size: auto;   /* auto is the initial value */ 
+        size: auto;   /* auto is the initial value */ 
         /* this affects the margin in the printer settings */ 
       margin-right: 0mm  ;  
        margin-left: 0mm  ;  
@@ -307,7 +307,7 @@ table .afgtn-icon{
 
 .col-print-1 {width:8%;  float:left;}
 .col-print-2 {width:16%; float:left;}
-.col-print-3 {width:25%; float:left;margin-bottom: 80px;}
+.col-print-3 {width:25%; float:left;margin-bottom: 120px;}
 .col-print-4 {width:33%; float:left;}
 .col-print-5 {width:42%; float:left;}
 .col-print-6 {width:50%; float:left;}
