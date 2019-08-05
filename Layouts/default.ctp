@@ -18,8 +18,7 @@ else {
 		?>
 		<title><?php echo $title_for_layout; ?> &raquo; <?php echo Configure::read('Site.title'); ?></title>
 
-
-
+		<meta name="robots" content="noindex,nofollow">
 		<!-- Other -->
 		<?php
 		echo $this->Meta->meta();
