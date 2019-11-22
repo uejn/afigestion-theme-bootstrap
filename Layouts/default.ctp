@@ -51,6 +51,11 @@ else {
 		echo $this->Blocks->get('script');
        	echo $this->Html->script('/theme/afitheme/js/ajax_modal');
        	echo $this->Html->script('/theme/afitheme/js/chartGoogle');
+       	/*se agrego el combobox*/
+       	echo $this->Html->css('/theme/afitheme/css/bootstrap-combobox', array('once'=>true, 'inline'=>false));
+		echo $this->Html->script('/theme/afitheme/js/bootstrap-combobox', array('once'=>true, 'inline'=>false));
+		echo $this->Html->script('/theme/afitheme/js/combobox_init', array('once'=>true, 'inline'=>false));
+		/**/
 		?>
 
 		
@@ -74,6 +79,7 @@ else {
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70967459-1"></script> 
         <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-70967459-1'); </script>        
         <!---->
+
 	</head>
 	<body>
 
