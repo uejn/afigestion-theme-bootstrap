@@ -15,40 +15,44 @@
 			<div class="col-sm-6 col-xs-12" style="padding-top: 10px;">
 				<?php
 				if ($this->Session->read('Auth.User.id')) {
-	                echo $this->Form->create('Persona', array(
-	                	'url'=> array(
-                        'controller'=>'personas',
-                        'action'=>'index',
-                       // '?'=> $this->params->query
-                        ),
-		                'id'=>'form-persona-find-header',
-		                'class' =>'form-inline'
-                	)
-	                );
-                	$autoFocus = true;
-                	/*if(  $this->params->controller == 'personas' && $this->params->action == 'advanced_search' ){*/
-                		/*$autoFocus = true;
-                	}*/
-	                
-	                echo $this->Form->input('search', array(
-	                        'label'=>false,
-	                        'placeholder' => 'Nombre, Apellido, Documento, Legajo, Ubicación ...',
-	                        'class'=>'form-control input-sm col-xs-11 autocomplete',
-	                        'data-url' => $this->Html->url(array('plugin'=>'afigestion','controller'=>'personas','action'=>'fastSearch')),
-							'style' => 'width:100%',
-	                        'div' => array(
-	                        	'style'=> 'width:80%',
-	                        	'class' => '',
-	                        	),
-                            'autofocus' => $autoFocus
-	                        ));
-	                echo  $this->Form->button('<span class="glyphicon glyphicon-search" aria-hidden="true"></span>', array(
-							'type'=>'submit',
-							'class' => 'btn btn-default btn-sm',
-							'escape'=>false));
+					$rolAlias = CakeSession::read('Auth.User.Role.alias');
+	                if( $rolAlias != AFIGESTION_ROL_SECCIONAL ){
+			                echo $this->Form->create('Persona', array(
+			                	'url'=> array(
+		                        'controller'=>'personas',
+		                        'action'=>'index',
+		                       // '?'=> $this->params->query
+		                        ),
+				                'id'=>'form-persona-find-header',
+				                'class' =>'form-inline'
+		                	)
+			                );
+		                	$autoFocus = true;
+		                	/*if(  $this->params->controller == 'personas' && $this->params->action == 'advanced_search' ){*/
+		                		/*$autoFocus = true;
+		                	}*/
+			                
 
-	                echo  $this->Form->end();
+			                echo $this->Form->input('search', array(
+			                        'label'=>false,
+			                        'placeholder' => 'Nombre, Apellido, Documento, Legajo, Ubicación ...',
+			                        'class'=>'form-control input-sm col-xs-11 autocomplete',
+			                        'data-url' => $this->Html->url(array('plugin'=>'afigestion','controller'=>'personas','action'=>'fastSearch')),
+									'style' => 'width:100%',
+			                        'div' => array(
+			                        	'style'=> 'width:80%',
+			                        	'class' => '',
+			                        	),
+		                            'autofocus' => $autoFocus
+			                        ));
+			                echo  $this->Form->button('<span class="glyphicon glyphicon-search" aria-hidden="true"></span>', array(
+									'type'=>'submit',
+									'class' => 'btn btn-default btn-sm',
+									'escape'=>false));
+
+			                echo  $this->Form->end();
 	                }
+	            }
 	                ?>
 			</div>
 
