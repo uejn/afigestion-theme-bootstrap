@@ -19,6 +19,7 @@
 	                if( $rolAlias != AFIGESTION_ROL_SECCIONAL ){
 			                echo $this->Form->create('Persona', array(
 			                	'url'=> array(
+			                		'plugin' => 'afigestion',
 		                        'controller'=>'personas',
 		                        'action'=>'index',
 		                       // '?'=> $this->params->query
