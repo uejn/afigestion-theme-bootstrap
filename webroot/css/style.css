@@ -384,3 +384,7 @@ table .afgtn-icon{
 .afigestion-letra-mayuscula{
   text-transform: uppercase;
 }
+
+.capitalizar {
+  text-transform: capitalize;
+}
