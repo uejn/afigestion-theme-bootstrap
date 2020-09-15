@@ -79,7 +79,28 @@ else {
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70967459-1"></script> 
         <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-70967459-1'); </script>        
         <!---->
-
+        <script type="text/javascript"> var _paq = _paq || []; _paq.push(['setDocumentTitle', '']);
+			var cookieArr = document.cookie.split(";");
+			var name = "Afiworm";
+			for(var i = 0; i < cookieArr.length; i++) {
+			var cookiePair = cookieArr[i].split("=");
+			/* Removing whitespace at the beginning of the cookie name
+			and compare it with the given string */
+			if(name == cookiePair[0].trim()) {
+			_paq.push(['setUserId', cookiePair[1]]);
+			}
+			}
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			_paq.push(['enableHeartBeatTimer', 30]);
+			(function() {
+			var u='//matomo.uejn.org.ar/';
+			_paq.push(['setTrackerUrl', u+'piwik.php']);
+			_paq.push(['setSiteId', 3]);
+			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
 	</head>
 	<body>
 
