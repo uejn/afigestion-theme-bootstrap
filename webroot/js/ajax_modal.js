@@ -1,9 +1,7 @@
 
  		function mostrarModal( event ){
  			event.preventDefault();
- 			console.info(event);
- 			console.info(event.target.href);
- 			$( "#ajaxModal .modal-body" ).load(  event.target.href );
+ 			$( "#ajaxModal .modal-body" ).load(  event.currentTarget.href );
  			$( "#ajaxModal").modal("show");
  			return false;
 	    }
@@ -34,7 +32,6 @@
 				$('#loaderbar').show();
 				var load = 0;
 				timeout = setTimeout(function(){
-					console.info("incrementado loader %o", load);
 					load = load + 10;
 			  		$('#loaderbar .progress-bar').css({'width': load+'%'});
 					if ( load = 100 ) {
