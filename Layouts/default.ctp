@@ -97,6 +97,11 @@ else {
 					$idFinal = 'AfiCroogoUserId'.$idUsuario;
 					?>
 						_paq.push(['setUserId',"<?php echo $idFinal; ?>" ]);
+						_paq.push(['setSiteId', 1]);
+					<?php
+				}else{
+					?>
+						_paq.push(['setSiteId', 3]);
 					<?php
 				}
 			?>
@@ -106,7 +111,6 @@ else {
 			(function() {
 			var u='//matomo.uejn.org.ar/';
 			_paq.push(['setTrackerUrl', u+'piwik.php']);
-			_paq.push(['setSiteId', 3]);
 			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
 			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
 			})();
