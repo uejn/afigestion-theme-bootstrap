@@ -83,13 +83,23 @@ else {
 			var cookieArr = document.cookie.split(";");
 			var name = "Afiworm";
 			for(var i = 0; i < cookieArr.length; i++) {
-			var cookiePair = cookieArr[i].split("=");
-			/* Removing whitespace at the beginning of the cookie name
-			and compare it with the given string */
-			if(name == cookiePair[0].trim()) {
-			_paq.push(['setUserId', cookiePair[1]]);
+				var cookiePair = cookieArr[i].split("=");
+				/* Removing whitespace at the beginning of the cookie name
+				and compare it with the given string */
+				if(name == cookiePair[0].trim()) {
+				_paq.push(['setUserId', cookiePair[1]]);
+				}
 			}
-			}
+			//aca va el condicional con el user id de croogo
+			<?php 
+				$idUsuario = CakeSession::read('Auth')['User']['id'];
+				if( !empty( $idUsuario ) ){
+					$idFinal = 'AfiCroogoUserId'.$idUsuario;
+					?>
+						_paq.push(['setUserId',"<?php echo $idFinal; ?>" ]);
+					<?php
+				}
+			?>
 			_paq.push(['trackPageView']);
 			_paq.push(['enableLinkTracking']);
 			_paq.push(['enableHeartBeatTimer', 30]);
