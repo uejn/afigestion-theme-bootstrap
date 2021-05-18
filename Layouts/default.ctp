@@ -94,11 +94,13 @@ else {
 			<?php 
 				$idUsuario = CakeSession::read('Auth')['User']['id'];
 				if( !empty( $idUsuario ) ){
-					$idFinal = 'AfiCroogoUserId'.$idUsuario;
-					?>
-						_paq.push(['setUserId',"<?php echo $idFinal; ?>" ]);
-						_paq.push(['setSiteId', 1]);
-					<?php
+					if ( Configure::read('debug') == 0 ){
+						$idFinal = 'AfiCroogoUserId'.$idUsuario;
+						?>
+							_paq.push(['setUserId',"<?php echo $idFinal; ?>" ]);
+							_paq.push(['setSiteId', 1]);
+						<?php
+					}
 				}else{
 					?>
 						_paq.push(['setSiteId', 3]);
