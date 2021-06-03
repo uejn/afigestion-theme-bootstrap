@@ -36,7 +36,7 @@
 
 			                echo $this->Form->input('search', array(
 			                        'label'=>false,
-			                        'placeholder' => 'Nombre, Apellido, Documento, Legajo, Ubicación ...',
+			                        'placeholder' => 'Nombre, Apellido, Documento, Legajo ...',
 			                        'class'=>'form-control input-sm col-xs-11 autocomplete',
 			                        'data-url' => $this->Html->url(array('plugin'=>'afigestion','controller'=>'personas','action'=>'fastSearch')),
 									'style' => 'width:100%',

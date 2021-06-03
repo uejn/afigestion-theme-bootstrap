@@ -79,44 +79,21 @@ else {
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70967459-1"></script> 
         <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-70967459-1'); </script>        
         <!---->
-        <script type="text/javascript"> var _paq = _paq || []; _paq.push(['setDocumentTitle', '']);
-			var cookieArr = document.cookie.split(";");
-			var name = "Afiworm";
-			for(var i = 0; i < cookieArr.length; i++) {
-				var cookiePair = cookieArr[i].split("=");
-				/* Removing whitespace at the beginning of the cookie name
-				and compare it with the given string */
-				if(name == cookiePair[0].trim()) {
-				_paq.push(['setUserId', cookiePair[1]]);
-				}
-			}
-			//aca va el condicional con el user id de croogo
-			<?php 
-				$idUsuario = CakeSession::read('Auth')['User']['id'];
-				if( !empty( $idUsuario ) ){
-					if ( Configure::read('debug') == 0 ){
-						$idFinal = 'AfiCroogoUserId'.$idUsuario;
-						?>
-							_paq.push(['setUserId',"<?php echo $idFinal; ?>" ]);
-							_paq.push(['setSiteId', 1]);
-						<?php
-					}
-				}else{
-					?>
-						_paq.push(['setSiteId', 3]);
-					<?php
-				}
-			?>
-			_paq.push(['trackPageView']);
-			_paq.push(['enableLinkTracking']);
-			_paq.push(['enableHeartBeatTimer', 30]);
-			(function() {
-			var u='//matomo.uejn.org.ar/';
-			_paq.push(['setTrackerUrl', u+'piwik.php']);
-			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-			})();
-		</script>
+
+        <?php echo $this->Html->script("Afigestion.afi_matomo")?>
+
+		<?php 
+    	//aca va el condicional con el user id de croogo
+			$matomoUserId = $this->Session->read("Auth.User.matomo_id");
+			$siteId = Configure::read("Matomo.siteId");
+
+			//if ( FULL_BASE_URL	!= 'http://localhost') {
+				?>
+		        <script type="text/javascript"> 
+					AfiMatomo.init(<?php echo $siteId ?>, "<?php echo $matomoUserId ?>");
+				</script>
+			<?php //} ?>
+
 	</head>
 	<body>
 
