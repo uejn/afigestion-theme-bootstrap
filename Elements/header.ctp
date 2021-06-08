@@ -70,7 +70,8 @@
 	<div class="container">
 		<div class="navbar-header">
 			<div class="navbar-collapse collapse">
-				<?php echo $this->Custom->menu('main', array('dropdown' => true)); ?>
+				<?php 
+				echo $this->Custom->menu('main', array('dropdown' => true)); ?>
 			</div>
 		</div>
 	</div>

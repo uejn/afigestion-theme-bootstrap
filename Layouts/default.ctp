@@ -86,13 +86,25 @@ else {
     	//aca va el condicional con el user id de croogo
 			$matomoUserId = $this->Session->read("Auth.User.matomo_id");
 			$siteId = Configure::read("Matomo.siteId");
-
-			//if ( FULL_BASE_URL	!= 'http://localhost') {
+			if ( FULL_BASE_URL	!= 'http://localhost') {
 				?>
 		        <script type="text/javascript"> 
+	        			var _paq = _paq || []; 
 					AfiMatomo.init(<?php echo $siteId ?>, "<?php echo $matomoUserId ?>");
+					(function() {
+						var u='//matomo.uejn.org.ar/';
+						_paq.push(['setTrackerUrl', u+'piwik.php']);
+						var d=document, 
+							g=d.createElement('script'), 
+							s=d.getElementsByTagName('script')[0];
+						g.type='text/javascript'; 
+						g.async=true; 
+						g.defer=true; 
+						g.src=u+'piwik.js'; 
+						s.parentNode.insertBefore(g,s);
+					})();
 				</script>
-			<?php //} ?>
+			<?php } ?>
 
 	</head>
 	<body>
