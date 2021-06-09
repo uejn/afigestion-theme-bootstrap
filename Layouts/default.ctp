@@ -89,7 +89,7 @@ else {
 			if ( FULL_BASE_URL	!= 'http://localhost') {
 				?>
 		        <script type="text/javascript"> 
-	        			var _paq = _paq || []; 
+        			var _paq = _paq || []; 
 					AfiMatomo.init(<?php echo $siteId ?>, "<?php echo $matomoUserId ?>");
 					(function() {
 						var u='//matomo.uejn.org.ar/';
