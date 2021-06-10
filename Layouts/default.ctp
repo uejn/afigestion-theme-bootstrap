@@ -81,7 +81,7 @@ else {
         <!---->
 
         <?php echo $this->Html->script("Afigestion.afi_matomo")?>
-
+        <?php echo $this->Html->script("Afigestion.reiniciar_password")?>
 		<?php 
     	//aca va el condicional con el user id de croogo
 			$matomoUserId = $this->Session->read("Auth.User.matomo_id");

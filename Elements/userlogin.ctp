@@ -1,7 +1,8 @@
 <div class="form-inline block-userlogin">
 	<?php 
             if ( !CakeSession::read('Auth.User') ) {
-
+                $actionDondeNoseTieneQueMostrarElLogin = ['reset','forgot'];
+                if( !in_array($this->action, $actionDondeNoseTieneQueMostrarElLogin) ){
                     echo $this->Form->create('AfiUser', array('url'=> array('plugin'=>'users', 'controller'=>'users', 'action'=>'login')), array('class'=>'form-inline'));
                     echo "<div class='row'>";
                     echo $this->Form->text('username', array('placeholder'=>'Usuario', 'class'=>'form-control input-sm','autofocus'=>true));
@@ -20,6 +21,7 @@
                             ), array(
                                     'class'=>'small'
                                     ));
+                }
             } else {
                     ?>
                     <span>
