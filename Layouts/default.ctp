@@ -159,7 +159,7 @@ else {
 						</div>
 					<?php endif; ?>
 
-					<div <div class=" <?php echo $span; ?>">
+					<div class=" <?php echo $span; ?>">
 						<?php echo $content_for_layout; ?>
 					</div>
 
