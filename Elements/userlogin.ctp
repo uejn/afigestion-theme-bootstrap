@@ -1,6 +1,6 @@
 <div class="form-inline block-userlogin">
 	<?php 
-            if ( !CakeSession::read('Auth.User') ) {
+            if ( !$this->Session->read("Auth.User") ) {
                 $actionDondeNoseTieneQueMostrarElLogin = ['reset','forgot'];
                 if( !in_array($this->action, $actionDondeNoseTieneQueMostrarElLogin) ){
                     echo $this->Form->create('AfiUser', array('url'=> array('plugin'=>'users', 'controller'=>'users', 'action'=>'login')), array('class'=>'form-inline'));
@@ -23,11 +23,15 @@
                                     ));
                 }
             } else {
+                    $username = $this->Session->read("Auth.User.username");
+                    $rol      = $this->Session->read("Auth.User.Role.alias");
+                    $nivel    = $this->Session->read("Auth.User.UsuarioNivel.0.nivel");
                     ?>
                     <span>
                             <?php 
                             $logoutLink = $this->Html->link('Cerrar Sesión', array('plugin'=>'users', 'controller'=>'users', 'action'=>'logout'));
-                            echo "Estas logueado como <b>".CakeSession::read('Auth.User.username')."<br/>$logoutLink</b>"; ?>
+                            $rolConNivel = '<b>Rol:</b> '.$rol.' / '.'<b>Nivel:</b> '.$nivel;
+                            echo "Estas logueado como <b>".$username."</b><br/>$rolConNivel<br/><b>$logoutLink</b>"; ?>
                     </span>
                     <?php
             }
