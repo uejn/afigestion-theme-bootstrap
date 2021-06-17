@@ -24,7 +24,7 @@
                 }
             } else {
                     $username = $this->Session->read("Auth.User.username");
-                    $rol      = $this->Session->read("Auth.User.Role.alias");
+                    $rol      = $this->Session->read("Auth.User.Role.title");
                     $nivel    = $this->Session->read("Auth.User.UsuarioNivel.0.nivel");
                     ?>
                     <span>
