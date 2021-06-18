@@ -12,6 +12,8 @@ $tableClass = isset($tableClass) ? $tableClass : $this->Layout->cssClass('tableC
 
 $showActions = isset($showActions) ? $showActions : true;
 
+echo $this->Html->link('Nuevo '.$modelClass,['action'=>'add'],['class'=>'btn btn-success']);
+
 if ($pageHeading = trim($this->fetch('page-heading'))):
 	echo $pageHeading;
 endif;
@@ -107,25 +109,6 @@ echo $this->fetch('content');
 
 		?>
 
-
-
-
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<?php
-				if ($pagingBlock = $this->fetch('paging')):
-					echo $pagingBlock;
-				else:
-					if (isset($this->Paginator) && isset($this->request['paging'])):
-						echo $this->element('admin/pagination');
-					endif;
-				endif;
-				?>
-			</div>
-		</div>
-
-
-
 		<table class="<?php echo $tableClass; ?>">
 			<?php
 			echo $tableHeaders;
@@ -157,3 +140,17 @@ echo $this->fetch('content');
 if ($pageFooter = trim($this->fetch('page-footer'))):
 	echo $pageFooter;
 endif;
+?>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<?php
+				if ($pagingBlock = $this->fetch('paging')):
+					echo $pagingBlock;
+				else:
+					if (isset($this->Paginator) && isset($this->request['paging'])):
+						echo $this->element('admin/pagination');
+					endif;
+				endif;
+				?>
+			</div>
+		</div>
