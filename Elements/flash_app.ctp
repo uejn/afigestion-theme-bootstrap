@@ -13,7 +13,7 @@ endif;
 </div>
 <div class="row center">
 	<div class="col-md-12">
-		<a href="https://play.google.com/store/apps/details?id=uejn.org.ar" class="btn btn-primary btn-lg">Iniciar sesión en la App</a>
+		<a href="https://app.uejn.org.ar/login" class="btn btn-primary btn-lg">Iniciar sesión en la App</a>
 	</div>
 </div>
 <?php return;
