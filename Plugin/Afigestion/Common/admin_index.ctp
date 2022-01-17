@@ -12,7 +12,10 @@ $tableClass = isset($tableClass) ? $tableClass : $this->Layout->cssClass('tableC
 
 $showActions = isset($showActions) ? $showActions : true;
 
-echo $this->Html->link('Nuevo '.$modelClass,['action'=>'add'],['class'=>'btn btn-success']);
+if( $this->name != 'AppSucursales' ){
+	echo $this->Html->link('Nuevo '.$modelClass,['action'=>'add'],['class'=>'btn btn-success']);
+}
+
 
 if ($pageHeading = trim($this->fetch('page-heading'))):
 	echo $pageHeading;
