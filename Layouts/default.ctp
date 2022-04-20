@@ -148,8 +148,14 @@ else {
 
 			<?php echo $this->fetch('post_header'); ?>
 			<?php echo $this->Regions->blocks('post_header'); ?>
-
-			<div class="container body-container">
+			<?php 
+				$classBody = 'container body-container';
+				// despues le pongo una variable de configuracion de croogo
+				if( $this->request->controller == 'EleccionesComputos' && $this->request->action == 'view' ){
+					$classBody = 'row-fluid';
+				}
+			?>
+			<div class=<?php echo $classBody?>>
 
 				<?php echo $this->Regions->blocks('pre_content'); ?>
 				<div class="row">
