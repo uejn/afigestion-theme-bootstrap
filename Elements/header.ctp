@@ -32,9 +32,8 @@
 		                	/*if(  $this->params->controller == 'personas' && $this->params->action == 'advanced_search' ){*/
 		                		/*$autoFocus = true;
 		                	}*/
-			                
-
-			                echo $this->Form->input('search', array(
+			                if( $this->action != 'home' ){
+				                echo $this->Form->input('search', array(
 			                        'label'=>false,
 			                        'placeholder' => 'Nombre, Apellido, Documento, Legajo ...',
 			                        'class'=>'form-control input-sm col-xs-11 autocomplete',
@@ -45,11 +44,12 @@
 			                        	'class' => '',
 			                        	),
 		                            'autofocus' => $autoFocus
-			                        ));
-			                echo  $this->Form->button('<span class="glyphicon glyphicon-search" aria-hidden="true"></span>', array(
-									'type'=>'submit',
-									'class' => 'btn btn-default btn-sm',
-									'escape'=>false));
+		                        ));
+				                echo  $this->Form->button('<span class="glyphicon glyphicon-search" aria-hidden="true"></span>', array(
+										'type'=>'submit',
+										'class' => 'btn btn-default btn-sm',
+										'escape'=>false));
+			                }
 
 			                echo  $this->Form->end();
 	                }
