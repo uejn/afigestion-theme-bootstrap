@@ -11,8 +11,7 @@ $columnFull = $this->Layout->cssClass('columnFull');
 $tableClass = isset($tableClass) ? $tableClass : $this->Layout->cssClass('tableClass');
 
 $showActions = isset($showActions) ? $showActions : true;
-
-if( $this->name != 'AppSucursales' ){
+if( $this->name != 'AppSucursales' && $this->name != 'AppBeneficiosFotos' ){
 	echo $this->Html->link('Nuevo '.$modelClass,['action'=>'add'],['class'=>'btn btn-success']);
 }
 
