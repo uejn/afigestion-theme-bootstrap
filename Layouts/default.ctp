@@ -23,6 +23,8 @@ else {
 		<?php
 		echo $this->Meta->meta();
         echo $this->Html->meta('icon', '/theme/afitheme/img/favicon.ico');
+		echo $this->Html->meta('apple-touch-icon', '/theme/afitheme/img/favicon.ico');
+
 		echo $this->Layout->feed();
 		echo $this->Html->meta(array(
 			'name'    => 'viewport',
