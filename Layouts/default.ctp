@@ -185,14 +185,7 @@ else {
                                         <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'150px'))?>
                                     </div>
                                     <div class="col-sm-2 center">				
-                                            <?php 
-                                                echo $this->Html->link(
-                                                    'Contacto con Sistemas',
-                                                    '/contact/contact/'
-                                                );
-                                            ?>
-                                            <br/>
-                                        Tel: 4381-9241 Interno 139
+										<b>Contacto con sistemas:</b> <br/> <a href="sistemas@uejn.org.ar">sistemas@uejn.org.ar</a>
                                     </div>
                             </div>
                     </footer>
