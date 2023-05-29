@@ -184,8 +184,15 @@ else {
                                     <div class="col-sm-2 center">	
                                         <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'150px'))?>
                                     </div>
-                                    <div class="col-sm-2 center">				
-										<b>Contacto con sistemas:</b> <br/> <a href="sistemas@uejn.org.ar">sistemas@uejn.org.ar</a>
+                                    <div class="col-sm-2 center">	
+										<?php 
+										$usuario = $this->Session->read('Auth.User');
+										if($usuario){
+										?>			
+											<b>Contacto con sistemas:</b> <br/> <a href="sistemas@uejn.org.ar">sistemas@uejn.org.ar</a>
+										<?php 
+										}
+										?>
                                     </div>
                             </div>
                     </footer>
