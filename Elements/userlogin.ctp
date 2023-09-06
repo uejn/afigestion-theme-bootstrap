@@ -5,12 +5,16 @@
                 if( !in_array($this->action, $actionDondeNoseTieneQueMostrarElLogin) ){
                     echo $this->Form->create('AfiUser', array('url'=> array('plugin'=>'users', 'controller'=>'users', 'action'=>'login')), array('class'=>'form-inline'));
                     echo "<div class='row'>";
-                    echo $this->Form->text('username', array('placeholder'=>'Usuario', 'class'=>'form-control input-sm','autofocus'=>true));
-                    echo "&nbsp";
+                        echo "<div class='col-sm-12'>";
+                                echo $this->Form->text('username', array('placeholder'=>'Usuario', 'class'=>'form-control input-lg','autofocus'=>true));
+                                echo "&nbsp";
+                        echo "</div>";
                     echo "</div>";
                     echo "<div class='row'>";
-                    echo $this->Form->text('password', array('type'=>'password','placeholder'=>'Contraseña', 'class'=>'form-control input-sm'));
-                    echo "&nbsp";
+                        echo "<div class='col-sm-12'>";
+                                echo $this->Form->text('password', array('type'=>'password','placeholder'=>'Contraseña', 'class'=>'form-control input-lg'));
+                                echo "&nbsp";
+                        echo "</div>";
                     echo "</div>";
                     echo $this->Form->submit('Ingresar', array('class'=>'btn btn-success btn-sm', 'div'=>false));
                     echo $this->Form->end();
