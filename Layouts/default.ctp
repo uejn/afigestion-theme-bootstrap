@@ -107,7 +107,20 @@ else {
 					})();
 				</script>
 			<?php } ?>
-
+			<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+			<script type='text/javascript'>
+					$(document).ready(function() {
+						new DataTable('#tableBuscador',{
+							paging: false,
+							info: false,
+							"language": {
+								"zeroRecords": "Sin resultados con sus parametros de búsqueda",
+								"search": "Buscar"
+							}
+						});
+						$("#tableBuscador_filter input").addClass("form-control");
+					});
+			</script>
 	</head>
 	<body>
 
