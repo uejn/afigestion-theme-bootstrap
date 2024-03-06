@@ -9,6 +9,8 @@ elseif ($this->Regions->blocks('left') xor $this->Regions->blocks('right')) {
 else {
 	$span = "col-md-12";
 }
+//Variable para saber si esta corriendo algun proceso por consola en Afigestion
+$seEstaActualizando = Configure::read("Site.estado_actualizacion");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,6 +18,10 @@ else {
 		<?php
 		echo $this->Html->charset();
 		?>
+		<?php if(!empty($seEstaActualizando)):?>
+			<div class='alert alert-danger text-center'><b>En este momento se está realizando una actualización sobre los datos en Afigestion, 
+				se recomienda no modificar ningún dato hasta que dicha actualización termine</b></div>
+		<?php endif;?>
 		<title><?php echo $title_for_layout; ?> &raquo; <?php echo Configure::read('Site.title'); ?></title>
 
 		<meta name="robots" content="noindex,nofollow">
