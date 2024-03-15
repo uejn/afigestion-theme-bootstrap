@@ -18,7 +18,7 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 		<?php
 		echo $this->Html->charset();
 		?>
-		<?php if(!empty($seEstaActualizando)):?>
+		<?php if(!empty($seEstaActualizando) && !(empty(CakeSession::read('Auth')))):?>
 			<div class='alert alert-danger text-center'><b>En este momento se está realizando una actualización sobre los datos en Afigestion, 
 				se recomienda no modificar ningún dato hasta que dicha actualización termine</b></div>
 		<?php endif;?>
