@@ -2,3 +2,7 @@
 .solo-accion-social{
     display: block !important;
 }
+
+.solo-accion-social-boton{
+    display: inline-block !important;
+}

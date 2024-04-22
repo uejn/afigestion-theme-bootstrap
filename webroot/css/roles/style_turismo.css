@@ -2,3 +2,7 @@
 .solo-turismo{
     display: block !important;
 }
+
+.solo-turismo-boton{
+    display: inline-block !important;
+}

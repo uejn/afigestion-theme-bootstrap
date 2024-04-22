@@ -2,3 +2,7 @@
 .solo-seccional{
     display: block !important;
 }
+
+.solo-seccional-boton{
+    display: inline-block !important;
+}

@@ -2,3 +2,7 @@
 .solo-cuotas{
     display: block !important;
 }
+
+.solo-cuotas-boton{
+    display: inline-block !important;
+}

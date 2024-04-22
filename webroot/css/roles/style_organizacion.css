@@ -6,3 +6,7 @@
 .solo-organizacion{
     display:block !important;
 }
+
+.solo-organizacion-boton{
+    display: inline-block !important;
+}
