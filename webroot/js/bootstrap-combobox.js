@@ -182,7 +182,10 @@
     }
 
   , matcher: function (item) {
-      return ~item.toLowerCase().indexOf(this.query.toLowerCase());
+      // Normalizar espacios múltiples a un solo espacio
+      var normalizedItem = item.replace(/\s+/g, ' ').toLowerCase();
+      var normalizedQuery = this.query.replace(/\s+/g, ' ').toLowerCase().trim();
+      return ~normalizedItem.indexOf(normalizedQuery);
     }
 
   , sorter: function (items) {
