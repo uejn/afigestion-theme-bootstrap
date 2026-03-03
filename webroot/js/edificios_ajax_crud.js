@@ -1,0 +1,307 @@
+/**
+ * Edificios AJAX CRUD
+ * Maneja crear, editar y eliminar edificios sin refrescar la pantalla.
+ * La tabla se actualiza dinámicamente con los cambios realizados.
+ */
+(function ($) {
+    'use strict';
+
+    var EdificiosCrud = {
+
+        // URL base del plugin Afigestion
+        baseUrl: '/afigestion/edificios/',
+
+        init: function () {
+            this.bindFormSubmit();
+            this.bindDeleteButtons();
+        },
+
+        /**
+         * Intercepta el submit del formulario dentro del modal de editar_edificio
+         */
+        bindFormSubmit: function () {
+            var self = this;
+            $(document).on('submit', '#ajaxModal .ajax-edificio-form, #ajaxModal form[id*="EdificioEditar"]', function (e) {
+                e.preventDefault();
+                var $form = $(this);
+                var formData = $form.serialize();
+                var $submitBtn = $form.find('input[type="submit"], button[type="submit"]');
+                var originalText = $submitBtn.val();
+
+                // Deshabilitar botón mientras se procesa
+                $submitBtn.val('Guardando...').prop('disabled', true);
+
+                $.ajax({
+                    url: self.baseUrl + 'ajax_guardar_edificio',
+                    type: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.success) {
+                            // Cerrar modal
+                            $('#ajaxModal').modal('hide');
+
+                            if (response.isNew) {
+                                // Agregar nueva fila a la tabla
+                                self.addRowToTable(response.row);
+                                self.updateCount(1);
+                            } else {
+                                // Actualizar fila existente
+                                self.updateRowInTable(response.id, response.row);
+                            }
+
+                            // Mostrar notificación de éxito
+                            self.showNotification('success', response.message);
+                        } else {
+                            // Mostrar errores de validación
+                            self.showFormErrors($form, response.errors, response.message);
+                        }
+                    },
+                    error: function (xhr) {
+                        self.showNotification('error', 'Error de conexión. Intente nuevamente.');
+                    },
+                    complete: function () {
+                        $submitBtn.val(originalText).prop('disabled', false);
+                    }
+                });
+            });
+        },
+
+        /**
+         * Vincula los botones de eliminar para usar AJAX
+         */
+        bindDeleteButtons: function () {
+            var self = this;
+
+            // Delegación de eventos para botones de eliminar (actuales y futuros)
+            $(document).on('click', '.ajax-delete-edificio', function (e) {
+                e.preventDefault();
+                var $btn = $(this);
+                var edificioId = $btn.data('id');
+                var edificioName = $btn.data('name');
+
+                if (!confirm('¿Está seguro de eliminar el Edificio ' + edificioName + '?')) {
+                    return;
+                }
+
+                $btn.prop('disabled', true);
+
+                $.ajax({
+                    url: self.baseUrl + 'ajax_eliminar_edificio/' + edificioId,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        _method: 'POST'
+                    },
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            // Animar y remover la fila
+                            var $row = $('#edificio-row-' + edificioId);
+                            $row.addClass('bg-danger');
+                            $row.fadeOut(400, function () {
+                                $(this).remove();
+                                self.updateCount(-1);
+                            });
+
+                            self.showNotification('success', response.message);
+                        } else {
+                            self.showNotification('error', response.message);
+                            $btn.prop('disabled', false);
+                        }
+                    },
+                    error: function () {
+                        self.showNotification('error', 'Error de conexión. Intente nuevamente.');
+                        $btn.prop('disabled', false);
+                    }
+                });
+            });
+        },
+
+        /**
+         * Construye el HTML de las mesas
+         */
+        buildMesasHtml: function (mesas) {
+            var html = '';
+            for (var i = 0; i < mesas.length; i++) {
+                html += '<a href="/afigestion/mesas/editar_mesa/' + mesas[i].id + '" ' +
+                    'class="ajax-modal text-success">' +
+                    this.escapeHtml(mesas[i].codigo + ' - ' + mesas[i].name) + '</a><br/>';
+            }
+            return html;
+        },
+
+        /**
+         * Construye el HTML de los botones de acción
+         */
+        buildActionsHtml: function (row) {
+            var viewBtn = '<a href="' + this.baseUrl + 'view/' + row.id + '" ' +
+                'class="btn btn-primary btn-xs ajax-modal" escape="false">' +
+                '<span class="glyphicon glyphicon-eye-open"></span></a>';
+
+            var editBtn = '<a href="' + this.baseUrl + 'editar_edificio/' + row.id + '" ' +
+                'class="btn btn-info btn-xs ajax-modal" escape="false">' +
+                '<span class="glyphicon glyphicon-pencil"></span></a>';
+
+            var deleteBtn = '<a href="#" class="btn btn-danger btn-xs ajax-delete-edificio" ' +
+                'data-id="' + row.id + '" data-name="' + this.escapeHtml(row.calle) + '">' +
+                '<span class="glyphicon glyphicon-trash"></span></a>';
+
+            return '<div class="btn-group">' + viewBtn + editBtn + deleteBtn + '</div>';
+        },
+
+        /**
+         * Construye el HTML completo de una fila de la tabla
+         */
+        buildRowHtml: function (row) {
+            var cells = [
+                this.escapeHtml(row.codigo),
+                this.escapeHtml(row.calle),
+                this.escapeHtml(row.numero),
+                this.buildMesasHtml(row.mesas || []),
+                row.cant_mesas,
+                row.cant_deps,
+                this.escapeHtml(row.regional),
+                this.escapeHtml(row.localidad),
+                row.cant_personas,
+                row.cant_no_afiliados,
+                row.cant_afiliados,
+                row.cant_historicos,
+                this.escapeHtml(row.observacion),
+                this.buildActionsHtml(row)
+            ];
+
+            var html = '<tr id="edificio-row-' + row.id + '">';
+            for (var i = 0; i < cells.length; i++) {
+                html += '<td>' + (cells[i] !== undefined && cells[i] !== null ? cells[i] : '') + '</td>';
+            }
+            html += '</tr>';
+
+            return html;
+        },
+
+        /**
+         * Agrega una fila nueva a la tabla
+         */
+        addRowToTable: function (row) {
+            var $tbody = $('.table-listado-edificios tbody');
+            if ($tbody.length === 0) {
+                $tbody = $('.table.table-striped tbody');
+            }
+            var $newRow = $(this.buildRowHtml(row));
+            $newRow.hide();
+            $tbody.prepend($newRow);
+            $newRow.addClass('bg-success').fadeIn(400, function () {
+                setTimeout(function () {
+                    $newRow.removeClass('bg-success');
+                }, 3000);
+            });
+        },
+
+        /**
+         * Actualiza una fila existente en la tabla
+         */
+        updateRowInTable: function (id, row) {
+            var $existingRow = $('#edificio-row-' + id);
+            if ($existingRow.length === 0) {
+                // La fila no existe en la tabla actual, ignorar
+                return;
+            }
+
+            var $newRow = $(this.buildRowHtml(row));
+            $existingRow.replaceWith($newRow);
+            $newRow.addClass('bg-info');
+            setTimeout(function () {
+                $newRow.removeClass('bg-info');
+            }, 3000);
+        },
+
+        /**
+         * Actualiza el contador de edificios
+         */
+        updateCount: function (delta) {
+            var $counter = $('h3.text-success strong');
+            if ($counter.length) {
+                var text = $counter.text();
+                var match = text.match(/(\d+)/);
+                if (match) {
+                    var currentCount = parseInt(match[1], 10);
+                    var newCount = currentCount + delta;
+                    $counter.text(newCount + ' Edificios');
+                }
+            }
+        },
+
+        /**
+         * Muestra errores de validación en el formulario del modal
+         */
+        showFormErrors: function ($form, errors, generalMessage) {
+            // Limpiar errores previos
+            $form.find('.ajax-error').remove();
+            $form.find('.has-error').removeClass('has-error');
+
+            if (generalMessage) {
+                $form.prepend('<div class="alert alert-danger ajax-error">' + this.escapeHtml(generalMessage) + '</div>');
+            }
+
+            if (errors) {
+                for (var field in errors) {
+                    if (errors.hasOwnProperty(field)) {
+                        var $input = $form.find('[name="data[Edificio][' + field + ']"]');
+                        if ($input.length) {
+                            var $group = $input.closest('.form-group, .col-md-6, .col-md-4, .col-md-3, .col-md-2, .col-md-12');
+                            $group.addClass('has-error');
+                            var errorMessages = errors[field];
+                            if (Array.isArray(errorMessages)) {
+                                for (var i = 0; i < errorMessages.length; i++) {
+                                    $input.after('<span class="help-block ajax-error text-danger">' + this.escapeHtml(errorMessages[i]) + '</span>');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        /**
+         * Muestra una notificación temporal
+         */
+        showNotification: function (type, message) {
+            var alertClass = (type === 'success') ? 'alert-success' : 'alert-danger';
+            var $notification = $(
+                '<div class="alert ' + alertClass + ' ajax-notification" ' +
+                'style="position:fixed; top:70px; right:20px; z-index:10000; min-width:300px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">' +
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                this.escapeHtml(message) +
+                '</div>'
+            );
+
+            $('body').append($notification);
+
+            // Auto-cerrar después de 4 segundos
+            setTimeout(function () {
+                $notification.fadeOut(400, function () {
+                    $(this).remove();
+                });
+            }, 4000);
+        },
+
+        /**
+         * Escapa HTML para prevenir XSS
+         */
+        escapeHtml: function (text) {
+            if (!text && text !== 0) return '';
+            var div = document.createElement('div');
+            div.appendChild(document.createTextNode(text));
+            return div.innerHTML;
+        }
+    };
+
+    // Inicializar cuando el DOM esté listo
+    $(function () {
+        EdificiosCrud.init();
+    });
+
+})(jQuery);
