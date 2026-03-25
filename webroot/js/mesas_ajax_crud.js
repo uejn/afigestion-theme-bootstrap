@@ -112,8 +112,13 @@
                             $btn.prop('disabled', false);
                         }
                     },
-                    error: function () {
-                        self.showNotification('error', 'Error de conexión. Intente nuevamente.');
+                    error: function (xhr) {
+                        var msg = 'Error de conexión. Intente nuevamente.';
+                        try {
+                            var resp = JSON.parse(xhr.responseText);
+                            if (resp && resp.message) { msg = resp.message; }
+                        } catch (e) { }
+                        self.showNotification('error', msg);
                         $btn.prop('disabled', false);
                     }
                 });
