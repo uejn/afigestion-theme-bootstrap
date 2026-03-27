@@ -19,25 +19,14 @@
 
 
 
-			$('#loaderbar').hide();
+			AfiLoader.hide();
 
-		    var timeout;
 			$( document ).ajaxComplete(function() {
-				clearTimeout(timeout);
-				$('#loaderbar').hide();
-			    $('#loaderbar .progress-bar').css({'width': '100%'});
+				AfiLoader.hide();
 			});
 
 			$( document ).ajaxStart(function() {
-				$('#loaderbar').show();
-				var load = 0;
-				timeout = setTimeout(function(){
-					load = load + 10;
-			  		$('#loaderbar .progress-bar').css({'width': load+'%'});
-					if ( load = 100 ) {
-						load = 0;
-					}
-				}, 100);
+				AfiLoader.show();
 			});
 
 	    });

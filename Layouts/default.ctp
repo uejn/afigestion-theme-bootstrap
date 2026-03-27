@@ -49,6 +49,7 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 
 		// Scripts for our layout
 		echo $this->Html->script('/theme/afitheme/js/jquery.min');
+		echo $this->Html->script('/theme/afitheme/js/afi_loader');
 		echo $this->Html->script('/theme/afitheme/js/bootstrap.min');
         
 		//flex select
@@ -139,10 +140,6 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 	</head>
 	<body>
 
-		<div id="loaderbar">
-			<?php echo $this->Html->image("Afigestion.spinner.gif");?>
-		</div>
-
 		<!-- Example modal-->
 		<div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog">
 			  <div class="modal-dialog modal-lg" role="document">
@@ -157,6 +154,15 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 			      -->
 			    </div>
 			  </div>
+		</div>
+		<!-- -->
+		<!-- AfiLoader: Overlay de carga global -->
+		<div id="afi-loader-overlay">
+			<div id="afi-loader-box">
+				<div id="afi-loader-spinner"></div>
+				<p id="afi-loader-text">Cargando...</p>
+				<p id="afi-loader-subtext"></p>
+			</div>
 		</div>
 		<!-- -->
 		<div class="body-wrapper">
