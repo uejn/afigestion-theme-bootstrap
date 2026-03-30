@@ -175,6 +175,7 @@
                 row.cant_afiliados,
                 row.cant_historicos,
                 this.escapeHtml(row.observacion),
+                row.es_electoral ? 'Sí' : 'No',
                 this.buildActionsHtml(row)
             ];
 
