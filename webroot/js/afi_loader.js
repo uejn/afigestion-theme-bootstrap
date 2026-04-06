@@ -54,3 +54,12 @@ var AfiLoader = (function() {
 		}
 	};
 })();
+
+// Cuando el navegador restaura la página desde bfcache (botón atrás/adelante),
+// el evento pageshow se dispara con persisted=true pero $(document).ready NO se ejecuta,
+// por lo que el overlay quedaría visible indefinidamente. Lo ocultamos aquí.
+window.addEventListener('pageshow', function(e) {
+	if (e.persisted) {
+		AfiLoader.hide();
+	}
+});
