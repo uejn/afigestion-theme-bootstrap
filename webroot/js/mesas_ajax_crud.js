@@ -112,13 +112,8 @@
                             $btn.prop('disabled', false);
                         }
                     },
-                    error: function (xhr) {
-                        var msg = 'Error de conexión. Intente nuevamente.';
-                        try {
-                            var resp = JSON.parse(xhr.responseText);
-                            if (resp && resp.message) { msg = resp.message; }
-                        } catch (e) { }
-                        self.showNotification('error', msg);
+                    error: function () {
+                        self.showNotification('error', 'Error de conexión. Intente nuevamente.');
                         $btn.prop('disabled', false);
                     }
                 });
@@ -159,6 +154,7 @@
                 this.escapeHtml(row.name),
                 this.escapeHtml(row.cod_edificio),
                 this.buildEdificioHtml(row),
+                row.es_electoral ? 'Sí' : 'No',
                 row.cant_deps,
                 this.escapeHtml(row.regional),
                 this.escapeHtml(row.localidad),
