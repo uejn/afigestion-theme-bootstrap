@@ -39,6 +39,10 @@ var AfiLoader = (function() {
 			_overlay.style.display = 'flex';
 			_shownAt = Date.now();
 		},
+		isVisible: function() {
+			_init();
+			return _overlay && _overlay.style.display === 'flex';
+		},
 		hide: function() {
 			_init();
 			if (!_overlay) return;

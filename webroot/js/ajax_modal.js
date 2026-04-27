@@ -26,7 +26,7 @@
 			});
 
 			$( document ).ajaxStart(function() {
-				AfiLoader.show();
+				if (!AfiLoader.isVisible()) AfiLoader.show();
 			});
 
 	    });
