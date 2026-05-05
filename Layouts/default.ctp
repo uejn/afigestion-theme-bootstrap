@@ -137,6 +137,15 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 
 				gtag('config', 'UA-70967459-1');
 			</script>
+			<!-- Interceptar AJAX 403: sesión expirada -->
+			<script type="text/javascript">
+				$(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
+					if (jqXHR.status === 403) {
+						alert('Su sesión ha expirado. Será redirigido a la página de inicio de sesión.');
+						window.location.reload();
+					}
+				});
+			</script>
 	</head>
 	<body>
 
