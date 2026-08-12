@@ -1,0 +1,2544 @@
+/**
+ * Material Design 3 sobre Bootstrap 5 — exclusivo de Personas::view().
+ * Se carga sólo desde el layout persona_view.ctp; el resto de la app sigue en BS3.
+ *
+ * Dos capas:
+ *   1. Tokens MD3 + reestilado de los componentes de BS5.
+ *   2. Shim de las clases de BS3 que BS5 eliminó y que el markup heredado
+ *      (navbar de Croogo, elements de los boxes) todavía usa.
+ */
+
+/* ===========================================================================
+   1. Tokens MD3
+   =========================================================================== */
+
+:root {
+    --md-primary: #1565c0;
+    --md-on-primary: #ffffff;
+    --md-primary-container: #d7e3ff;
+    --md-on-primary-container: #001b3e;
+    --md-secondary: #565e71;
+    --md-secondary-container: #dae2f9;
+    --md-on-secondary-container: #131c2b;
+
+    --md-surface: #fdfbff;
+    --md-surface-1: #f3f4fb;
+    --md-surface-2: #eef0f8;
+    --md-surface-3: #e7ebf5;
+    --md-surface-variant: #e1e2ec;
+    --md-on-surface: #1a1c1e;
+    --md-on-surface-variant: #44474f;
+    --md-outline: #74777f;
+    --md-outline-variant: #c4c6d0;
+
+    --md-error: #ba1a1a;
+    --md-on-error-container: #410002;
+    --md-error-container: #ffdad6;
+    --md-success: #0f6b32;
+    --md-on-success-container: #002110;
+    --md-success-container: #a7f2bf;
+    --md-warning: #7c5800;
+    --md-on-warning-container: #271900;
+    --md-warning-container: #ffdea6;
+    --md-info: #00629e;
+    --md-on-info-container: #001d33;
+    --md-info-container: #cfe5ff;
+
+    --md-elev-1: 0 1px 2px rgba(0, 0, 0, .30), 0 1px 3px 1px rgba(0, 0, 0, .15);
+    --md-elev-2: 0 1px 2px rgba(0, 0, 0, .30), 0 2px 6px 2px rgba(0, 0, 0, .15);
+    --md-elev-3: 0 1px 3px rgba(0, 0, 0, .30), 0 4px 8px 3px rgba(0, 0, 0, .15);
+
+    --md-radius-sm: 8px;
+    --md-radius: 12px;
+    --md-radius-lg: 16px;
+    --md-radius-full: 999px;
+
+    /* Bootstrap 5 lee estas variables, así que sus componentes heredan el tema. */
+    --bs-primary: var(--md-primary);
+    --bs-primary-rgb: 21, 101, 192;
+    --bs-body-font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --bs-body-color: var(--md-on-surface);
+    --bs-body-bg: var(--md-surface-1);
+    --bs-border-color: var(--md-outline-variant);
+    --bs-border-radius: var(--md-radius);
+    --bs-border-radius-sm: var(--md-radius-sm);
+    --bs-border-radius-lg: var(--md-radius-lg);
+    --bs-link-color: var(--md-primary);
+    --bs-link-hover-color: var(--md-on-primary-container);
+}
+
+body {
+    font-family: var(--bs-body-font-family);
+    background-color: var(--md-surface-1);
+    color: var(--md-on-surface);
+    letter-spacing: .0071em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--bs-body-font-family);
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--md-on-surface);
+}
+
+h1 {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1.125rem;
+}
+
+h5,
+h6 {
+    font-size: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Los iconos de Material Symbols se alinean con la línea base del texto. */
+.material-symbols-outlined,
+.glyphicon,
+.bi {
+    vertical-align: -.18em;
+    line-height: 1;
+}
+
+/* ===========================================================================
+   2. Componentes BS5 con apariencia MD3
+   =========================================================================== */
+
+/* --- Cards ---------------------------------------------------------------- */
+.card {
+    background-color: var(--md-surface);
+    border: none;
+    border-radius: var(--md-radius);
+    box-shadow: var(--md-elev-1);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--md-outline-variant);
+    font-weight: 500;
+    color: var(--md-on-surface-variant);
+}
+
+/* --- Botones -------------------------------------------------------------- */
+.btn {
+    --bs-btn-border-radius: var(--md-radius-full);
+    border-radius: var(--md-radius-full);
+    font-weight: 500;
+    letter-spacing: .0071em;
+    padding: .5rem 1.25rem;
+    transition: box-shadow .2s ease, background-color .2s ease;
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--md-primary-container);
+    outline-offset: 1px;
+    box-shadow: none;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--md-primary);
+    --bs-btn-border-color: var(--md-primary);
+    --bs-btn-hover-bg: #0f4fa0;
+    --bs-btn-hover-border-color: #0f4fa0;
+    --bs-btn-active-bg: #0d4590;
+    color: var(--md-on-primary);
+}
+
+.btn-primary:hover,
+.btn-success:hover,
+.btn-danger:hover,
+.btn-warning:hover,
+.btn-info:hover {
+    box-shadow: var(--md-elev-1);
+}
+
+.btn-success {
+    --bs-btn-bg: var(--md-success);
+    --bs-btn-border-color: var(--md-success);
+    --bs-btn-hover-bg: #0b5527;
+    --bs-btn-hover-border-color: #0b5527;
+}
+
+.btn-danger {
+    --bs-btn-bg: var(--md-error);
+    --bs-btn-border-color: var(--md-error);
+    --bs-btn-hover-bg: #931414;
+    --bs-btn-hover-border-color: #931414;
+}
+
+.btn-info {
+    --bs-btn-bg: var(--md-info);
+    --bs-btn-border-color: var(--md-info);
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
+}
+
+.btn-warning {
+    --bs-btn-bg: var(--md-warning-container);
+    --bs-btn-border-color: var(--md-warning-container);
+    --bs-btn-color: var(--md-on-warning-container);
+}
+
+.btn-link {
+    color: var(--md-primary);
+    text-decoration: none;
+}
+
+.btn-sm,
+.btn-xs {
+    padding: .25rem .75rem;
+    font-size: .8125rem;
+}
+
+.btn-group>.btn:first-child:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-group>.btn:last-child:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* --- Campos de formulario (text field "filled" de MD3) -------------------- */
+.form-control,
+.form-select {
+    background-color: var(--md-surface-2);
+    border: none;
+    border-bottom: 1px solid var(--md-outline);
+    border-radius: var(--md-radius-sm) var(--md-radius-sm) 0 0;
+    color: var(--md-on-surface);
+    box-shadow: none;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: var(--md-surface-3);
+    border-bottom: 2px solid var(--md-primary);
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    color: var(--md-on-surface-variant);
+    opacity: .8;
+}
+
+label,
+.form-label {
+    color: var(--md-on-surface-variant);
+    font-size: .875rem;
+    font-weight: 500;
+    margin-bottom: .25rem;
+}
+
+/* --- Tablas --------------------------------------------------------------- */
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-hover-bg: var(--md-surface-2);
+    --bs-table-border-color: var(--md-outline-variant);
+    color: var(--md-on-surface);
+    vertical-align: middle;
+}
+
+.table>thead th {
+    border-bottom: 1px solid var(--md-outline);
+    color: var(--md-on-surface-variant);
+    font-size: .8125rem;
+    font-weight: 500;
+    text-transform: none;
+}
+
+/* --- Alertas -------------------------------------------------------------- */
+.alert {
+    border: none;
+    border-radius: var(--md-radius);
+    box-shadow: var(--md-elev-1);
+}
+
+.alert-danger {
+    background-color: var(--md-error-container);
+    color: var(--md-on-error-container);
+}
+
+.alert-success {
+    background-color: var(--md-success-container);
+    color: var(--md-on-success-container);
+}
+
+.alert-warning {
+    background-color: var(--md-warning-container);
+    color: var(--md-on-warning-container);
+}
+
+.alert-info {
+    background-color: var(--md-info-container);
+    color: var(--md-on-info-container);
+}
+
+/* --- Badges / chips ------------------------------------------------------- */
+.badge {
+    border-radius: var(--md-radius-sm);
+    font-weight: 500;
+    letter-spacing: .0071em;
+    padding: .35em .65em;
+}
+
+/* --- Modal ---------------------------------------------------------------- */
+.modal-content {
+    background-color: var(--md-surface);
+    border: none;
+    border-radius: 28px;
+    box-shadow: var(--md-elev-3);
+}
+
+.modal-header,
+.modal-footer {
+    border-color: var(--md-outline-variant);
+}
+
+/* La X flota sobre el contenido cargado por AJAX, que no trae modal-header. */
+#ajaxModal .ajax-modal__cerrar {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    z-index: 5;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0;
+    padding: 0;
+    border: 2px solid var(--md-surface);
+    border-radius: 50%;
+    background-color: var(--md-error);
+    /* btn-close trae la X en negro; se reemplaza por una blanca para el círculo rojo. */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414'/%3e%3c/svg%3e");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: .95rem;
+    box-shadow: var(--md-elev-2);
+    opacity: 1;
+    transition: transform .15s ease, background-color .15s ease;
+}
+
+#ajaxModal .ajax-modal__cerrar:hover,
+#ajaxModal .ajax-modal__cerrar:focus {
+    background-color: var(--md-on-error-container);
+    box-shadow: var(--md-elev-3);
+    transform: scale(1.08);
+}
+
+#ajaxModal .modal-body {
+    padding-right: 3.5rem;
+}
+
+/* --- Tabs ----------------------------------------------------------------- */
+.nav-tabs {
+    border-bottom: 1px solid var(--md-outline-variant);
+}
+
+.nav-tabs .nav-link,
+.nav-tabs>li>a {
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    color: var(--md-on-surface-variant);
+    font-weight: 500;
+    display: block;
+    padding: .75rem 1rem;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs>li.active>a {
+    background-color: transparent;
+    border-bottom-color: var(--md-primary);
+    color: var(--md-primary);
+}
+
+/* --- Dropdown ------------------------------------------------------------- */
+.dropdown-menu {
+    border: none;
+    border-radius: var(--md-radius-sm);
+    box-shadow: var(--md-elev-2);
+    padding: .5rem 0;
+    min-width: 15rem;
+}
+
+.dropdown-item:active {
+    background-color: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+}
+
+/* Markup BS3: los ítems son <li><a> (o el <a> del postLink) en vez de .dropdown-item.
+   Se excluyen los que traen clases de visibilidad por rol para no pisar su display:none. */
+.dropdown-menu>li>a:not([class*="se-oculta"]),
+.dropdown-menu>li>form>a:not([class*="se-oculta"]) {
+    display: block;
+    width: 100%;
+    padding: .5rem 1rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--md-on-surface);
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    text-decoration: none;
+    white-space: normal;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>form>a:hover,
+.dropdown-menu>li>form>a:focus {
+    background-color: var(--md-surface-2);
+    color: var(--md-on-surface);
+    text-decoration: none;
+}
+
+.dropdown-menu>li>form {
+    margin: 0;
+}
+
+/* Mismo aspecto para los ítems que llevan clases de rol (sin tocar su display). */
+.dropdown-menu>li>a[class*="se-oculta"],
+.dropdown-menu>li>form>a[class*="se-oculta"] {
+    width: 100%;
+    padding: .5rem 1rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--md-on-surface);
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    text-decoration: none;
+    white-space: normal;
+}
+
+.dropdown-menu>li.divider {
+    height: 1px;
+    margin: .5rem 0;
+    padding: 0;
+    background-color: var(--md-outline-variant);
+    overflow: hidden;
+}
+
+/* ===========================================================================
+   3. Shim BS3 -> BS5
+   =========================================================================== */
+
+/* --- Grilla: BS5 eliminó el infijo "xs" ----------------------------------- */
+[class*="col-xs-"] {
+    position: relative;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x, 1.5rem) * .5);
+    padding-left: calc(var(--bs-gutter-x, 1.5rem) * .5);
+}
+
+.col-xs-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%;
+}
+
+.col-xs-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+}
+
+.col-xs-3 {
+    flex: 0 0 auto;
+    width: 25%;
+}
+
+.col-xs-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+}
+
+.col-xs-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+}
+
+.col-xs-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.col-xs-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+}
+
+.col-xs-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+}
+
+.col-xs-9 {
+    flex: 0 0 auto;
+    width: 75%;
+}
+
+.col-xs-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+}
+
+.col-xs-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+}
+
+.col-xs-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.col-xs-offset-1 {
+    margin-left: 8.33333333%;
+}
+
+.col-xs-offset-2 {
+    margin-left: 16.66666667%;
+}
+
+.col-xs-offset-3 {
+    margin-left: 25%;
+}
+
+.col-xs-offset-4 {
+    margin-left: 33.33333333%;
+}
+
+.col-xs-offset-6 {
+    margin-left: 50%;
+}
+
+/* Las columnas col-xs de arriba van sin media query y por orden le ganan a las
+   col-sm y col-md de BS5. Se repiten acá para devolverles la prioridad desde
+   cada breakpoint, como hacía BS3. */
+@media (min-width: 576px) {
+
+    .col-sm-1,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12 {
+        flex: 0 0 auto;
+    }
+
+    .col-sm-1 {
+        width: 8.33333333%;
+    }
+
+    .col-sm-2 {
+        width: 16.66666667%;
+    }
+
+    .col-sm-3 {
+        width: 25%;
+    }
+
+    .col-sm-4 {
+        width: 33.33333333%;
+    }
+
+    .col-sm-5 {
+        width: 41.66666667%;
+    }
+
+    .col-sm-6 {
+        width: 50%;
+    }
+
+    .col-sm-7 {
+        width: 58.33333333%;
+    }
+
+    .col-sm-8 {
+        width: 66.66666667%;
+    }
+
+    .col-sm-9 {
+        width: 75%;
+    }
+
+    .col-sm-10 {
+        width: 83.33333333%;
+    }
+
+    .col-sm-11 {
+        width: 91.66666667%;
+    }
+
+    .col-sm-12 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .col-md-1,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12 {
+        flex: 0 0 auto;
+    }
+
+    .col-md-1 {
+        width: 8.33333333%;
+    }
+
+    .col-md-2 {
+        width: 16.66666667%;
+    }
+
+    .col-md-3 {
+        width: 25%;
+    }
+
+    .col-md-4 {
+        width: 33.33333333%;
+    }
+
+    .col-md-5 {
+        width: 41.66666667%;
+    }
+
+    .col-md-6 {
+        width: 50%;
+    }
+
+    .col-md-7 {
+        width: 58.33333333%;
+    }
+
+    .col-md-8 {
+        width: 66.66666667%;
+    }
+
+    .col-md-9 {
+        width: 75%;
+    }
+
+    .col-md-10 {
+        width: 83.33333333%;
+    }
+
+    .col-md-11 {
+        width: 91.66666667%;
+    }
+
+    .col-md-12 {
+        width: 100%;
+    }
+}
+
+/* --- Panel -> card MD3 ---------------------------------------------------- */
+.panel {
+    background-color: var(--md-surface);
+    border: none;
+    border-radius: var(--md-radius);
+    box-shadow: var(--md-elev-1);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.panel-heading {
+    background-color: var(--md-surface-2);
+    border-bottom: 1px solid var(--md-outline-variant);
+    color: var(--md-on-surface-variant);
+    font-weight: 500;
+    padding: .75rem 1rem;
+}
+
+.panel-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.panel-body {
+    padding: 1rem;
+}
+
+.panel-footer {
+    background-color: var(--md-surface-2);
+    border-top: 1px solid var(--md-outline-variant);
+    padding: .75rem 1rem;
+}
+
+.panel>.table,
+.panel>.table-responsive>.table {
+    margin-bottom: 0;
+}
+
+.panel-primary>.panel-heading {
+    background-color: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+}
+
+.panel-success>.panel-heading {
+    background-color: var(--md-success-container);
+    color: var(--md-on-success-container);
+}
+
+.panel-info>.panel-heading {
+    background-color: var(--md-info-container);
+    color: var(--md-on-info-container);
+}
+
+.panel-warning>.panel-heading {
+    background-color: var(--md-warning-container);
+    color: var(--md-on-warning-container);
+}
+
+.panel-danger>.panel-heading {
+    background-color: var(--md-error-container);
+    color: var(--md-on-error-container);
+}
+
+/* --- Well / thumbnail ----------------------------------------------------- */
+.well {
+    background-color: var(--md-surface-2);
+    border: none;
+    border-radius: var(--md-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.thumbnail {
+    background-color: var(--md-surface);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--md-radius-sm);
+    display: block;
+    padding: .25rem;
+}
+
+.thumbnail>img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Label BS3 -> chip MD3 (sólo con su clase contextual) ----------------- */
+.label-default,
+.label-primary,
+.label-success,
+.label-info,
+.label-warning,
+.label-danger {
+    border-radius: var(--md-radius-sm);
+    display: inline-block;
+    font-size: .75em;
+    font-weight: 500;
+    line-height: 1;
+    padding: .35em .6em;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.label-default {
+    background-color: var(--md-surface-variant);
+    color: var(--md-on-surface-variant);
+}
+
+.label-primary {
+    background-color: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+}
+
+.label-success {
+    background-color: var(--md-success-container);
+    color: var(--md-on-success-container);
+}
+
+.label-info {
+    background-color: var(--md-info-container);
+    color: var(--md-on-info-container);
+}
+
+.label-warning {
+    background-color: var(--md-warning-container);
+    color: var(--md-on-warning-container);
+}
+
+.label-danger {
+    background-color: var(--md-error-container);
+    color: var(--md-on-error-container);
+}
+
+/* --- Botón "default" BS3 -> outlined MD3 ---------------------------------- */
+.btn-default {
+    background-color: transparent;
+    border: 1px solid var(--md-outline);
+    color: var(--md-primary);
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    background-color: var(--md-surface-2);
+    border-color: var(--md-outline);
+    color: var(--md-primary);
+}
+
+/* --- Utilidades eliminadas en BS5 ----------------------------------------- */
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.img-rounded {
+    border-radius: var(--md-radius-sm);
+}
+
+.table-condensed> :not(caption)>*>* {
+    padding: .25rem .25rem;
+}
+
+.help-block {
+    color: var(--md-on-surface-variant);
+    font-size: .875em;
+    display: block;
+    margin-top: .25rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.control-label {
+    font-weight: 500;
+}
+
+.input-group-addon {
+    display: flex;
+    align-items: center;
+    background-color: var(--md-surface-3);
+    border: none;
+    border-bottom: 1px solid var(--md-outline);
+    color: var(--md-on-surface-variant);
+    padding: .375rem .75rem;
+}
+
+.input-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+}
+
+.checkbox,
+.radio {
+    margin-bottom: .5rem;
+}
+
+.checkbox label,
+.radio label {
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+@media (max-width: 767.98px) {
+    .hidden-xs {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .hidden-sm {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .visible-xs {
+        display: none !important;
+    }
+}
+
+.form-horizontal .control-label {
+    padding-top: .5rem;
+}
+
+/* --- Navbar: se replica el de BS3 para que el menú quede como en el resto ---
+   BS5 no estila el markup de la navbar de Croogo (y su .navbar-nav es vertical),
+   así que acá se reponen las reglas de BS3 acotadas al header. */
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    display: block;
+    padding: 0;
+}
+
+.navbar-default {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+}
+
+.navbar-static-top {
+    z-index: 1000;
+    border-width: 0 0 1px;
+}
+
+.navbar .container,
+.navbar .container-fluid {
+    display: block;
+}
+
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #777;
+    text-decoration: none;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #5e5e5e;
+    text-decoration: none;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav>li {
+    position: relative;
+}
+
+.navbar-nav>li>a {
+    color: #777;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.navbar-nav>li>a:hover,
+.navbar-nav>li>a:focus {
+    color: #333;
+    background-color: transparent;
+}
+
+.navbar-nav>.active>a,
+.navbar-nav>.open>a {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+/* El markup trae su propio <span class="caret">: el ::after de BS5 duplicaba la flecha. */
+.navbar .dropdown-toggle::after {
+    display: none;
+}
+
+/* Desplegables del menú: aspecto BS3, no el de las tarjetas de la ficha. */
+.navbar .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.navbar .open>.dropdown-menu,
+.navbar .dropdown-menu.show {
+    display: block;
+}
+
+.navbar .dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.navbar .dropdown-menu>li>a:hover,
+.navbar .dropdown-menu>li>a:focus {
+    color: #262626;
+    background-color: #f5f5f5;
+}
+
+/* Los campos del buscador del header van con el look de BS3. */
+.navbar .form-inline {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.navbar .form-inline .input,
+.navbar .form-inline .form-group {
+    margin-bottom: 0;
+}
+
+.navbar .form-control {
+    display: inline-block;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.navbar .form-control:focus {
+    border-color: #66afe9;
+    background-color: #fff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.navbar .btn {
+    border-radius: 4px;
+    font-weight: 400;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.navbar .btn-default {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.navbar .btn-default:hover,
+.navbar .btn-default:focus {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.navbar-right {
+    margin-left: auto;
+}
+
+.navbar-toggle {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: none;
+    float: right;
+    margin: 8px;
+    padding: 9px 10px;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #888;
+    border-radius: 1px;
+    display: block;
+    height: 2px;
+    width: 22px;
+}
+
+.navbar-toggle .icon-bar+.icon-bar {
+    margin-top: 4px;
+}
+
+@media (max-width: 767.98px) {
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-collapse.collapse:not(.show) {
+        display: none;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse.collapse {
+        display: block !important;
+    }
+}
+
+/* --- Glyphicons BS3 -> Material Symbols ----------------------------------- */
+.glyphicon {
+    display: inline-block;
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.glyphicon-search::before {
+    content: 'search';
+}
+
+.glyphicon-pencil::before {
+    content: 'edit';
+}
+
+.glyphicon-edit::before {
+    content: 'edit';
+}
+
+.glyphicon-trash::before {
+    content: 'delete';
+}
+
+.glyphicon-remove::before {
+    content: 'close';
+}
+
+.glyphicon-remove-circle::before {
+    content: 'cancel';
+}
+
+.glyphicon-ok::before {
+    content: 'check';
+}
+
+.glyphicon-ok-circle::before {
+    content: 'check_circle';
+}
+
+.glyphicon-plus::before {
+    content: 'add';
+}
+
+.glyphicon-minus::before {
+    content: 'remove';
+}
+
+.glyphicon-user::before {
+    content: 'person';
+}
+
+.glyphicon-lock::before {
+    content: 'lock';
+}
+
+.glyphicon-calendar::before {
+    content: 'calendar_month';
+}
+
+.glyphicon-briefcase::before {
+    content: 'work';
+}
+
+.glyphicon-picture::before {
+    content: 'image';
+}
+
+.glyphicon-envelope::before {
+    content: 'mail';
+}
+
+.glyphicon-print::before {
+    content: 'print';
+}
+
+.glyphicon-download-alt::before {
+    content: 'download';
+}
+
+.glyphicon-upload::before {
+    content: 'upload';
+}
+
+.glyphicon-eye-open::before {
+    content: 'visibility';
+}
+
+.glyphicon-eye-close::before {
+    content: 'visibility_off';
+}
+
+.glyphicon-warning-sign::before {
+    content: 'warning';
+}
+
+.glyphicon-exclamation-sign::before {
+    content: 'error';
+}
+
+.glyphicon-info-sign::before {
+    content: 'info';
+}
+
+.glyphicon-question-sign::before {
+    content: 'help';
+}
+
+.glyphicon-stats::before {
+    content: 'bar_chart';
+}
+
+.glyphicon-map-marker::before {
+    content: 'location_on';
+}
+
+.glyphicon-inbox::before {
+    content: 'inbox';
+}
+
+.glyphicon-pause::before {
+    content: 'pause';
+}
+
+.glyphicon-play::before {
+    content: 'play_arrow';
+}
+
+.glyphicon-th-large::before {
+    content: 'grid_view';
+}
+
+.glyphicon-th-list::before {
+    content: 'list';
+}
+
+.glyphicon-list::before {
+    content: 'list';
+}
+
+.glyphicon-arrow-left::before {
+    content: 'arrow_back';
+}
+
+.glyphicon-arrow-right::before {
+    content: 'arrow_forward';
+}
+
+.glyphicon-chevron-down::before {
+    content: 'expand_more';
+}
+
+.glyphicon-chevron-up::before {
+    content: 'expand_less';
+}
+
+.glyphicon-chevron-left::before {
+    content: 'chevron_left';
+}
+
+.glyphicon-chevron-right::before {
+    content: 'chevron_right';
+}
+
+.glyphicon-refresh::before {
+    content: 'refresh';
+}
+
+.glyphicon-cog::before {
+    content: 'settings';
+}
+
+.glyphicon-file::before {
+    content: 'description';
+}
+
+.glyphicon-folder-open::before {
+    content: 'folder_open';
+}
+
+.glyphicon-home::before {
+    content: 'home';
+}
+
+.glyphicon-phone::before {
+    content: 'call';
+}
+
+.glyphicon-time::before {
+    content: 'schedule';
+}
+
+.glyphicon-star::before {
+    content: 'star';
+}
+
+.glyphicon-flag::before {
+    content: 'flag';
+}
+
+.glyphicon-comment::before {
+    content: 'comment';
+}
+
+.glyphicon-usd::before {
+    content: 'attach_money';
+}
+
+.glyphicon-log-out::before {
+    content: 'logout';
+}
+
+.glyphicon-menu-hamburger::before {
+    content: 'menu';
+}
+
+/* Botones que traen el glyphicon en la propia clase del botón. */
+.btn.glyphicon {
+    font-family: var(--bs-body-font-family);
+}
+
+.btn.glyphicon::before {
+    font-family: 'Material Symbols Outlined';
+    font-size: 20px;
+    vertical-align: -.18em;
+}
+
+/* ===========================================================================
+   4. Ficha de persona
+   =========================================================================== */
+
+/* Re-tematizado: neutros fríos (slate), primario azul 600 y radios/sombras actuales.
+   La estructura sigue siendo MD3; cambian los tokens. */
+:root {
+    --md-primary: #2563eb;
+    --md-on-primary: #ffffff;
+    --md-primary-container: #dbeafe;
+    --md-on-primary-container: #1e3a8a;
+
+    --md-surface: #ffffff;
+    --md-surface-1: #f8fafc;
+    --md-surface-2: #f1f5f9;
+    --md-surface-3: #e2e8f0;
+    --md-surface-variant: #f1f5f9;
+    --md-on-surface: #0f172a;
+    --md-on-surface-variant: #64748b;
+    --md-outline: #94a3b8;
+    --md-outline-variant: #e6eaf0;
+
+    --md-error: #dc2626;
+    --md-error-container: #fee2e2;
+    --md-on-error-container: #7f1d1d;
+    --md-success: #16a34a;
+    --md-success-container: #dcfce7;
+    --md-on-success-container: #14532d;
+    --md-warning: #d97706;
+    --md-warning-container: #fef3c7;
+    --md-on-warning-container: #78350f;
+    --md-info: #2563eb;
+    --md-info-container: #dbeafe;
+    --md-on-info-container: #1e3a8a;
+
+    --md-radius-sm: 8px;
+    --md-radius: 10px;
+    --md-radius-lg: 14px;
+
+    /* Sombras difusas y frías: las de MD3 puro (30% de negro) se ven duras en pantalla clara. */
+    --md-elev-1: 0 1px 2px rgba(15, 23, 42, .04), 0 1px 3px rgba(15, 23, 42, .04);
+    --md-elev-2: 0 2px 4px rgba(15, 23, 42, .04), 0 8px 16px rgba(15, 23, 42, .06);
+    --md-elev-3: 0 4px 8px rgba(15, 23, 42, .05), 0 16px 32px rgba(15, 23, 42, .08);
+
+    --bs-body-bg: #f6f8fb;
+    --bs-body-font-family: 'Inter', 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --bs-border-radius: var(--md-radius);
+
+    /* Acento institucional: se usa en dosis chicas (barra de solapas, rótulos, estado). */
+    --afi-accent: #815104ed;
+    --afi-accent-solid: #815104;
+    --afi-accent-soft: rgba(129, 81, 4, .10);
+    --afi-accent-softer: rgba(129, 81, 4, .05);
+    --afi-accent-border: rgba(129, 81, 4, .20);
+}
+
+::selection {
+    background-color: var(--afi-accent-soft);
+}
+
+body {
+    background-color: var(--bs-body-bg);
+    letter-spacing: -.006em;
+}
+
+/* Botones: radio contenido y peso medio, sin la píldora completa. */
+.col-boxes .btn,
+.persona-hero .btn {
+    border-radius: var(--md-radius-sm);
+    font-weight: 500;
+    letter-spacing: -.006em;
+}
+
+/* El tema fuerza Raleway en los h4: dentro de la ficha va la misma familia que el resto. */
+.persona-hero h1,
+.col-boxes h1,
+.col-boxes h2,
+.col-boxes h3,
+.col-boxes h4,
+.col-boxes h5,
+.col-boxes p {
+    font-family: var(--bs-body-font-family);
+}
+
+.col-boxes h1,
+.col-boxes h2,
+.col-boxes h3,
+.col-boxes h4,
+.col-boxes h5 {
+    font-size: inherit;
+}
+
+.body-container,
+.body-wrapper>.container-fluid {
+    padding-top: .5rem;
+}
+
+/* --- Cabecera: surface container tonal ------------------------------------- */
+.persona-hero {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background-color: var(--md-surface);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--md-radius-lg);
+    box-shadow: var(--md-elev-1);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.persona-hero__avatar {
+    flex: 0 0 auto;
+    width: 84px;
+    height: 104px;
+    border-radius: var(--md-radius);
+    overflow: hidden;
+    background-color: var(--md-surface-2);
+    border: 1px solid var(--md-outline-variant);
+    box-shadow: none;
+}
+
+.persona-hero__avatar a,
+.persona-hero__avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    padding: 0;
+    background: transparent;
+}
+
+.persona-hero__avatar-vacio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 2.75rem;
+    color: var(--md-outline);
+}
+
+.persona-hero__main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* Contexto laboral: bloques etiqueta/valor a la derecha del nombre. */
+.persona-hero__stats {
+    flex: 0 1 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, max-content));
+    gap: .5rem 1.75rem;
+    align-self: stretch;
+    align-content: center;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--md-outline-variant);
+    max-width: 46%;
+}
+
+.persona-hero__stat {
+    min-width: 0;
+}
+
+.persona-hero__stat-label {
+    display: block;
+    font-size: .6875rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--md-on-surface-variant);
+}
+
+.persona-hero__stat-value {
+    display: block;
+    font-size: .8125rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    color: var(--md-on-surface);
+    overflow-wrap: anywhere;
+}
+
+.persona-hero__stat-value.is-ok {
+    color: var(--md-success);
+}
+
+.persona-hero__stat-value.is-alerta {
+    color: var(--md-error);
+}
+
+@media (max-width: 991.98px) {
+    .persona-hero {
+        flex-wrap: wrap;
+    }
+
+    .persona-hero__stats {
+        flex-basis: 100%;
+        max-width: none;
+        padding-left: 0;
+        padding-top: 1rem;
+        border-left: none;
+        border-top: 1px solid var(--md-outline-variant);
+    }
+}
+
+.persona-hero__estado {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--afi-accent-solid);
+}
+
+.persona-hero__estado .afgtn-icon {
+    width: 26px;
+    height: 26px;
+    margin: 0;
+}
+
+.persona-hero__estado small {
+    font-size: inherit;
+    color: inherit !important;
+}
+
+.persona-hero__nombre {
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+    letter-spacing: -.025em;
+    margin: .1rem 0 .85rem;
+    overflow-wrap: anywhere;
+}
+
+.nombreQueNoEsAdmin {
+    cursor: pointer;
+    border-radius: var(--md-radius-sm);
+    transition: background-color .15s ease;
+}
+
+.nombreQueNoEsAdmin:hover {
+    background-color: rgba(21, 101, 192, .08);
+}
+
+.persona-hero__form .form-control {
+    display: inline-block;
+    width: auto;
+    min-width: 320px;
+    max-width: 100%;
+}
+
+/* Contacto: línea discreta debajo de los chips de identidad. */
+.persona-contacto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem 1.25rem;
+    list-style: none;
+    margin: .625rem 0 0;
+    padding: 0;
+}
+
+.persona-contacto__item {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    max-width: 100%;
+    font-size: .8125rem;
+    color: var(--md-on-surface-variant);
+    overflow-wrap: anywhere;
+}
+
+.persona-contacto__item .bi {
+    font-size: .875rem;
+    opacity: .7;
+}
+
+.persona-contacto__item a {
+    color: var(--md-on-surface);
+    text-decoration: none;
+}
+
+.persona-contacto__item a:hover {
+    color: var(--afi-accent-solid);
+    text-decoration: underline;
+}
+
+/* --- Chips de datos clave (assist chips MD3: 32px de alto, esquina de 8px) --- */
+.persona-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.persona-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    max-width: 100%;
+    min-height: 30px;
+    padding: 0 .625rem;
+    background-color: var(--md-surface-1);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--md-radius-sm);
+    color: var(--md-on-surface-variant);
+    font-size: .8125rem;
+    letter-spacing: -.006em;
+    line-height: 1.25rem;
+    overflow-wrap: anywhere;
+}
+
+.persona-chip .bi {
+    font-size: 1rem;
+    opacity: .75;
+}
+
+.persona-chip b {
+    color: var(--md-on-surface);
+    font-weight: 500;
+}
+
+.persona-chip--alerta {
+    background-color: var(--md-warning-container);
+    border-color: transparent;
+    color: var(--md-on-warning-container);
+}
+
+.persona-chip--alerta b {
+    color: inherit;
+}
+
+@media (max-width: 575.98px) {
+    .persona-hero {
+        gap: .75rem;
+        padding: .75rem;
+    }
+
+    .persona-hero__avatar {
+        width: 64px;
+        height: 80px;
+    }
+
+    .persona-hero__nombre {
+        font-size: 1.25rem;
+    }
+}
+
+/* --- Columnas de boxes: elevated cards de MD3 ------------------------------ */
+.col-boxes .panel {
+    position: relative;
+    background-color: var(--md-surface);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--md-radius-lg);
+    box-shadow: var(--md-elev-1);
+    margin-bottom: 1rem;
+    transition: box-shadow .18s ease, border-color .18s ease;
+    /* visible: los dropdown de los boxes se salen de la tarjeta y no deben recortarse */
+    overflow: visible;
+}
+
+.col-boxes>.panel:hover {
+    border-color: #d6dde7;
+    box-shadow: var(--md-elev-2);
+}
+
+/* El menú de acciones va en la esquina de la tarjeta y acompaña el scroll:
+   la fila se estira a todo el alto (sin capturar clics) para que el botón pueda ser sticky. */
+.col-boxes .panel>.panel-body>.row:has(> .col-md-12 > .btn-group > .dropdown-toggle) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: .5rem;
+    width: 2.25rem;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.col-boxes .panel>.panel-body>.row>.col-md-12:has(> .btn-group > .dropdown-toggle) {
+    padding: 0;
+}
+
+.col-boxes .panel>.panel-body>.row>.col-md-12>.btn-group:has(>.dropdown-toggle) {
+    position: sticky;
+    top: .75rem;
+    pointer-events: auto;
+}
+
+.col-boxes .panel>:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.col-boxes .panel>:last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.col-boxes .panel-heading {
+    background-color: transparent;
+    border-bottom: 1px solid var(--md-outline-variant);
+    padding: 1rem 1rem .75rem;
+    text-align: left;
+}
+
+/* title-medium de MD3 */
+.col-boxes .panel-heading h3,
+.col-boxes .panel-heading h4,
+.col-boxes .panel-heading h5 {
+    margin: 0;
+    font-size: .9375rem;
+    font-weight: 600;
+    line-height: 1.375rem;
+    letter-spacing: -.014em;
+    color: var(--md-on-surface);
+    text-align: left;
+}
+
+.col-boxes .panel-body {
+    padding: .75rem 1.25rem 1.25rem;
+}
+
+/* Subtítulos de sección dentro de una tarjeta. */
+.col-boxes .panel-body h2:not(.alert):not([class*="text-"]),
+.col-boxes .panel-body h3:not(.alert):not([class*="text-"]),
+.col-boxes .panel-body h4:not(.alert):not([class*="text-"]) {
+    text-align: left;
+    color: var(--afi-accent-solid);
+    font-size: .6875rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    line-height: 1rem;
+    text-transform: uppercase;
+    margin: 1.5rem 0 .25rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--afi-accent-border);
+}
+
+.col-boxes .panel-body h2:first-child,
+.col-boxes .panel-body h3:first-child,
+.col-boxes .panel-body h4:first-child {
+    margin-top: 0;
+}
+
+/* El número de legajo es el dato principal de su tarjeta. */
+.col-boxes .panel-body h2.center:not(.alert) {
+    text-align: center;
+    color: var(--md-on-surface);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    line-height: 1.75rem;
+    text-transform: none;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin: 0 0 .5rem;
+}
+
+.col-boxes .panel-body h2.center:not(.alert) small {
+    display: block;
+    color: var(--md-on-surface-variant);
+    font-size: .6875rem;
+    font-weight: 600;
+    letter-spacing: .09em;
+    line-height: 1rem;
+    margin-bottom: .15rem;
+    text-transform: uppercase;
+}
+
+/* Un panel dentro de otro es una sección interna, no una tarjeta sobre otra. */
+.col-boxes .panel .panel {
+    background-color: var(--md-surface-1);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--md-radius);
+    box-shadow: none;
+    margin-bottom: .75rem;
+}
+
+.col-boxes .panel .panel:hover {
+    box-shadow: none;
+}
+
+.col-boxes .panel .panel .panel-heading {
+    background-color: transparent;
+    border-bottom-color: var(--md-outline-variant);
+    padding: .625rem .875rem;
+}
+
+.col-boxes .panel .panel .panel-heading h5 {
+    font-size: .6875rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--md-on-surface-variant) !important;
+}
+
+.col-boxes .letra-panel-persona-view {
+    font-size: .8125rem !important;
+}
+
+/* Alertas dentro de una tarjeta: contenedor tonal compacto. */
+.col-boxes .panel .alert {
+    border-radius: var(--md-radius);
+    box-shadow: none;
+    font-size: .8125rem;
+    padding: .625rem .875rem;
+    margin-bottom: .75rem;
+}
+
+.col-boxes .panel .alert h4 {
+    color: inherit;
+    font-size: .875rem;
+    letter-spacing: 0;
+    margin: 0;
+    text-transform: none;
+}
+
+/* Botones de acción: filled tonal de MD3 en vez de bloques saturados. */
+.col-boxes .btn-success:not(.dropdown-toggle) {
+    background-color: var(--md-success-container);
+    border-color: transparent;
+    color: var(--md-on-success-container);
+}
+
+.col-boxes .btn-primary:not(.dropdown-toggle) {
+    background-color: var(--md-primary-container);
+    border-color: transparent;
+    color: var(--md-on-primary-container);
+}
+
+.col-boxes .btn-info:not(.dropdown-toggle) {
+    background-color: var(--md-info-container);
+    border-color: transparent;
+    color: var(--md-on-info-container);
+}
+
+.col-boxes .btn-success:not(.dropdown-toggle):hover,
+.col-boxes .btn-primary:not(.dropdown-toggle):hover,
+.col-boxes .btn-info:not(.dropdown-toggle):hover {
+    box-shadow: var(--md-elev-1);
+    filter: brightness(.96);
+}
+
+/* Menú de acciones de cada box: botón de icono, con superficie propia porque flota sobre el contenido.
+   Las medidas van con !important: compiten con el .btn de BS5 y con los shims de BS3 del tema. */
+.col-boxes .btn.dropdown-toggle {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    width: 2rem !important;
+    min-width: 2rem;
+    max-width: 2rem;
+    height: 2rem !important;
+    min-height: 2rem;
+    max-height: 2rem;
+    padding: 0 !important;
+    border: 1px solid var(--md-outline-variant);
+    border-radius: 999px !important;
+    /* Sin font-size el nodo de texto entre los spans no agranda el line-box. */
+    font-size: 0 !important;
+    line-height: 1.875rem !important;
+    text-align: center;
+    overflow: hidden;
+    background-color: var(--md-surface);
+    color: var(--md-on-surface-variant);
+    box-shadow: var(--md-elev-1);
+}
+
+.col-boxes .btn.dropdown-toggle:hover,
+.col-boxes .btn.dropdown-toggle:focus,
+.col-boxes .btn.dropdown-toggle.show,
+.col-boxes .btn.dropdown-toggle[aria-expanded="true"] {
+    background-color: var(--afi-accent-soft);
+    border-color: var(--afi-accent-border);
+    color: var(--afi-accent-solid);
+    box-shadow: var(--md-elev-1);
+}
+
+/* El caret de BS3 y el ::after de BS5 sobran: el icono ya indica el menú. */
+.col-boxes .btn.dropdown-toggle .caret,
+.col-boxes .btn.dropdown-toggle::after {
+    display: none;
+}
+
+.col-boxes .btn.dropdown-toggle .glyphicon {
+    display: inline-block;
+    width: 100%;
+    font-size: 18px !important;
+    line-height: 1.875rem !important;
+    vertical-align: top;
+}
+
+.col-boxes .btn.dropdown-toggle .glyphicon-th-large::before {
+    content: 'more_vert';
+}
+
+/* El menú del legajo también sigue el scroll de su bloque. */
+.legajo-actions {
+    float: right;
+    position: sticky;
+    top: .75rem;
+    z-index: 5;
+}
+
+/* --- Solapas del box central: primary tabs de MD3 -------------------------- */
+.persona-tabs>.panel-heading {
+    padding: 0;
+    border-bottom: 1px solid var(--md-outline-variant);
+}
+
+/* Alertas críticas: viven fuera de las solapas. */
+.persona-alertas .alert {
+    border-radius: var(--md-radius);
+    font-size: .875rem;
+    margin-bottom: .75rem;
+    padding: .75rem 1rem;
+}
+
+/* La ficha entera es una sola tarjeta con solapas a ancho completo. */
+.persona-tabs--ficha {
+    margin-bottom: 1.5rem;
+    /* La tarjeta lleva .panel y .col-boxes en el mismo nodo, así que el overflow:hidden
+       del shim de .panel no lo pisa ninguna regla y recorta los dropdown de los boxes. */
+    overflow: visible;
+}
+
+.persona-tabs--ficha>.tab-content {
+    overflow: visible;
+}
+
+/* Franja de navegación apenas teñida con el acento para despegarla del contenido. */
+.persona-tabs--ficha>.panel-heading {
+    background-color: var(--afi-accent-softer);
+    border-bottom: 1px solid var(--afi-accent-border);
+}
+
+.persona-tabs--ficha>.tab-content>.tab-pane {
+    padding: 1rem;
+}
+
+/* Dentro de una solapa los boxes se acomodan en columnas, no en una tira larga. */
+.persona-tabs--ficha>.tab-content>.tab-pane.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    align-items: start;
+    gap: 1rem;
+}
+
+.persona-tabs--ficha>.tab-content>.tab-pane>.panel,
+.persona-tabs--ficha>.tab-content>.tab-pane>.row {
+    margin-bottom: 0;
+}
+
+/* El resumen arma sus propias columnas con la grilla de Bootstrap. */
+#tab-persona-resumen.tab-pane.active {
+    display: block;
+}
+
+.persona-resumen>[class*="col-"] {
+    margin-bottom: 1rem;
+}
+
+.persona-resumen>[class*="col-"]>.panel {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+/* Solapas de un solo box: en pantallas anchas los pares etiqueta/valor van de a dos
+   por fila en vez de estirarse de punta a punta. Abajo de 1200px queda a una columna. */
+@media (min-width: 1200px) {
+
+    #tab-persona-personal dl,
+    #tab-persona-laboral dl,
+    #tab-persona-afiliacion dl {
+        grid-template-columns: minmax(6rem, .85fr) 1.15fr minmax(6rem, .85fr) 1.15fr;
+        column-gap: 3rem;
+    }
+
+    /* Cada fila etiqueta/valor generada por ponerDosColumnasEnUnRow() ocupa media fila. */
+    #tab-persona-personal dl>.row,
+    #tab-persona-laboral dl>.row,
+    #tab-persona-afiliacion dl>.row {
+        grid-column: auto / span 2;
+    }
+
+    /* Títulos, tablas y alertas siguen a lo ancho. */
+    #tab-persona-personal dl>h2,
+    #tab-persona-personal dl>h3,
+    #tab-persona-personal dl>h4,
+    #tab-persona-personal dl>table,
+    #tab-persona-personal dl>.alert,
+    #tab-persona-laboral dl>h2,
+    #tab-persona-laboral dl>h3,
+    #tab-persona-laboral dl>h4,
+    #tab-persona-laboral dl>table,
+    #tab-persona-laboral dl>.alert,
+    #tab-persona-afiliacion dl>h2,
+    #tab-persona-afiliacion dl>h3,
+    #tab-persona-afiliacion dl>h4,
+    #tab-persona-afiliacion dl>table,
+    #tab-persona-afiliacion dl>.alert {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Barra: flecha + solapas scrollables + flecha, todo en una línea. */
+.persona-tabs__bar {
+    display: flex;
+    align-items: center;
+    gap: .125rem;
+    padding: 0 .25rem;
+}
+
+.persona-tabs__bar>.nav-tabs {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.persona-tabs__arrow {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--md-on-surface-variant);
+    line-height: 1;
+}
+
+.persona-tabs__arrow:hover {
+    background-color: var(--afi-accent-soft);
+    color: var(--afi-accent-solid);
+}
+
+/* Oculta sin cambiar el ancho, así las solapas no saltan. */
+.persona-tabs__arrow.is-oculto {
+    visibility: hidden;
+}
+
+/* Scrollables en vez de apiladas en dos filas. */
+.persona-tabs .nav-tabs {
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 0;
+    border-bottom: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.persona-tabs .nav-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.persona-tabs .nav-link {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-radius: var(--md-radius-sm);
+    color: var(--md-on-surface-variant);
+    font-size: .8125rem;
+    font-weight: 500;
+    letter-spacing: -.006em;
+    line-height: 1.25rem;
+    margin: .375rem .125rem;
+    padding: .4rem .625rem;
+    white-space: nowrap;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.persona-tabs .nav-link:hover {
+    background-color: var(--afi-accent-softer);
+    color: var(--afi-accent-solid);
+}
+
+/* Activa: píldora tonal en vez de subrayado. */
+.persona-tabs .nav-link.active {
+    background-color: var(--afi-accent-soft);
+    color: var(--afi-accent-solid);
+    font-weight: 600;
+}
+
+.persona-tabs .nav-link::after {
+    content: none;
+}
+
+.persona-tabs .nav-link .badge {
+    background-color: var(--md-surface-2);
+    border-radius: var(--md-radius-full);
+    color: var(--md-on-surface-variant);
+    font-size: .6875rem;
+    font-weight: 600;
+    margin-left: .15rem;
+    min-width: 1.35em;
+    padding: .2em .45em;
+}
+
+.persona-tabs .nav-link.active .badge {
+    background-color: rgba(129, 81, 4, .16);
+    color: var(--afi-accent-solid);
+}
+
+.persona-tabs .nav-link .badge.tab-badge-cero {
+    opacity: .55;
+}
+
+.persona-tabs .tab-content {
+    padding: 0;
+}
+
+/* Los boxes reutilizados ya traen su propia tarjeta y título: adentro de una solapa sobran. */
+.persona-tabs .tab-pane>.panel {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.persona-tabs .tab-pane>.panel>.panel-heading {
+    display: none;
+}
+
+.col-boxes .panel .table {
+    font-size: .8125rem !important;
+    margin-bottom: 0;
+}
+
+.col-boxes .panel .table>tbody>tr>td,
+.col-boxes .panel .table>thead>tr>th {
+    padding: .5rem;
+    border-color: var(--md-outline-variant);
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+}
+
+/* Encabezado de tabla: label-small de MD3. */
+.col-boxes .panel .table>thead>tr>th {
+    background-color: transparent;
+    color: var(--md-on-surface-variant);
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.col-boxes .panel .table.table-bordered {
+    border-color: var(--md-outline-variant);
+}
+
+/* --- Box de descuentos ----------------------------------------------------- */
+.descuentos-resumen {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .5rem;
+    margin: 0 1rem .5rem;
+    padding: .5rem .875rem;
+    background-color: var(--md-surface-2);
+    border-radius: var(--md-radius);
+    font-size: .8125rem;
+    color: var(--md-on-surface-variant);
+}
+
+.descuentos-resumen b {
+    color: var(--md-on-surface);
+    font-weight: 600;
+}
+
+/* La zebra por estilos inline y la fila de "Actualización" tapaban los datos. */
+.col-boxes .fondo-blanco-tabla>tbody>tr,
+.col-boxes .fondo-blanco-tabla>tbody>tr>td {
+    background-color: transparent !important;
+}
+
+.col-boxes .fondo-blanco-tabla>tbody>tr>td[colspan] {
+    border-top: 1px solid var(--md-outline-variant);
+    border-bottom: none;
+    padding: .5rem .5rem 0;
+    color: var(--md-on-surface-variant);
+    font-size: .6875rem;
+    font-weight: 400;
+    line-height: 1rem;
+    text-align: left;
+}
+
+.col-boxes .fondo-blanco-tabla>tbody>tr>td[colspan] b {
+    font-weight: 500;
+}
+
+.col-boxes .fondo-blanco-tabla>tbody>tr>td:not([colspan]) {
+    border-top: none;
+    border-bottom: none;
+    padding-top: .15rem;
+    padding-bottom: .5rem;
+}
+
+.col-boxes .fondo-blanco-tabla>tbody>tr:hover>td {
+    background-color: var(--md-surface-1) !important;
+}
+
+/* --- Listas de datos: list items de MD3 ------------------------------------ */
+.col-boxes dl {
+    display: grid;
+    /* La etiqueta es corta: el valor se queda con el ancho para no partirse en varias líneas. */
+    grid-template-columns: minmax(4.5rem, 34%) 1fr;
+    column-gap: .75rem;
+    margin: 0;
+    text-align: left;
+}
+
+/* Caja normal: con todo en versalitas la ficha se ve vieja y cuesta leerla. */
+.col-boxes dl dt {
+    font-size: .8125rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--md-on-surface-variant);
+    white-space: normal;
+    align-self: center;
+}
+
+.col-boxes dl dd {
+    margin: 0;
+    font-size: .8125rem;
+    font-weight: 500;
+    color: var(--md-on-surface);
+    overflow-wrap: anywhere;
+}
+
+.col-boxes dl>dt,
+.col-boxes dl>dd {
+    min-width: 0;
+    border-bottom: 1px solid var(--md-outline-variant);
+    padding: .55rem .15rem;
+}
+
+.col-boxes dl>dt:last-of-type,
+.col-boxes dl>dd:last-of-type {
+    border-bottom: none;
+}
+
+.col-boxes dl>dd {
+    text-align: right;
+}
+
+/* Los nombres de ubicación son largos: van debajo de su etiqueta, a dos líneas. */
+.col-boxes dl.dl-vertical {
+    display: block;
+}
+
+.col-boxes dl.dl-vertical>dt,
+.col-boxes dl.dl-vertical div>dt {
+    padding: .5rem .15rem 0;
+    border-bottom: none;
+    font-size: .75rem;
+}
+
+.col-boxes dl.dl-vertical>dd,
+.col-boxes dl.dl-vertical div>dd {
+    padding: 0 .15rem .5rem;
+    border-bottom: 1px solid var(--md-outline-variant);
+    text-align: left;
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.col-boxes dl.dl-vertical>dd:last-child {
+    border-bottom: none;
+}
+
+/* Sin subrayado: el color alcanza para distinguir el enlace. */
+.col-boxes a {
+    text-decoration: none;
+}
+
+.col-boxes dl dd a {
+    color: var(--md-primary);
+}
+
+.col-boxes a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Contenido suelto dentro del dl (títulos, botones, saltos). */
+.col-boxes dl>*:not(dt):not(dd) {
+    grid-column: 1 / -1;
+}
+
+.col-boxes dl>br {
+    display: none;
+}
+
+.col-boxes dl>dt:last-child {
+    grid-column: 1 / -1;
+}
+
+/* Filas label/valor generadas por ponerDosColumnasEnUnRow(). */
+.col-boxes .panel-body .row>.col-md-6 {
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.col-boxes .panel-body .row>.col-md-6.center>strong {
+    display: block;
+    text-align: left;
+    font-size: .8125rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--md-on-surface-variant);
+}
+
+.col-boxes .panel-body .row:has(> .col-md-6.center > strong) {
+    align-items: center;
+    border-bottom: 1px solid var(--md-outline-variant);
+}
+
+.col-boxes .panel-body .row:has(> .col-md-6.center > strong):last-of-type {
+    border-bottom: none;
+}
+
+.col-boxes .panel-body .row:has(> .col-md-6.center > strong)>.col-md-6:last-child {
+    text-align: right;
+    font-weight: 500;
+}
+
+/* --- Historial de estados de afiliación (timeline) ------------------------- */
+.afi-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 1rem;
+    border-left: 1px solid var(--md-outline-variant);
+}
+
+.afi-timeline__item {
+    position: relative;
+    padding: 0 0 1rem .25rem;
+}
+
+.afi-timeline__item:last-child {
+    padding-bottom: 0;
+}
+
+.afi-timeline__item::before {
+    content: '';
+    position: absolute;
+    left: -1.3rem;
+    top: .4rem;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background-color: var(--md-outline-variant);
+    border: 2px solid var(--md-surface);
+}
+
+.afi-timeline__item:first-child::before {
+    background-color: var(--md-primary);
+}
+
+.afi-timeline__estado {
+    font-weight: 600;
+    font-size: .875rem;
+    color: var(--md-on-surface);
+}
+
+.afi-timeline__fecha {
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--md-on-surface-variant);
+}
+
+/* Sin `display` para no pisar las reglas de visibilidad por rol (.se-oculta / .solo-*). */
+.afi-timeline__meta small {
+    font-size: .6875rem;
+    color: var(--md-on-surface-variant);
+}
+
+.afi-timeline__obs {
+    margin-top: .2rem;
+    padding: .25rem .5rem;
+    background-color: var(--md-surface-2);
+    border-radius: var(--md-radius-sm);
+    font-size: .75rem;
+}
+
+.inactivo {
+    background: var(--md-surface-variant);
+    opacity: .5;
+}
+
+footer.body-footer {
+    background: var(--md-surface);
+    border: none;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, .12);
+    color: var(--md-on-surface-variant);
+}
+
+@media print {
+
+    .no-print,
+    .navbar-default,
+    footer.body-footer {
+        display: none !important;
+    }
+
+    .panel,
+    .card,
+    .persona-hero {
+        background: #fff !important;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+}
