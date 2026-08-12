@@ -54,6 +54,8 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	<?php
 	echo $this->Html->script('/theme/afitheme/js/bs5_compat');
+	// Antes de ajax_modal, que llama a AfiLoader en su ready.
+	echo $this->Html->script('/theme/afitheme/js/afi_loader');
 	echo $this->Html->script('/theme/afitheme/js/ajax_modal');
 	echo $this->Html->script('/theme/afitheme/js/chartGoogle');
 	echo $this->Html->script('Afigestion.afi_matomo');
@@ -114,8 +116,12 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 				se recomienda no modificar ningún dato hasta que dicha actualización termine</b></div>
 	<?php endif; ?>
 
-	<div id="loaderbar">
-		<?php echo $this->Html->image("Afigestion.spinner.gif"); ?>
+	<div id="afi-loader-overlay">
+		<div id="afi-loader-box">
+			<div id="afi-loader-spinner"></div>
+			<p id="afi-loader-text">Cargando...</p>
+			<p id="afi-loader-subtext"></p>
+		</div>
 	</div>
 
 	<!-- backdrop static: el click fuera no cierra, se cierra sólo con la X -->
