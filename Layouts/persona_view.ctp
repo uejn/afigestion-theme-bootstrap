@@ -39,6 +39,7 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 	echo $this->Html->css('/theme/afitheme/css/style');
 	// Después de style.css para pisar el tema BS3, antes del CSS por rol para no tapar sus reglas de visibilidad.
 	echo $this->Html->css('/theme/afitheme/css/persona_view_md');
+	echo $this->Html->css('/theme/afitheme/css/afi_header');
 	echo $this->Html->css('/theme/afitheme/css/print', 'stylesheet', array('media' => 'print'));
 
 	if (!empty(CakeSession::read('Auth')['User']['Role']['alias'])) {

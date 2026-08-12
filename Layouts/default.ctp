@@ -47,6 +47,7 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 	echo $this->Html->css('/theme/afitheme/css/flexselect');
 	// Capa moderna sobre BS3: va después del tema y antes del CSS por rol, que sólo maneja visibilidad.
 	echo $this->Html->css('/theme/afitheme/css/afi_md');
+	echo $this->Html->css('/theme/afitheme/css/afi_header');
 	echo $this->Html->css('/theme/afitheme/css/print', 'stylesheet', array('media' => 'print'));
 
 	echo $this->fetch('css');
