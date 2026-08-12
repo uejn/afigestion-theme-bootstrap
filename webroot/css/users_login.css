@@ -1,82 +1,290 @@
-#imagen-ppal img{
-	width: 100%;
+/* ==========================================================================
+   Login de AfiGestión · pantalla partida (marca + tarjeta de acceso).
+   Sin Bootstrap 5: sólo flexbox y los tokens del tema.
+   ========================================================================== */
+
+.afi-login {
+	display: flex;
+	align-items: stretch;
+	min-height: calc(100vh - 130px);
+	background-color: var(--md-surface-1, #f4f5f9);
 }
 
-#imagen-ppal .titulo{
-	text-align: center;
+/* --- Lado de marca -------------------------------------------------------- */
+.afi-login__hero {
+	position: relative;
+	flex: 1 1 55%;
+	display: flex;
+	align-items: flex-end;
+	background-image: url('/theme/afitheme/img/home_image_v2.jpg');
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+}
+
+.afi-login__hero::after {
+	content: "";
 	position: absolute;
-	top: 22%;
-	left: 12%;
-	margin: 0px;
-	text-shadow: 2px 2px #A5A1A1;
-	font-size: 50pt;
-	font-family: 'Lato', sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(155deg, rgba(129, 81, 4, .82) 0%, rgba(74, 45, 2, .88) 55%, rgba(20, 12, 0, .92) 100%);
 }
 
-#imagen-ppal .subtitulo{
+.afi-login__hero-inner {
+	position: relative;
+	z-index: 1;
+	padding: 56px 64px;
+	color: #fff;
+	max-width: 640px;
+}
+
+.afi-login__logo {
+	width: 92px;
+	margin-bottom: 28px;
+	filter: brightness(0) invert(1);
+	opacity: .95;
+}
+
+.afi-login__title {
+	color: #fff;
+	font-size: 44px;
+	font-weight: 700;
+	letter-spacing: -.02em;
+	line-height: 1.1;
+	margin: 0 0 12px;
+}
+
+.afi-login__subtitle {
+	color: rgba(255, 255, 255, .82);
+	font-size: 16px !important;
+	line-height: 1.6;
+	margin: 0 0 28px;
+	max-width: 44ch;
+}
+
+.afi-login__features {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.afi-login__feature {
+	background: rgba(255, 255, 255, .12);
+	border: 1px solid rgba(255, 255, 255, .2);
+	border-radius: 999px;
+	color: rgba(255, 255, 255, .92);
+	font-size: 13px;
+	font-weight: 500;
+	margin: 0 10px 10px 0;
+	padding: 6px 14px;
+}
+
+/* --- Lado del formulario -------------------------------------------------- */
+.afi-login__panel {
+	flex: 1 1 45%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 48px 24px;
+}
+
+.afi-login__card {
+	width: 100%;
+	max-width: 400px;
+	background: #fff;
+	border: 1px solid var(--md-outline-variant, #c4c6d0);
+	border-radius: 20px;
+	box-shadow: 0 8px 28px rgba(16, 24, 40, .10), 0 2px 6px rgba(16, 24, 40, .06);
+	padding: 36px 32px 28px;
+	animation: afiLoginIn .45s ease;
+}
+
+@keyframes afiLoginIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.afi-login__card-logo {
+	display: none;
+	width: 74px;
+	margin: 0 auto 18px;
+}
+
+.afi-login__eyebrow {
+	color: var(--afi-accent-solid, #815104);
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	margin-bottom: 6px;
+}
+
+.afi-login__heading {
+	font-size: 26px;
+	font-weight: 700;
+	letter-spacing: -.01em;
+	margin: 0 0 6px;
+}
+
+.afi-login__lead {
+	color: var(--md-on-surface-variant, #44474f);
+	font-size: 14px !important;
+	margin: 0 0 26px;
+}
+
+.afi-login__field {
+	margin-bottom: 16px;
+}
+
+.afi-login__label {
+	display: block;
+	color: var(--md-on-surface-variant, #44474f);
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .02em;
+	margin-bottom: 6px;
+}
+
+.afi-login__card input[type="text"],
+.afi-login__card input[type="password"] {
+	width: 100%;
+	height: 46px;
+	background: #fff;
+	border: 1px solid var(--md-outline-variant, #c4c6d0);
+	border-radius: 12px;
+	box-shadow: none;
+	color: var(--md-on-surface, #1a1c1e);
+	font-size: 15px;
+	padding: 10px 14px;
+	transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.afi-login__card input[type="text"]:focus,
+.afi-login__card input[type="password"]:focus {
+	border-color: var(--afi-accent-solid, #815104);
+	box-shadow: 0 0 0 3px rgba(129, 81, 4, .18);
+	outline: none;
+}
+
+/* El ojito vive dentro del campo de contraseña. */
+.afi-login__input-wrap {
+	position: relative;
+}
+
+.afi-login__input-wrap input {
+	padding-right: 44px !important;
+}
+
+.afi-login__toggle {
+	position: absolute;
+	top: 50%;
+	right: 6px;
+	transform: translateY(-50%);
+	width: 34px;
+	height: 34px;
+	background: none;
+	border: none;
+	border-radius: 999px;
+	color: var(--md-outline, #74777f);
+	cursor: pointer;
+	line-height: 34px;
+	padding: 0;
 	text-align: center;
-	  position: absolute;
-	    top: 62%;
-  		left: 46%;
-	  color: rgb(0, 98, 148);
-	  font-size: 20pt;
-	
 }
 
+.afi-login__toggle:hover {
+	background: rgba(129, 81, 4, .08);
+	color: var(--afi-accent-solid, #815104);
+}
 
+.afi-login__submit {
+	width: 100%;
+	height: 48px;
+	background: var(--afi-accent-solid, #815104);
+	border: none;
+	border-radius: 999px;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: .01em;
+	margin-top: 6px;
+	cursor: pointer;
+	transition: background .18s ease, box-shadow .18s ease, transform .1s ease;
+}
 
-.block-userlogin{
-		background: rgba(135,77,27,0.93);
-		-webkit-border-radius: 20px;
-		-moz-border-radius: 20px;
-		border-radius: 20px;
+.afi-login__submit:hover {
+	background: var(--afi-accent-strong, #6a4203);
+	box-shadow: 0 4px 14px rgba(129, 81, 4, .28);
+}
+
+.afi-login__submit:active {
+	transform: translateY(1px);
+}
+
+.afi-login__footer {
+	border-top: 1px solid var(--md-outline-variant, #c4c6d0);
+	margin-top: 22px;
+	padding-top: 16px;
+	text-align: center;
+}
+
+.afi-login__link {
+	color: var(--md-primary, #1565c0);
+	font-size: 13px;
+}
+
+.afi-login__link:hover {
+	text-decoration: underline;
+}
+
+.afi-login__sesion {
+	color: var(--md-on-surface-variant, #44474f);
+	font-size: 14px;
+	text-align: center;
+}
+
+/* --- Responsive ----------------------------------------------------------- */
+@media (max-width: 991px) {
+	.afi-login__hero-inner {
+		padding: 40px 36px;
 	}
 
-.block-userlogin a{
-	color: white;
+	.afi-login__title {
+		font-size: 34px;
+	}
 }
 
-/* Portrait */
-@media only screen 
-  and (max-width: 480px) {
-
-	.block-userlogin{
-		margin: 10px 15px;
-		clear: both;
+@media (max-width: 767px) {
+	.afi-login {
 		display: block;
-		padding: 10px 10px;
-	}
-}
-
-/* Portrait */
-@media only screen 
-  and (min-width: 480px) {
-	.block-userlogin{
-		position: absolute;
-		right: 10%;
-		top:20%;
-		width: 50%;
-		max-width: 300px;
-		padding: 40px 40px;
-		-webkit-border-radius: 20px;
-		-moz-border-radius: 20px;
-		border-radius: 20px;
-	}
-}
-
-
-.block-userlogin input{
-	width: 100% !important;
-    clear: both;
-    display: block;
- 	padding: 10px 0px;
- 	font-size: 16px;
-}
-
-.block-userlogin input[type="text"], .block-userlogin input[type="password"]{
-	padding: 0px;
+		min-height: 0;
 	}
 
-.block-userlogin input[type="submit"]{
- 	background: #f09100;
+	.afi-login__hero {
+		display: none;
+	}
+
+	.afi-login__panel {
+		padding: 28px 16px 40px;
+	}
+
+	.afi-login__card {
+		border-radius: 18px;
+		padding: 28px 22px 22px;
+	}
+
+	.afi-login__card-logo {
+		display: block;
+	}
 }
