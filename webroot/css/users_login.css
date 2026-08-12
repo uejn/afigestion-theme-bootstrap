@@ -1,112 +1,59 @@
 /* ==========================================================================
-   Login de AfiGestión · pantalla partida (marca + tarjeta de acceso).
+   Login de AfiGestión · imagen a pantalla completa con la tarjeta centrada.
    Sin Bootstrap 5: sólo flexbox y los tokens del tema.
    ========================================================================== */
 
 .afi-login {
-	display: flex;
-	align-items: stretch;
-	min-height: calc(100vh - 130px);
-	background-color: var(--md-surface-1, #f4f5f9);
-}
-
-/* --- Lado de marca -------------------------------------------------------- */
-.afi-login__hero {
 	position: relative;
-	flex: 1 1 55%;
 	display: flex;
-	align-items: flex-end;
-	background-image: url('/theme/afitheme/img/home_image_v2.jpg');
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 48px 16px;
+	/* Se escapa del contenedor de Bootstrap para ocupar todo el ancho de la ventana. */
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	background-color: #1a1204;
+	background-image: url('/theme/afitheme/img/background.webp');
 	background-size: cover;
 	background-position: center;
+	background-repeat: no-repeat;
+	/* Fija la imagen al viewport: se ve entera aunque la tarjeta sea chica. */
+	background-attachment: fixed;
 	overflow: hidden;
 }
 
-.afi-login__hero::after {
+/* Velo con el marrón institucional: la tarjeta necesita contraste sobre la foto. */
+.afi-login::before {
 	content: "";
 	position: absolute;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: linear-gradient(155deg, rgba(129, 81, 4, .82) 0%, rgba(74, 45, 2, .88) 55%, rgba(20, 12, 0, .92) 100%);
+	background: radial-gradient(120% 90% at 50% 40%, rgba(30, 18, 2, .5) 0%, rgba(20, 12, 0, .85) 100%),
+		linear-gradient(160deg, rgba(129, 81, 4, .35) 0%, rgba(20, 12, 0, .55) 100%);
 }
 
-.afi-login__hero-inner {
+/* --- Tarjeta -------------------------------------------------------------- */
+.afi-login__card {
 	position: relative;
 	z-index: 1;
-	padding: 56px 64px;
-	color: #fff;
-	max-width: 640px;
-}
-
-.afi-login__logo {
-	width: 92px;
-	margin-bottom: 28px;
-	filter: brightness(0) invert(1);
-	opacity: .95;
-}
-
-.afi-login__title {
-	color: #fff;
-	font-size: 44px;
-	font-weight: 700;
-	letter-spacing: -.02em;
-	line-height: 1.1;
-	margin: 0 0 12px;
-}
-
-.afi-login__subtitle {
-	color: rgba(255, 255, 255, .82);
-	font-size: 16px !important;
-	line-height: 1.6;
-	margin: 0 0 28px;
-	max-width: 44ch;
-}
-
-.afi-login__features {
-	display: flex;
-	flex-wrap: wrap;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.afi-login__feature {
-	background: rgba(255, 255, 255, .12);
-	border: 1px solid rgba(255, 255, 255, .2);
-	border-radius: 999px;
-	color: rgba(255, 255, 255, .92);
-	font-size: 13px;
-	font-weight: 500;
-	margin: 0 10px 10px 0;
-	padding: 6px 14px;
-}
-
-/* --- Lado del formulario -------------------------------------------------- */
-.afi-login__panel {
-	flex: 1 1 45%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 48px 24px;
-}
-
-.afi-login__card {
 	width: 100%;
-	max-width: 400px;
+	max-width: 420px;
 	background: #fff;
-	border: 1px solid var(--md-outline-variant, #c4c6d0);
-	border-radius: 20px;
-	box-shadow: 0 8px 28px rgba(16, 24, 40, .10), 0 2px 6px rgba(16, 24, 40, .06);
-	padding: 36px 32px 28px;
+	border: 1px solid rgba(255, 255, 255, .5);
+	border-radius: 24px;
+	box-shadow: 0 24px 60px rgba(0, 0, 0, .45), 0 4px 12px rgba(0, 0, 0, .2);
+	padding: 40px 36px 30px;
+	text-align: center;
 	animation: afiLoginIn .45s ease;
 }
 
 @keyframes afiLoginIn {
 	from {
 		opacity: 0;
-		transform: translateY(10px);
+		transform: translateY(14px);
 	}
 
 	to {
@@ -116,22 +63,30 @@
 }
 
 .afi-login__card-logo {
-	display: none;
-	width: 74px;
-	margin: 0 auto 18px;
+	display: block;
+	width: 96px;
+	margin: 0 auto 20px;
 }
 
 .afi-login__eyebrow {
 	color: var(--afi-accent-solid, #815104);
 	font-size: 11px;
 	font-weight: 700;
-	letter-spacing: .12em;
+	letter-spacing: .14em;
 	text-transform: uppercase;
 	margin-bottom: 6px;
 }
 
+.afi-login__title {
+	font-size: 30px;
+	font-weight: 700;
+	letter-spacing: -.01em;
+	line-height: 1.15;
+	margin: 0 0 8px;
+}
+
 .afi-login__heading {
-	font-size: 26px;
+	font-size: 24px;
 	font-weight: 700;
 	letter-spacing: -.01em;
 	margin: 0 0 6px;
@@ -145,6 +100,7 @@
 
 .afi-login__field {
 	margin-bottom: 16px;
+	text-align: left;
 }
 
 .afi-login__label {
@@ -255,36 +211,43 @@
 }
 
 /* --- Responsive ----------------------------------------------------------- */
-@media (max-width: 991px) {
-	.afi-login__hero-inner {
-		padding: 40px 36px;
-	}
-
-	.afi-login__title {
-		font-size: 34px;
-	}
-}
-
 @media (max-width: 767px) {
 	.afi-login {
-		display: block;
-		min-height: 0;
-	}
-
-	.afi-login__hero {
-		display: none;
-	}
-
-	.afi-login__panel {
-		padding: 28px 16px 40px;
+		min-height: 100vh;
+		padding: 32px 14px;
+		/* En iOS el background fijo se rompe: ahí la imagen acompaña al scroll. */
+		background-attachment: scroll;
 	}
 
 	.afi-login__card {
-		border-radius: 18px;
-		padding: 28px 22px 22px;
+		border-radius: 20px;
+		padding: 32px 24px 24px;
 	}
 
 	.afi-login__card-logo {
-		display: block;
+		width: 80px;
 	}
+
+	.afi-login__title {
+		font-size: 25px;
+	}
+}
+
+/* --- Sin scroll ----------------------------------------------------------- */
+/* La clase la agrega el layout sólo en la acción login. */
+body.afi-login-page {
+	overflow: hidden;
+}
+
+body.afi-login-page .body-wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+}
+
+/* El bloque ocupa el alto que sobra (descontando el flash) en vez de 100vh. */
+body.afi-login-page .afi-login {
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
 }

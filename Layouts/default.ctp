@@ -163,7 +163,7 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 	</script>
 </head>
 
-<body>
+<body<?php echo $this->request->action === 'login' ? ' class="afi-login-page"' : ''; ?>>
 
 	<!-- Example modal-->
 	<div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog">
@@ -238,23 +238,25 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 
 	</div>
 
-	<footer class="body-footer no-print" id="footer">
-		<div class="container">
-			<div class="col-sm-2 center">
-				<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width' => '150px')) ?>
+	<?php if ($this->request->action != 'login') { ?>
+		<footer class="body-footer no-print" id="footer">
+			<div class="container">
+				<div class="col-sm-2 center">
+					<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width' => '150px')) ?>
+				</div>
+				<div class="col-sm-2 center">
+					<?php
+					$usuario = $this->Session->read('Auth.User');
+					if ($usuario) {
+					?>
+						<b>Contacto con sistemas:</b> <br /> <a href="sistemas@uejn.org.ar">sistemas@uejn.org.ar</a>
+					<?php
+					}
+					?>
+				</div>
 			</div>
-			<div class="col-sm-2 center">
-				<?php
-				$usuario = $this->Session->read('Auth.User');
-				if ($usuario) {
-				?>
-					<b>Contacto con sistemas:</b> <br /> <a href="sistemas@uejn.org.ar">sistemas@uejn.org.ar</a>
-				<?php
-				}
-				?>
-			</div>
-		</div>
-	</footer>
+		</footer>
+	<?php } ?>
 
 
 
