@@ -1979,15 +1979,15 @@ body {
     min-height: 2rem;
     max-height: 2rem;
     padding: 0 !important;
-    border: 1px solid var(--md-outline-variant);
+    border: 1px solid var(--md-success);
     border-radius: 999px !important;
     /* Sin font-size el nodo de texto entre los spans no agranda el line-box. */
     font-size: 0 !important;
     line-height: 1.875rem !important;
     text-align: center;
     overflow: hidden;
-    background-color: var(--md-surface);
-    color: var(--md-on-surface-variant);
+    background-color: var(--md-success);
+    color: #fff;
     box-shadow: var(--md-elev-1);
 }
 
@@ -1995,10 +1995,10 @@ body {
 .col-boxes .btn.dropdown-toggle:focus,
 .col-boxes .btn.dropdown-toggle.show,
 .col-boxes .btn.dropdown-toggle[aria-expanded="true"] {
-    background-color: var(--afi-accent-soft);
-    border-color: var(--afi-accent-border);
-    color: var(--afi-accent-solid);
-    box-shadow: var(--md-elev-1);
+    background-color: #0b5326;
+    border-color: #0b5326;
+    color: #fff;
+    box-shadow: var(--md-elev-2);
 }
 
 /* El caret de BS3 y el ::after de BS5 sobran: el icono ya indica el menú. */
@@ -2213,23 +2213,25 @@ body {
 }
 
 .persona-tabs .nav-link .badge {
-    background-color: var(--md-surface-2);
+    background-color: var(--md-outline-variant);
     border-radius: var(--md-radius-full);
-    color: var(--md-on-surface-variant);
+    color: var(--md-on-surface);
     font-size: .6875rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-left: .15rem;
     min-width: 1.35em;
     padding: .2em .45em;
 }
 
 .persona-tabs .nav-link.active .badge {
-    background-color: rgba(129, 81, 4, .16);
+    background-color: rgba(129, 81, 4, .28);
     color: var(--afi-accent-solid);
 }
 
 .persona-tabs .nav-link .badge.tab-badge-cero {
-    opacity: .55;
+    background-color: var(--md-surface-2);
+    color: var(--md-on-surface-variant);
+    font-weight: 600;
 }
 
 .persona-tabs .tab-content {
