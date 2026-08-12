@@ -13,6 +13,14 @@ echo $this->Html->css('users_login');
             <h1 class="afi-login__title"><?php echo h(Configure::read('Site.title')); ?></h1>
             <p class="afi-login__lead"><?php echo __d('croogo', 'Ingresá con tu usuario para continuar.'); ?></p>
 
+            <?php
+            // La vista se renderiza antes del layout: al consumir el flash acá, el contenedor del layout queda vacío.
+            $flash = $this->Layout->sessionFlash();
+            if ($flash) {
+                echo '<div class="afi-login__flash">' . $flash . '</div>';
+            }
+            ?>
+
             <?php echo $this->Form->create('AfiUser', array(
                 'url' => array('plugin' => 'users', 'controller' => 'users', 'action' => 'login'),
                 'inputDefaults' => array('div' => false, 'label' => false),

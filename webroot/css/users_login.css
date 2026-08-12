@@ -98,6 +98,20 @@
 	margin: 0 0 26px;
 }
 
+.afi-login__flash {
+	margin: -12px 0 20px;
+	text-align: left;
+}
+
+.afi-login__flash .alert {
+	border: none;
+	border-radius: 12px;
+	font-size: 13px;
+	line-height: 1.4;
+	margin: 0;
+	padding: 12px 14px;
+}
+
 .afi-login__field {
 	margin-bottom: 16px;
 	text-align: left;
@@ -243,6 +257,12 @@ body.afi-login-page .body-wrapper {
 	display: flex;
 	flex-direction: column;
 	min-height: 0;
+}
+
+/* El flash se imprime dentro de la tarjeta: el contenedor del layout queda vacío. */
+body.afi-login-page .body-container {
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 /* El bloque ocupa el alto que sobra (descontando el flash) en vez de 100vh. */
