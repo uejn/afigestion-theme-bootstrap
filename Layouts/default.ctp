@@ -279,6 +279,6 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 
 
 
-</body>
+	</body>
 
 </html>
