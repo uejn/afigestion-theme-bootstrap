@@ -35,7 +35,21 @@
     line-height: 1.2;
     margin: 0;
     min-width: 0;
-    padding: 0;
+    /* Alinea la marca con el primer ítem del menú de abajo. */
+    padding: 0 0 0 6px;
+}
+
+/* Misma marca en los dos layouts: el default la pintaba de marrón y en negrita. */
+.afi-header.navbar-default .navbar-brand {
+    color: #777;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+
+.afi-header.navbar-default .navbar-brand:hover,
+.afi-header.navbar-default .navbar-brand:focus {
+    color: #5e5e5e;
 }
 
 /* Marca y sesión crecen por igual: el buscador queda centrado en la barra. */
