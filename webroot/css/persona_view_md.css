@@ -2128,6 +2128,52 @@ body {
     }
 }
 
+/* --- Solapa Laboral -------------------------------------------------------
+   Las secciones del legajo van una al lado de la otra: apiladas obligaban a
+   scrollear para ver un dato que entra de una sola vista. */
+.legajo-secciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    align-items: start;
+    column-gap: 2rem;
+}
+
+.legajo-seccion {
+    min-width: 0;
+}
+
+#tab-persona-laboral .legajo-seccion>h3 {
+    margin-top: 0;
+}
+
+@media (min-width: 992px) {
+
+    /* Etiqueta y valor en la misma fila: en vertical cada dato ocupaba el doble de alto. */
+    #tab-persona-laboral .legajo-seccion dl,
+    #tab-persona-laboral .legajo-seccion dl.dl-vertical {
+        display: grid;
+        grid-template-columns: minmax(5rem, 45%) 1fr;
+        column-gap: .75rem;
+    }
+
+    #tab-persona-laboral .legajo-seccion dl>dt,
+    #tab-persona-laboral .legajo-seccion dl>dd {
+        padding: .3rem .15rem;
+        border-bottom: 1px solid var(--md-outline-variant);
+        font-size: .8125rem;
+        line-height: 1.15rem;
+    }
+
+    #tab-persona-laboral .legajo-seccion dl>dd {
+        text-align: right;
+    }
+
+    #tab-persona-laboral .legajo-seccion dl>dt:last-of-type,
+    #tab-persona-laboral .legajo-seccion dl>dd:last-of-type {
+        border-bottom: none;
+    }
+}
+
 /* Barra: flecha + solapas scrollables + flecha, todo en una línea. */
 .persona-tabs__bar {
     display: flex;
@@ -2526,6 +2572,188 @@ footer.body-footer {
     border: none;
     box-shadow: 0 -1px 3px rgba(0, 0, 0, .12);
     color: var(--md-on-surface-variant);
+}
+
+/* ===========================================================================
+   Mobile (< 768px): la cabecera ocupaba toda la pantalla y las solapas
+   quedaban abajo del fold. Nada de esto aplica en desktop.
+   =========================================================================== */
+
+/* El botón lo inyecta personas_view.js; en desktop no se muestra nunca. */
+.persona-hero__stats-toggle {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .persona-hero {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        grid-template-areas:
+            "avatar main"
+            "toggle toggle"
+            "stats  stats";
+        align-items: start;
+        gap: .5rem .75rem;
+        padding: .75rem;
+        margin-bottom: .75rem;
+    }
+
+    .persona-hero__avatar {
+        grid-area: avatar;
+        width: 60px;
+        height: 74px;
+    }
+
+    .persona-hero__main {
+        grid-area: main;
+    }
+
+    .persona-hero__estado {
+        gap: .25rem;
+        font-size: .6875rem;
+    }
+
+    .persona-hero__estado .afgtn-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .persona-hero__nombre {
+        font-size: 1.25rem;
+        line-height: 1.625rem;
+        margin: .1rem 0 .5rem;
+    }
+
+    .persona-hero__form .form-control {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .persona-chips {
+        gap: .35rem;
+    }
+
+    .persona-chip {
+        gap: .3rem;
+        min-height: 26px;
+        padding: 0 .5rem;
+        font-size: .75rem;
+    }
+
+    .persona-chip .bi {
+        font-size: .875rem;
+    }
+
+    .persona-contacto {
+        gap: .25rem .75rem;
+        margin-top: .5rem;
+    }
+
+    .persona-contacto__item {
+        font-size: .75rem;
+    }
+
+    .persona-hero--plegable .persona-hero__stats-toggle {
+        grid-area: toggle;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: .5rem;
+        width: 100%;
+        padding: .4rem .625rem;
+        border: 1px solid var(--md-outline-variant);
+        border-radius: var(--md-radius-sm);
+        background-color: var(--md-surface-1);
+        color: var(--md-on-surface-variant);
+        font-size: .6875rem;
+        font-weight: 600;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+    }
+
+    .persona-hero--plegable .persona-hero__stats-toggle .bi {
+        transition: transform .15s ease;
+    }
+
+    .persona-hero--plegable .persona-hero__stats-toggle[aria-expanded="true"] .bi {
+        transform: rotate(180deg);
+    }
+
+    .persona-hero--plegable .persona-hero__stats {
+        display: none;
+    }
+
+    .persona-hero--plegable .persona-hero__stats.is-abierto {
+        display: grid;
+    }
+
+    .persona-hero__stats {
+        grid-area: stats;
+        grid-template-columns: minmax(6rem, 45%) 1fr;
+        gap: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    /* Etiqueta y valor en la misma fila: en dos columnas los rótulos largos se partían. */
+    .persona-hero__stat {
+        display: contents;
+    }
+
+    .persona-hero__stat-label,
+    .persona-hero__stat-value {
+        padding: .3rem .15rem;
+        border-bottom: 1px solid var(--md-outline-variant);
+        font-size: .75rem;
+        line-height: 1.05rem;
+    }
+
+    .persona-hero__stat-value {
+        text-align: right;
+    }
+
+    /* Comentarios: entre la cabecera y las solapas no pueden comerse media pantalla. */
+    .persona-comentarios .comentarios-row {
+        gap: .5rem;
+        margin-bottom: .5rem;
+    }
+
+    .persona-comentarios .comentario-card {
+        padding: .5rem .75rem .625rem;
+    }
+
+    .persona-comentarios .comentario-descripcion p,
+    .persona-comentarios .comentario-texto {
+        font-size: .8125rem;
+        line-height: 1.35;
+    }
+
+    /* Las solapas quedan a mano durante todo el scroll de la ficha. */
+    .persona-tabs--ficha>.panel-heading {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background-color: var(--md-surface);
+        box-shadow: 0 1px 2px rgba(15, 23, 42, .08);
+    }
+
+    /* Una sola columna: el minmax de 340px desbordaba en pantallas angostas. */
+    .persona-tabs--ficha>.tab-content>.tab-pane.active {
+        grid-template-columns: minmax(0, 1fr);
+        gap: .75rem;
+    }
+
+    .persona-tabs--ficha>.tab-content>.tab-pane {
+        padding: .5rem;
+    }
+
+    .col-boxes .panel-heading {
+        padding: .75rem .75rem .5rem;
+    }
+
+    .col-boxes .panel-body {
+        padding: .625rem .75rem 1rem;
+    }
 }
 
 @media print {
