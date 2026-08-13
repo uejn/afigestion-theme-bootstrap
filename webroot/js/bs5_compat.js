@@ -10,6 +10,16 @@
 		return;
 	}
 
+	// Popper da vuelta el menú cuando no entra abajo: sin alternativas de placement
+	// los dropdown se abren siempre hacia abajo.
+	bootstrap.Dropdown.Default.popperConfig = function (configPorDefecto) {
+		return {
+			modifiers: (configPorDefecto.modifiers || []).concat([
+				{ name: 'flip', options: { fallbackPlacements: [] } }
+			])
+		};
+	};
+
 	var ATTR_MAP = {
 		'data-toggle': 'data-bs-toggle',
 		'data-target': 'data-bs-target',
