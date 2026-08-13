@@ -2,11 +2,9 @@
 // Adjusting content width
 if ($this->Regions->blocks('left') and $this->Regions->blocks('right')) {
 	$span = "col-md-6";
-}
-elseif ($this->Regions->blocks('left') xor $this->Regions->blocks('right')) {
+} elseif ($this->Regions->blocks('left') xor $this->Regions->blocks('right')) {
 	$span = "col-md-9";
-}
-else {
+} else {
 	$span = "col-md-12";
 }
 //Variable para saber si esta corriendo algun proceso por consola en Afigestion
@@ -14,252 +12,274 @@ $seEstaActualizando = Configure::read("Site.estado_actualizacion");
 ?>
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<?php
-		echo $this->Html->charset();
-		?>
-		<?php if(!empty($seEstaActualizando) && !(empty(CakeSession::read('Auth')))):?>
-			<div class='alert alert-danger text-center'><b>En este momento se está realizando una actualización sobre los datos en Afigestion, 
+
+<head>
+	<?php
+	echo $this->Html->charset();
+	?>
+	<?php if (!empty($seEstaActualizando) && !(empty(CakeSession::read('Auth')))): ?>
+		<div class='alert alert-danger text-center'><b>En este momento se está realizando una actualización sobre los datos en Afigestion,
 				se recomienda no modificar ningún dato hasta que dicha actualización termine</b></div>
-		<?php endif;?>
-		<title><?php echo $title_for_layout; ?> &raquo; <?php echo Configure::read('Site.title'); ?></title>
+	<?php endif; ?>
+	<title><?php echo $title_for_layout; ?> &raquo; <?php echo Configure::read('Site.title'); ?></title>
 
-		<meta name="robots" content="noindex,nofollow">
-		<!-- Other -->
-		<?php
-		echo $this->Meta->meta();
-        echo $this->Html->meta('icon', '/theme/afitheme/img/favicon.ico');
-		echo $this->Html->meta('apple-touch-icon', '/theme/afitheme/img/favicon.ico');
+	<meta name="robots" content="noindex,nofollow">
+	<!-- Other -->
+	<?php
+	echo $this->Meta->meta();
+	echo $this->Html->meta('icon', '/theme/afitheme/img/favicon.ico');
+	echo $this->Html->meta('apple-touch-icon', '/theme/afitheme/img/favicon.ico');
 
-		echo $this->Layout->feed();
-		echo $this->Html->meta(array(
-			'name'    => 'viewport',
-			'content' => 'width=device-width, initial-scale=1'
-		));
-	    ?>
+	echo $this->Layout->feed();
+	echo $this->Html->meta(array(
+		'name'    => 'viewport',
+		'content' => 'width=device-width, initial-scale=1'
+	));
+	?>
 
-		<!-- styles -->
-		<?php
-		echo $this->Html->css('/theme/afitheme/css/bootstrap.min');
-        echo $this->Html->css('/theme/afitheme/css/style');
-        echo $this->Html->css('/theme/afitheme/css/flexselect');
-        echo $this->Html->css('/theme/afitheme/css/print', 'stylesheet', array('media' => 'print'));
+	<!-- styles -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+	<?php
+	echo $this->Html->css('/theme/afitheme/css/bootstrap.min');
+	echo $this->Html->css('/theme/afitheme/css/style');
+	echo $this->Html->css('/theme/afitheme/css/flexselect');
+	// Capa moderna sobre BS3: va después del tema y antes del CSS por rol, que sólo maneja visibilidad.
+	echo $this->Html->css('/theme/afitheme/css/afi_md');
+	echo $this->Html->css('/theme/afitheme/css/afi_header');
+	echo $this->Html->css('/theme/afitheme/css/print', 'stylesheet', array('media' => 'print'));
 
-		echo $this->fetch('css');
+	echo $this->fetch('css');
 
-		// Scripts for our layout
-		echo $this->Html->script('/theme/afitheme/js/jquery.min');
-		echo $this->Html->script('/theme/afitheme/js/afi_loader');
-		echo $this->Html->script('/theme/afitheme/js/bootstrap.min');
-        
-		//flex select
-		echo $this->Html->script('/theme/afitheme/js/jquery.flexselect');
-		echo $this->Html->script('/theme/afitheme/js/liquidmetal');
+	// Scripts for our layout
+	echo $this->Html->script('/theme/afitheme/js/jquery.min');
+	echo $this->Html->script('/theme/afitheme/js/afi_loader');
+	echo $this->Html->script('/theme/afitheme/js/bootstrap.min');
+
+	//flex select
+	echo $this->Html->script('/theme/afitheme/js/jquery.flexselect');
+	echo $this->Html->script('/theme/afitheme/js/liquidmetal');
 
 
-		echo $this->Blocks->get('script');
-       	echo $this->Html->script('/theme/afitheme/js/ajax_modal');
-       	echo $this->Html->script('/theme/afitheme/js/chartGoogle');
-       	/*se agrego el combobox*/
-       	echo $this->Html->css('/theme/afitheme/css/bootstrap-combobox', array('once'=>true, 'inline'=>false));
-		echo $this->Html->script('/theme/afitheme/js/bootstrap-combobox', array('once'=>true, 'inline'=>false));
-		echo $this->Html->script('/theme/afitheme/js/combobox_init', array('once'=>true, 'inline'=>false));
-		/**/
-		?>
+	echo $this->Blocks->get('script');
+	echo $this->Html->script('/theme/afitheme/js/ajax_modal');
+	echo $this->Html->script('/theme/afitheme/js/chartGoogle');
+	/*se agrego el combobox*/
+	echo $this->Html->css('/theme/afitheme/css/bootstrap-combobox', array('once' => true, 'inline' => false));
+	echo $this->Html->script('/theme/afitheme/js/bootstrap-combobox', array('once' => true, 'inline' => false));
+	echo $this->Html->script('/theme/afitheme/js/combobox_init', array('once' => true, 'inline' => false));
+	/**/
+	?>
 
-		
-        <!--ESTILOS ROLES-->
-        <?php
-            if(!empty(CakeSession::read('Auth')['User']['Role']['alias'])){
-                echo $this->Html->css('/theme/afitheme/css/roles/style_'.CakeSession::read('Auth')['User']['Role']['alias']);
-            }
-        ?>
-        <script type="text/javascript">
-        	jQuery(document).ready(function() {
-  				$("select.flexselect").flexselect();
-			});
-        </script>
-        <script type="text/javascript">
-			    $(function () {
-			      $('[data-toggle="tooltip"]').tooltip()
-			    })
+
+	<!--ESTILOS ROLES-->
+	<?php
+	if (!empty(CakeSession::read('Auth')['User']['Role']['alias'])) {
+		echo $this->Html->css('/theme/afitheme/css/roles/style_' . CakeSession::read('Auth')['User']['Role']['alias']);
+	}
+	?>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			$("select.flexselect").flexselect();
+		});
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
+	</script>
+	<!--nuevo script de seguimiento de google-->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70967459-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'UA-70967459-1');
+	</script>
+	<!---->
+
+	<?php echo $this->Html->script("Afigestion.afi_matomo") ?>
+	<?php echo $this->Html->script("Afigestion.reiniciar_password") ?>
+	<?php
+	//aca va el condicional con el user id de croogo
+	$matomoUserId = $this->Session->read("Auth.User.matomo_id");
+	$siteId = Configure::read("Matomo.siteId");
+	if (FULL_BASE_URL	!= 'http://localhost') {
+	?>
+		<script type="text/javascript">
+			var _paq = _paq || [];
+			AfiMatomo.init(<?php echo $siteId ?>, "<?php echo $matomoUserId ?>");
+			(function() {
+				var u = '//matomo.uejn.org.ar/';
+				_paq.push(['setTrackerUrl', u + 'piwik.php']);
+				var d = document,
+					g = d.createElement('script'),
+					s = d.getElementsByTagName('script')[0];
+				g.type = 'text/javascript';
+				g.async = true;
+				g.defer = true;
+				g.src = u + 'piwik.js';
+				s.parentNode.insertBefore(g, s);
+			})();
 		</script>
-		 <!--nuevo script de seguimiento de google-->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70967459-1"></script> 
-        <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-70967459-1'); </script>        
-        <!---->
+	<?php } ?>
+	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+	<script type='text/javascript'>
+		$(document).ready(function() {
+			new DataTable('#tableBuscador', {
+				paging: false,
+				info: false,
+				"language": {
+					"zeroRecords": "Sin resultados con sus parametros de búsqueda",
+					"search": "Buscar"
+				}
+			});
+			$("#tableBuscador_filter input").addClass("form-control");
+		});
+	</script>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70967459-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
 
-        <?php echo $this->Html->script("Afigestion.afi_matomo")?>
-        <?php echo $this->Html->script("Afigestion.reiniciar_password")?>
-		<?php 
-    	//aca va el condicional con el user id de croogo
-			$matomoUserId = $this->Session->read("Auth.User.matomo_id");
-			$siteId = Configure::read("Matomo.siteId");
-			if ( FULL_BASE_URL	!= 'http://localhost') {
-				?>
-		        <script type="text/javascript"> 
-        			var _paq = _paq || []; 
-					AfiMatomo.init(<?php echo $siteId ?>, "<?php echo $matomoUserId ?>");
-					(function() {
-						var u='//matomo.uejn.org.ar/';
-						_paq.push(['setTrackerUrl', u+'piwik.php']);
-						var d=document, 
-							g=d.createElement('script'), 
-							s=d.getElementsByTagName('script')[0];
-						g.type='text/javascript'; 
-						g.async=true; 
-						g.defer=true; 
-						g.src=u+'piwik.js'; 
-						s.parentNode.insertBefore(g,s);
-					})();
-				</script>
-			<?php } ?>
-			<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-			<script type='text/javascript'>
-					$(document).ready(function() {
-						new DataTable('#tableBuscador',{
-							paging: false,
-							info: false,
-							"language": {
-								"zeroRecords": "Sin resultados con sus parametros de búsqueda",
-								"search": "Buscar"
-							}
-						});
-						$("#tableBuscador_filter input").addClass("form-control");
-					});
-			</script>
-			<!-- Google tag (gtag.js) -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70967459-1"></script>
-			<script>
-				window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date());
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
 
-				gtag('config', 'UA-70967459-1');
-			</script>
-			<!-- Interceptar AJAX 403: sesión expirada -->
-			<script type="text/javascript">
-				$(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
-					if (jqXHR.status === 403) {
-						alert('Su sesión ha expirado. Será redirigido a la página de inicio de sesión.');
-						window.location.reload();
-					}
-				});
-			</script>
-	</head>
-	<body>
+		gtag('config', 'UA-70967459-1');
+	</script>
+	<!-- Interceptar AJAX 403: sesión expirada -->
+	<script type="text/javascript">
+		$(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
+			if (jqXHR.status === 403) {
+				alert('Su sesión ha expirado. Será redirigido a la página de inicio de sesión.');
+				window.location.reload();
+			}
+		});
+	</script>
+</head>
 
-		<!-- Example modal-->
-		<div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog">
-			  <div class="modal-dialog modal-lg" role="document">
-			    <div class="modal-content">
-			      
-			      <div class="modal-body"></div>
+<body<?php echo $this->request->action === 'login' ? ' class="afi-login-page"' : ''; ?>>
 
-			      <!--
+	<!-- Example modal-->
+	<div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+
+				<div class="modal-body"></div>
+
+				<!--
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			      </div>
 			      -->
-			    </div>
-			  </div>
-		</div>
-		<!-- -->
-		<!-- AfiLoader: Overlay de carga global -->
-		<div id="afi-loader-overlay">
-			<div id="afi-loader-box">
-				<div id="afi-loader-spinner"></div>
-				<p id="afi-loader-text">Cargando...</p>
-				<p id="afi-loader-subtext"></p>
 			</div>
 		</div>
-		<!-- -->
-		<div class="body-wrapper">
+	</div>
+	<!-- -->
+	<!-- AfiLoader: Overlay de carga global -->
+	<div id="afi-loader-overlay">
+		<div id="afi-loader-box">
+			<div id="afi-loader-spinner"></div>
+			<p id="afi-loader-text">Cargando...</p>
+			<p id="afi-loader-subtext"></p>
+		</div>
+	</div>
+	<!-- -->
+	<div class="body-wrapper">
 
-			<?php echo $this->fetch('pre_header'); ?>
-			<?php echo $this->Regions->blocks('pre_header'); ?>
-			<?php 
-			if ( $this->request->action != 'login') {
-				echo $this->element('header'); 
-			}
+		<?php echo $this->fetch('pre_header'); ?>
+		<?php echo $this->Regions->blocks('pre_header'); ?>
+		<?php
+		if ($this->request->action != 'login') {
+			echo $this->element('header');
+		}
+		?>
+		<div class="container body-container">
+			<?php
+			echo $this->Layout->sessionFlash();
 			?>
-			<div class="container body-container">
-				<?php
-					echo $this->Layout->sessionFlash();					
-				?>
-			</div>
+		</div>
 
 
 
-			<?php echo $this->fetch('post_header'); ?>
-			<?php echo $this->Regions->blocks('post_header'); ?>
-			<div class='container-fluid'>
+		<?php echo $this->fetch('post_header'); ?>
+		<?php echo $this->Regions->blocks('post_header'); ?>
+		<div class='container-fluid'>
 
-				<?php echo $this->Regions->blocks('pre_content'); ?>
-				<div class="row">
-					<?php if ($this->Regions->blocks('left')): ?>
-						<div class="col-md-3">
-							<?php echo $this->Regions->blocks('left'); ?>
-						</div>
-					<?php endif; 
-					?>
-
-					<div class=" <?php echo $span; ?>">
-						<?php echo $content_for_layout; ?>
+			<?php echo $this->Regions->blocks('pre_content'); ?>
+			<div class="row">
+				<?php if ($this->Regions->blocks('left')): ?>
+					<div class="col-md-3">
+						<?php echo $this->Regions->blocks('left'); ?>
 					</div>
+				<?php endif;
+				?>
 
-					<?php if ($this->Regions->blocks('right')): ?>
-						<div class="col-md-3">
-							<?php echo $this->Regions->blocks('right'); ?>
-							<?php echo $this->element('accordion'); ?>
-						</div>
-					<?php endif; ?>
+				<div class=" <?php echo $span; ?>">
+					<?php echo $content_for_layout; ?>
 				</div>
 
-				<?php echo $this->Regions->blocks('post_content'); ?>
+				<?php if ($this->Regions->blocks('right')): ?>
+					<div class="col-md-3">
+						<?php echo $this->Regions->blocks('right'); ?>
+						<?php echo $this->element('accordion'); ?>
+					</div>
+				<?php endif; ?>
 			</div>
-                        
-			
+
+			<?php echo $this->Regions->blocks('post_content'); ?>
 		</div>
-                        
-                <footer class="body-footer no-print" id="footer">
-                            <div class="container">
-                                    <div class="col-sm-2 center">	
-                                        <?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width'=>'150px'))?>
-                                    </div>
-                                    <div class="col-sm-2 center">	
-										<?php 
-										$usuario = $this->Session->read('Auth.User');
-										if($usuario){
-										?>			
-											<b>Contacto con sistemas:</b> <br/> <a href="sistemas@uejn.org.ar">sistemas@uejn.org.ar</a>
-										<?php 
-										}
-										?>
-                                    </div>
-                            </div>
-                    </footer>
+
+
+	</div>
+
+	<?php if ($this->request->action != 'login') { ?>
+		<footer class="body-footer no-print" id="footer">
+			<div class="container">
+				<div class="col-sm-2 center">
+					<?php echo $this->Html->image('/theme/Afitheme/img/uejn_logo.png', array('width' => '150px')) ?>
+				</div>
+				<div class="col-sm-2 center">
+					<?php
+					$usuario = $this->Session->read('Auth.User');
+					if ($usuario) {
+					?>
+						<b>Contacto con sistemas:</b> <br /> <a href="sistemas@uejn.org.ar">sistemas@uejn.org.ar</a>
+					<?php
+					}
+					?>
+				</div>
+			</div>
+		</footer>
+	<?php } ?>
 
 
 
-        <!-- scripts -->
-        
-		<?php
-		// Croogo JavaScript
-		echo $this->Layout->js();
+	<!-- scripts -->
 
-		
-        echo $this->fetch('scripts_for_layout');
-        echo $this->fetch('script');
-
-	
-		echo $this->Blocks->get('scriptBottom');
-		echo $this->Js->writeBuffer();
-		?>
+	<?php
+	// Croogo JavaScript
+	echo $this->Layout->js();
 
 
-		
+	echo $this->fetch('scripts_for_layout');
+	echo $this->fetch('script');
+
+
+	echo $this->Blocks->get('scriptBottom');
+	echo $this->Js->writeBuffer();
+	?>
+
+
+
 
 
 	</body>
+
 </html>
